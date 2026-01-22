@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Dimpleplasty - Panache Advanced Dental Care{% endblock %}
+
+{% block content %}
+<div class="container-fluid hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Dimpleplasty</h1>
+                <h2 class="h3 mb-4">CHARU</h2>
+                <p class="lead">Content will be provided for this dimpleplasty procedure.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="doctor-card">
+                <h3 class="section-title">About Dimpleplasty</h3>
+                <p>Detailed information about the dimpleplasty procedure will be provided here.</p>
+                
+                <h4>Procedure Details</h4>
+                <p>Information about the dimple creation procedure will be added here.</p>
+                
+                <h4>Benefits</h4>
+                <p>Benefits of the procedure will be listed here.</p>
+                
+                <h4>Recovery</h4>
+                <p>Recovery information will be provided here.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-12 text-center">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

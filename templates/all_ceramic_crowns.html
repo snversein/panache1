@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}All Ceramic Crowns - Panache Advanced Dental Care{% endblock %}
+
+{% block content %}
+<div class="container-fluid hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">All Ceramic Crowns</h1>
+                <p class="lead">Content will be provided for this all ceramic crowns procedure.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="doctor-card">
+                <h3 class="section-title">About All Ceramic Crowns</h3>
+                <p>Detailed information about the all ceramic crowns procedure will be provided here.</p>
+                
+                <h4>Procedure Details</h4>
+                <p>Information about the all ceramic crowns procedure will be added here.</p>
+                
+                <h4>Benefits</h4>
+                <p>Benefits of the procedure will be listed here.</p>
+                
+                <h4>Types of Ceramic Crowns</h4>
+                <p>Information about different types of ceramic crowns will be provided here.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-12 text-center">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

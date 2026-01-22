@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Composite/Tooth Colored Restoration - Panache Advanced Dental Care{% endblock %}
+
+{% block content %}
+<div class="container-fluid hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Composite/Tooth Colored Restoration</h1>
+                <p class="lead">Content will be provided for this composite restoration procedure.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="doctor-card">
+                <h3 class="section-title">About Composite Restoration</h3>
+                <p>Detailed information about the composite restoration procedure will be provided here.</p>
+                
+                <h4>Procedure Details</h4>
+                <p>Information about the tooth colored restoration procedure will be added here.</p>
+                
+                <h4>Benefits</h4>
+                <p>Benefits of the procedure will be listed here.</p>
+                
+                <h4>After Care</h4>
+                <p>After care information will be provided here.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-12 text-center">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Schedule Consultation</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

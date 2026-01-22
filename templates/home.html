@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Panache Advanced Dental Care{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Dr. Sandeep Prakash</h1>
+                <h2 class="h3 mb-3">Oral & Maxillo-Facial Surgeon</h2>
+                <p class="lead mb-4">17 Years of Excellence in Dental Care and Facial Surgery</p>
+                <div class="d-flex gap-3 mb-4">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </a>
+                    <a href="{{ url_for('services') }}" class="btn btn-outline-light">
+                        <i class="fas fa-list"></i> Our Services
+                    </a>
+                </div>
+                <div class="row text-center">
+                    <div class="col-4">
+                        <div class="h3 mb-0">17+</div>
+                        <small>Years Experience</small>
+                    </div>
+                    <div class="col-4">
+                        <div class="h3 mb-0">1000+</div>
+                        <small>Happy Patients</small>
+                    </div>
+                    <div class="col-4">
+                        <div class="h3 mb-0">15+</div>
+                        <small>Specializations</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="doctor-card p-4">
+                    <div class="text-center mb-4">
+                        <div class="bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 150px; height: 150px; background: linear-gradient(135deg, var(--primary-red), var(--secondary-brown));">
+                            <i class="fas fa-user-md text-white" style="font-size: 4rem;"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-center mb-3" style="color: var(--primary-red);">Dr. Sandeep Prakash</h3>
+                    <p class="text-center mb-3"><strong>BDS, MDS (Oral & Maxillo-Facial Surgery)</strong></p>
+                    <p class="text-center mb-3">CGDC/14/PG/48</p>
+                    <div class="text-center">
+                        <span class="skill-badge">Facial Surgery</span>
+                        <span class="skill-badge">Dental Implants</span>
+                        <span class="skill-badge">Trauma Care</span>
+                        <span class="skill-badge">Cosmetic Dentistry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Dr. Prakash Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Meet Dr. Sandeep Prakash</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="doctor-card p-4 text-center">
+                    <div class="bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 180px; height: 180px; background: linear-gradient(135deg, var(--primary-red), var(--primary-wood));">
+                        <i class="fas fa-user-md text-white" style="font-size: 5rem;"></i>
+                    </div>
+                    <h3 class="mb-3" style="color: var(--primary-red);">Dr. Sandeep Prakash</h3>
+                    <p class="mb-2"><strong>BDS, MDS</strong></p>
+                    <p class="mb-2">Oral & Maxillo-Facial Surgeon</p>
+                    <p class="mb-3">CGDC/14/PG/48</p>
+                    <div class="mb-3">
+                        <span class="skill-badge">17 Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h3 class="mb-4">Professional Summary</h3>
+                <div class="education-card">
+                    <p>Dr. Sandeep Prakash is a highly accomplished Oral and Maxillofacial Surgeon with over 17 years of extensive experience in the field of dental surgery and facial reconstruction. He completed his BDS in 2003 and pursued his specialization in Oral & Maxillo-Facial Surgery, obtaining his MDS degree in 2008.</p>
+                    
+                    <p>Throughout his distinguished career, Dr. Prakash has developed expertise in a wide range of surgical procedures, from complex facial trauma management to sophisticated esthetic surgeries. His approach combines surgical precision with an artistic eye, ensuring optimal functional and aesthetic outcomes for his patients.</p>
+                    
+                    <p>Dr. Prakash is particularly known for his skills in facial esthetic surgery, dental implantology, and maxillofacial trauma care. He stays updated with the latest advancements in surgical techniques and technology, incorporating innovative approaches like digital smile designing and minimally invasive procedures in his practice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Panache Dental Care Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Why Choose Panache Dental Care?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-award" style="font-size: 3rem; color: var(--primary-red);"></i>
+                    </div>
+                    <h4>Expert Surgeon</h4>
+                    <p>17 years of specialized experience in oral and maxillofacial surgery with advanced surgical techniques.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-hospital" style="font-size: 3rem; color: var(--primary-wood);"></i>
+                    </div>
+                    <h4>Advanced Facility</h4>
+                    <p>State-of-the-art dental care center equipped with modern technology for comprehensive treatments.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-heart" style="font-size: 3rem; color: var(--secondary-red);"></i>
+                    </div>
+                    <h4>Patient-Centered Care</h4>
+                    <p>Personalized treatment plans with focus on patient comfort and optimal treatment outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education & Expertise Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">Education & Expertise</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="education-card">
+                    <h5 style="color: var(--primary-red);"><i class="fas fa-graduation-cap me-2"></i>Bachelor of Dental Surgery (BDS)</h5>
+                    <p class="mb-2"><i class="fas fa-calendar me-2"></i> Year of Completion: 2003</p>
+                    <p>Foundation degree in dental science and basic dental procedures.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="education-card">
+                    <h5 style="color: var(--primary-wood);"><i class="fas fa-user-md me-2"></i>Master of Dental Surgery (MDS)</h5>
+                    <p class="mb-2"><i class="fas fa-calendar me-2"></i> Year of Completion: 2008</p>
+                    <p>Specialization in Oral & Maxillo-Facial Surgery with advanced surgical training.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--primary-red);">
+                        <i class="fas fa-brain me-2"></i> Surgical Expertise
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i> Facial Esthetic & Reconstructive Surgery</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Complex Maxillofacial Trauma Management</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Orthognathic & Jaw Correction Surgery</li>
+                        <li><i class="fas fa-check text-success me-2"></i> TMJ Disorders & Surgical Treatment</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--primary-wood);">
+                        <i class="fas fa-tooth me-2"></i> Dental Excellence
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i> Advanced Dental Implantology</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Digital Smile Designing</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Cosmetic Dentistry & Veneers</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Orthodontic Treatments & Aligners</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Services -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">Featured Services</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--primary-red);">
+                        <i class="fas fa-cut"></i> Facial Esthetic Surgery
+                    </h5>
+                    <p>Facial slimming, dimpleplasty, lip correction, jawline defining, and orthognathic surgery for facial harmony.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--primary-brown);">
+                        <i class="fas fa-tooth"></i> Dental Implants
+                    </h5>
+                    <p>Single implants, full mouth implants, socket shield therapy, and guided bone regeneration procedures.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--secondary-red);">
+                        <i class="fas fa-bone"></i> Maxillofacial Trauma
+                    </h5>
+                    <p>Treatment of mandibular fractures, midface fractures, orbital injuries, and complex facial trauma cases.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-card">
+                    <h5 style="color: var(--light-brown);">
+                        <i class="fas fa-smile"></i> Cosmetic Dentistry
+                    </h5>
+                    <p>Dental laminates, veneers with digital smile designing, and complete smile makeovers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('services') }}" class="btn btn-primary-custom">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Contact -->
+<section class="py-5">
+    <div class="container">
+        <div class="contact-info">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 style="color: var(--primary-red);"><i class="fas fa-exclamation-triangle"></i> Emergency Dental Care</h4>
+                    <p class="mb-0">For dental emergencies and facial trauma cases, please call us immediately for prompt attention and care.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h3 style="color: var(--primary-red);">9993888758</h3>
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

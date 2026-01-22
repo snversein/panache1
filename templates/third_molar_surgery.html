@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Third Molar Surgery - Panache Dental{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Third Molar Surgery</h1>
+        <p class="lead">Expert wisdom tooth extraction with minimal discomfort</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Wisdom Tooth Extraction</h2>
+                <p class="lead">Professional removal of impacted or problematic third molars</p>
+                
+                <h3 class="mt-4 mb-3">When is Third Molar Surgery Needed?</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-tooth text-primary me-2"></i><strong>Impacted Teeth:</strong> Teeth that don't have enough room to emerge properly</li>
+                    <li class="mb-3"><i class="fas fa-exclamation-triangle text-primary me-2"></i><strong>Infection Risk:</strong> Partially erupted teeth prone to infection and decay</li>
+                    <li class="mb-3"><i class="fas fa-compress text-primary me-2"></i><strong>Crowding:</strong> Wisdom teeth pushing other teeth out of alignment</li>
+                    <li class="mb-3"><i class="fas fa-moon text-primary me-2"></i><strong>Cyst Formation:</strong> Fluid-filled sacs developing around impacted teeth</li>
+                    <li class="mb-3"><i class="fas fa-bolt text-primary me-2"></i><strong>Pain and Discomfort:</strong> Chronic pain or recurring infections</li>
+                </ul>
+
+                <h3 class="mt-4 mb-3">Our Surgical Approach:</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-x-ray text-primary me-2"></i>Pre-Surgical Assessment</h5>
+                                <p class="card-text">Comprehensive evaluation with digital X-rays and 3D imaging</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-user-md text-primary me-2"></i>Expert Anesthesia</h5>
+                                <p class="card-text">Local anesthesia with sedation options for comfortable procedures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 mb-3">What to Expect:</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5><i class="fas fa-calendar-check text-primary me-2"></i>Consultation</h5>
+                        <p>Evaluation and treatment planning</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5><i class="fas fa-procedures text-primary me-2"></i>Surgery Day</h5>
+                        <p>Outpatient procedure (30-90 minutes)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5><i class="fas fa-bed text-primary me-2"></i>Recovery</h5>
+                        <p>3-7 days initial healing, complete recovery in 2-3 weeks</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5><i class="fas fa-check-circle text-primary me-2"></i>Follow-up</h5>
+                        <p>Post-operative check to ensure proper healing</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Surgery Benefits</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Prevents future dental problems</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Relieves pain and discomfort</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protects surrounding teeth</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Reduces infection risk</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Improves oral health</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Post-Operative Care</h5>
+                        <ul class="small">
+                            <li>Soft food diet for 3-5 days</li>
+                            <li>Gentle oral hygiene</li>
+                            <li>Prescribed pain management</li>
+                            <li>Cold compress for swelling</li>
+                            <li>Avoid smoking and straws</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-4 bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Need Wisdom Tooth Removal?</h5>
+                        <p>Get expert evaluation today</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-light">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

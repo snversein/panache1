@@ -1,0 +1,276 @@
+iu{% extends "base.html" %}
+
+{% block title %}Contact - Panache Advanced Dental Care{% endblock %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold" style="color: var(--primary-red);">Contact Us</h1>
+            <p class="lead">Get in touch for expert dental and maxillofacial care</p>
+        </div>
+    </div>
+</section>
+
+<!-- Clinic Information -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-clinic-medical"></i> Panache Advanced Dental Care
+        </h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="contact-info mb-4">
+                    <h4 style="color: var(--primary-red); mb-4;">Clinic Details</h4>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <strong style="color: var(--primary-brown);"><i class="fas fa-map-marker-alt"></i> Address:</strong>
+                        </div>
+                        <div class="col-sm-9">
+                            1st Floor, Rama Trade Centre, Beside Axis Bank, Old Bus Stand, Bilaspur, Chhattisgarh
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <strong style="color: var(--primary-brown);"><i class="fas fa-phone"></i> Phone:</strong>
+                        </div>
+                        <div class="col-sm-9">
+                            <a href="tel:9993888758" class="text-decoration-none">9993888758</a>, 
+                            <a href="tel:9993078758" class="text-decoration-none">9993078758</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <strong style="color: var(--primary-brown);"><i class="fas fa-envelope"></i> Email:</strong>
+                        </div>
+                        <div class="col-sm-9">
+                            <a href="mailto:panachedental@gmail.com" class="text-decoration-none">panachedental@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <strong style="color: var(--primary-brown);"><i class="fas fa-clock"></i> Timings:</strong>
+                        </div>
+                        <div class="col-sm-9">
+                            Monday - Saturday: 12:00 PM - 8:00 PM<br>
+                            Sunday: Closed
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-info">
+                    <h5 style="color: var(--primary-red); mb-3;">Emergency Contact</h5>
+                    <p class="mb-3">For dental emergencies and facial trauma cases:</p>
+                    <div class="text-center">
+                        <h3 style="color: var(--primary-red);">9993888758</h3>
+                        <small>Available 24/7 for emergencies</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Appointment Form & Map -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+        </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="appointment-form">
+                    <h4 class="mb-4" style="color: var(--primary-red);">Schedule Your Consultation</h4>
+                    <form id="appointmentForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentDate" class="form-label">Preferred Date *</label>
+                            <input type="date" class="form-control" id="appointmentDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentTime" class="form-label">Preferred Time *</label>
+                            <select class="form-control" id="appointmentTime" required>
+                                <option value="">Select Time</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="13:30">1:30 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="14:30">2:30 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="15:30">3:30 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="16:30">4:30 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                                <option value="17:30">5:30 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="18:30">6:30 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="19:30">7:30 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="consultationType" class="form-label">Consultation Type *</label>
+                            <select class="form-control" id="consultationType" required>
+                                <option value="">Select Type</option>
+                                <option value="general">General Dental Check-up</option>
+                                <option value="surgical">Surgical Consultation</option>
+                                <option value="implant">Dental Implant Consultation</option>
+                                <option value="facial">Facial Esthetic Surgery</option>
+                                <option value="trauma">Trauma/Emergency</option>
+                                <option value="orthodontic">Orthodontic Treatment</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Describe your concern</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Please briefly describe your dental concern or the reason for your visit..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-paper-plane"></i> Book Appointment
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h4 class="mb-4" style="color: var(--primary-brown);">Clinic Location</h4>
+                    <div class="ratio ratio-16x9 mb-4" style="height: 400px;">
+                        <div id="mapPlaceholder" class="d-flex align-items-center justify-content-center bg-light" style="background: linear-gradient(135deg, var(--cream-white), var(--pure-white));">
+                            <div class="text-center p-4">
+                                <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--primary-red); margin-bottom: 20px;"></i>
+                                <h5 style="color: var(--primary-brown);">Panache Advanced Dental Care</h5>
+                                <p>1st Floor, Rama Trade Centre<br>
+                                   Beside Axis Bank, Old Bus Stand<br>
+                                   Bilaspur, Chhattisgarh</p>
+                                <a href="https://maps.google.com" target="_blank" class="btn btn-primary-custom">
+                                    <i class="fas fa-external-link-alt"></i> Get Directions
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px;"></i>
+                    <h5 style="color: var(--primary-brown);">Call Us</h5>
+                    <p>For appointments and inquiries</p>
+                    <h4 style="color: var(--primary-red);">9993888758</h4>
+                    <h4 style="color: var(--primary-red);">9993078758</h4>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="contact-info">
+                    <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--primary-brown); margin-bottom: 15px;"></i>
+                    <h5 style="color: var(--primary-brown);">Email Us</h5>
+                    <p>For general inquiries</p>
+                    <h5 style="color: var(--secondary-red);">panachedental@gmail.com</h5>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="contact-info">
+                    <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--secondary-red); margin-bottom: 15px;"></i>
+                    <h5 style="color: var(--primary-brown);">Working Hours</h5>
+                    <p>Monday - Saturday</p>
+                    <h5 style="color: var(--light-brown);">12:00 PM - 8:00 PM</h5>
+                    <p class="mb-0">Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Information -->
+<section class="py-5">
+    <div class="container">
+        <div class="contact-info">
+            <h4 class="mb-4" style="color: var(--primary-red);">
+                <i class="fas fa-info-circle"></i> Important Information
+            </h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 style="color: var(--primary-brown);">Before Your Visit:</h5>
+                    <ul>
+                        <li>Please bring your previous dental records if available</li>
+                        <li>Carry your ID proof for registration</li>
+                        <li>Arrive 10 minutes before your scheduled appointment</li>
+                        <li>For surgical cases, bring relevant medical reports</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5 style="color: var(--primary-brown);">Payment Options:</h5>
+                    <ul>
+                        <li>Cash payments accepted</li>
+                        <li>Credit/Debit card facility available</li>
+                        <li>Insurance documentation assistance provided</li>
+                        <li>Payment plans available for major procedures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        date: document.getElementById('appointmentDate').value,
+        time: document.getElementById('appointmentTime').value,
+        type: document.getElementById('consultationType').value,
+        message: document.getElementById('message').value
+    };
+    
+    // Show success message
+    alert('Thank you for booking an appointment! We will contact you shortly to confirm your appointment details.');
+    
+    // Reset form
+    this.reset();
+    
+    // In a real application, you would send this data to your server
+    console.log('Appointment booked:', formData);
+});
+
+// Set minimum date to today
+document.getElementById('appointmentDate').min = new Date().toISOString().split('T')[0];
+</script>
+{% endblock %}

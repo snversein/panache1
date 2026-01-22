@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Maxillo-Facial Pathology - Panache Dental{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Maxillo-Facial Pathology</h1>
+        <p class="lead">Specialized treatment for cysts and tumors in the jaws</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Jaw Pathology Management</h2>
+                <p class="lead">Expert diagnosis and treatment of cysts, tumors, and other pathologies affecting the maxillofacial region</p>
+                
+                <h3 class="mt-4 mb-3">Conditions We Treat:</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-microscope text-primary me-2"></i>Odontogenic Cysts</h5>
+                                <p class="card-text">Radicular cysts, dentigerous cysts, and other cysts arising from tooth development</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-tint text-primary me-2"></i>Non-Odontogenic Cysts</h5>
+                                <p class="card-text">Nasopalatine duct cysts, nasolabial cysts, and other developmental cysts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-exclamation-triangle text-warning me-2"></i>Benign Tumors</h5>
+                                <p class="card-text">Ameloblastoma, odontogenic keratocyst, and other non-cancerous growths</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-shield-alt text-danger me-2"></i>Malignant Tumors</h5>
+                                <p class="card-text">Early detection and comprehensive treatment of jaw cancers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 mb-3">Our Diagnostic Approach:</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-x-ray fa-3x text-primary mb-2"></i>
+                        <h5>Advanced Imaging</h5>
+                        <p>Digital X-rays, CT scans, and MRI for precise diagnosis</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-vial fa-3x text-primary mb-2"></i>
+                        <h5>Histopathology</h5>
+                        <p>Biopsy and laboratory analysis for accurate diagnosis</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-user-md fa-3x text-primary mb-2"></i>
+                        <h5>Expert Evaluation</h5>
+                        <p>Specialized assessment by experienced maxillofacial surgeons</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 mb-3">Treatment Options:</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-cut text-primary me-2"></i><strong>Surgical Excision:</strong> Complete removal of cysts and tumors with preservation of surrounding structures</li>
+                    <li class="mb-3"><i class="fas fa-bone text-primary me-2"></i><strong>Reconstruction:</strong> Restoration of form and function using bone grafts and advanced techniques</li>
+                    <li class="mb-3"><i class="fas fa-sync text-primary me-2"></i><strong>Reconstruction:</strong> Regular monitoring for early detection of any changes</li>
+                    <li class="mb-3"><i class="fas fa-pills text-primary me-2"></i><strong>Adjuvant Therapy:</strong> Coordinated care with oncology when needed</li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Warning Signs</h4>
+                        <p class="text-muted">Seek immediate evaluation if you notice:</p>
+                        <ul class="small">
+                            <li>Swelling that doesn't resolve</li>
+                            <li>Painless lumps or growths</li>
+                            <li>Numbness in face or mouth</li>
+                            <li>Loose teeth without cause</li>
+                            <li>Difficulty chewing or swallowing</li>
+                            <li>Unexplained bleeding</li>
+                            <li>Changes in bite or speech</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Early Detection Saves Lives</h5>
+                        <p>Regular dental check-ups can help detect pathological conditions early when treatment is most effective.</p>
+                        <div class="alert alert-info small">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Most jaw pathologies are discovered during routine dental examinations
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mt-4 bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Concerned About Jaw Growth?</h5>
+                        <p>Get expert evaluation today</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-light">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Jaw Fractures Treatment - Panache Dental{% endblock %}
+
+{% block content %}
+<section class="hero-section" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Jaw Fractures Treatment</h1>
+        <p class="lead">Expert care for jaw, zygoma, nasal, and orbital fractures</p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Comprehensive Facial Fracture Management</h2>
+                
+                <h3 class="mt-4 mb-3">Types of Facial Fractures We Treat:</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Jaw Fractures:</strong> Mandibular and maxillary fractures with advanced fixation techniques</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Zygoma (Cheekbone) Fractures:</strong> Precise reconstruction of mid-face injuries</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Nasal Fractures:</strong> Functional and aesthetic nasal reconstruction</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><strong>Orbital Fractures:</strong> Eye socket reconstruction with vision preservation</li>
+                </ul>
+
+                <h3 class="mt-4 mb-3">Our Treatment Approach:</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-x-ray text-primary me-2"></i>Advanced Imaging</h5>
+                                <p class="card-text">3D CT scans for precise fracture assessment and surgical planning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-procedures text-primary me-2"></i>Minimally Invasive Surgery</h5>
+                                <p class="card-text">Modern fixation techniques with minimal scarring and faster recovery</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-4 mb-3">Benefits of Our Treatment:</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-user-md fa-3x text-primary mb-2"></i>
+                        <h5>Expert Surgical Team</h5>
+                        <p>17+ years of experience in maxillofacial trauma care</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-hospital fa-3x text-primary mb-2"></i>
+                        <h5>Advanced Technology</h5>
+                        <p>State-of-the-art surgical equipment and techniques</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <i class="fas fa-smile fa-3x text-primary mb-2"></i>
+                        <h5>Optimal Outcomes</h5>
+                        <p>Restored function with excellent aesthetic results</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Emergency Care</h4>
+                        <p class="card-text">For immediate treatment of facial fractures:</p>
+                        <div class="mb-3">
+                            <i class="fas fa-phone-alt text-primary me-2"></i>
+                            <strong>Emergency:</strong> 9993888758
+                        </div>
+                        <div class="mb-3">
+                            <i class="fas fa-clock text-primary me-2"></i>
+                            <strong>24/7 Trauma Care Available</strong>
+                        </div>
+                        <hr>
+                        <h5>When to Seek Immediate Care:</h5>
+                        <ul class="small">
+                            <li>Difficulty breathing or swallowing</li>
+                            <li>Severe facial pain</li>
+                            <li>Visible deformity</li>
+                            <li>Bleeding that won't stop</li>
+                            <li>Double vision or eye problems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Book Consultation</h5>
+                        <p>Get expert evaluation and treatment planning</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-block">Schedule Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
