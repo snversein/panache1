@@ -118,6 +118,11 @@ def crowded_teeth_correction():
     """Render the crowded teeth correction page"""
     return render_template('crowded_teeth_correction.html')
 
+@app.route('/invisalign')
+def invisalign():
+    """Render the invisalign page"""
+    return render_template('invisalign.html')
+
 @app.route('/laminates-veneers')
 def laminates_veneers():
     """Render the laminates and veneers page"""

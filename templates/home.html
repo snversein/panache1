@@ -12,6 +12,7 @@
         overflow: hidden;
         display: flex;
         align-items: center;
+        padding-bottom: 60px;
     }
 
     /* Animated Particles */
@@ -132,25 +133,110 @@
         100% { transform: scale(1.5); opacity: 0; }
     }
 
-    /* Typing Animation */
-    .typing-container {
+    /* Hero Message Banner Animation */
+    .hero-message-banner {
+        background: linear-gradient(135deg, rgba(201, 168, 108, 0.15) 0%, rgba(201, 168, 108, 0.05) 100%);
+        border: 1px solid rgba(201, 168, 108, 0.3);
+        border-radius: 50px;
+        padding: 15px 0;
         margin-bottom: 20px;
+        overflow: hidden;
+        position: relative;
     }
 
-    .typing-text {
+    .hero-message-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #c9a86c, transparent);
+    }
+
+    .hero-message-banner::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #c9a86c, transparent);
+    }
+
+    .message-track {
+        display: flex;
+        animation: message-scroll 45s linear infinite;
+        width: fit-content;
+    }
+
+    .message-track:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes message-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .message-item {
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+        white-space: nowrap;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .message-item i {
         color: #c9a86c;
-        font-size: 1.4rem;
-        font-weight: 600;
+        margin-right: 12px;
+        font-size: 1.2rem;
+        animation: icon-bounce 1.5s ease-in-out infinite;
     }
 
-    .cursor {
+    @keyframes icon-bounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    .msg-highlight {
         color: #c9a86c;
-        animation: blink 1s infinite;
+        font-weight: 700;
+        margin-left: 5px;
+        animation: highlight-pulse 2s ease-in-out infinite;
     }
 
-    @keyframes blink {
-        0%, 50% { opacity: 1; }
-        51%, 100% { opacity: 0; }
+    @keyframes highlight-pulse {
+        0%, 100% { 
+            text-shadow: 0 0 5px rgba(201, 168, 108, 0.5);
+            opacity: 1;
+        }
+        50% { 
+            text-shadow: 0 0 20px rgba(201, 168, 108, 0.8);
+            opacity: 0.9;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-message-banner {
+            border-radius: 15px;
+            padding: 12px 0;
+        }
+        
+        .message-item {
+            padding: 0 25px;
+            font-size: 0.85rem;
+        }
+        
+        .message-item i {
+            font-size: 1rem;
+            margin-right: 8px;
+        }
+        
+        .msg-highlight {
+            font-weight: 600;
+        }
     }
 
     /* Highlight Text */
@@ -358,12 +444,13 @@
     /* Scroll Indicator */
     .scroll-indicator {
         position: absolute;
-        bottom: 30px;
+        bottom: 80px;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
         color: rgba(255,255,255,0.6);
         animation: bounce 2s infinite;
+        z-index: 5;
     }
 
     .mouse {
@@ -449,7 +536,11 @@
 
     /* Responsive */
     @media (max-width: 992px) {
-        .hero-new { min-height: auto; padding: 100px 0 60px; }
+        .hero-new { 
+            min-height: auto; 
+            padding: 100px 0 60px;
+            padding-bottom: 60px;
+        }
         .hero-title-new { font-size: 2.6rem; }
         .doctor-card-new { margin-top: 50px; padding: 35px 25px; }
         .hero-ring { display: none; }
@@ -511,6 +602,7 @@
     .hero-new .container {
         position: relative;
         z-index: 2;
+        padding-bottom: 20px;
     }
 
     .hero-badge-new {
@@ -601,8 +693,30 @@
         padding: 25px;
         margin-bottom: 18px;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        animation: slideLeft 0.8s ease forwards;
+        animation: slideLeft 0.8s ease forwards, card-glow 3s ease-in-out infinite;
         opacity: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-card-new::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(201, 168, 108, 0.1), transparent);
+        transition: left 0.5s;
+    }
+
+    .hero-card-new:hover::before {
+        left: 100%;
+    }
+
+    @keyframes card-glow {
+        0%, 100% { box-shadow: 0 0 0 rgba(201, 168, 108, 0); }
+        50% { box-shadow: 0 0 20px rgba(201, 168, 108, 0.15); }
     }
 
     .hero-card-new:nth-child(1) { animation-delay: 0.6s; }
@@ -624,6 +738,13 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 15px;
+        position: relative;
+        animation: icon-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes icon-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(201, 168, 108, 0.5); }
     }
 
     .hero-card-icon i {
@@ -636,6 +757,57 @@
         font-size: 1.05rem;
         font-weight: 600;
         margin-bottom: 8px;
+        position: relative;
+    }
+
+    .hero-card-new h4::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #c9a86c, #e8d5a3);
+        transition: width 0.3s ease;
+    }
+
+    .hero-card-new:hover h4::after {
+        width: 100%;
+    }
+
+    .card-highlight {
+        background: linear-gradient(135deg, #c9a86c 0%, #e8d5a3 50%, #c9a86c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: text-shimmer 2s ease-in-out infinite;
+    }
+
+    @keyframes text-shimmer {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+    }
+
+    .card-highlight-text {
+        color: #c9a86c;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .card-highlight-text::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(201, 168, 108, 0.5);
+        animation: underline-expand 2s ease-in-out infinite;
+    }
+
+    @keyframes underline-expand {
+        0%, 100% { width: 0; opacity: 0; }
+        50% { width: 100%; opacity: 1; }
     }
 
     .hero-card-new p {
@@ -649,10 +821,27 @@
         color: #c9a86c;
         text-decoration: none;
         transition: all 0.3s ease;
+        position: relative;
+        font-weight: 500;
+    }
+
+    .hero-card-new a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #c9a86c, #e8d5a3);
+        transition: width 0.3s ease;
     }
 
     .hero-card-new a:hover {
         color: #e8d5a3;
+    }
+
+    .hero-card-new a:hover::after {
+        width: 100%;
     }
 
     .hero-buttons-new {
@@ -710,6 +899,7 @@
         display: flex;
         gap: 45px;
         margin-top: 40px;
+        margin-bottom: 30px;
         animation: slideLeft 0.8s ease 1.3s forwards;
         opacity: 0;
     }
@@ -1013,6 +1203,103 @@
             margin-top: 25px;
         }
     }
+
+    /* Testimonial Slider Styles - Small Version */
+    .testimonial-ticker {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(13, 27, 42, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 12px 0;
+        overflow: hidden;
+        border-top: 1px solid rgba(201, 168, 108, 0.3);
+    }
+
+    .testimonial-ticker-track {
+        display: flex;
+        width: fit-content;
+        animation: ticker-scroll 40s linear infinite;
+    }
+
+    .testimonial-ticker:hover .testimonial-ticker-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .testimonial-ticker-item {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        border-right: 1px solid rgba(201, 168, 108, 0.2);
+        white-space: nowrap;
+    }
+
+    .testimonial-ticker-item:last-child {
+        border-right: none;
+    }
+
+    .ticker-icon {
+        width: 28px;
+        height: 28px;
+        background: linear-gradient(135deg, #c9a86c 0%, #a8894f 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+
+    .ticker-icon i {
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    .ticker-text {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .ticker-tag {
+        color: #c9a86c;
+        font-size: 0.75rem;
+        margin-left: 8px;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        .testimonial-ticker {
+            padding: 10px 0;
+        }
+        
+        .testimonial-ticker-item {
+            padding: 0 20px;
+        }
+        
+        .ticker-text {
+            font-size: 0.75rem;
+        }
+        
+        .ticker-tag {
+            display: none;
+        }
+        
+        .ticker-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .ticker-icon i {
+            font-size: 0.7rem;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -1043,8 +1330,48 @@
                 <h1 class="hero-title-new">
                     Dr. Sandeep <span class="highlight">Prakash</span>
                 </h1>
-                <div class="typing-container">
-                    <span class="typing-text" id="typewriter"></span><span class="cursor">|</span>
+                
+                <!-- Animated Message Banner -->
+                <div class="hero-message-banner">
+                    <div class="message-track">
+                        <span class="message-item">
+                            <i class="fas fa-smile"></i> Not happy with your smile? <span class="msg-highlight">Dr. Sandeep Panache is here!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-face-frown"></i> Unhappy with your face? <span class="msg-highlight">We can transform your look!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-teeth"></i> Need perfect teeth? <span class="msg-highlight">Invisalign experts at your service!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-robot"></i> Want latest technology? <span class="msg-highlight">LUMINA Scanner - First in Chhattisgarh!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-user-md"></i> Need dental implants? <span class="msg-highlight">18+ years of implant expertise!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-heart"></i> Seeking facial aesthetics? <span class="msg-highlight">World-class results guaranteed!</span>
+                        </span>
+                        <!-- Duplicate for smooth loop -->
+                        <span class="message-item">
+                            <i class="fas fa-smile"></i> Not happy with your smile? <span class="msg-highlight">Dr. Sandeep Panache is here!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-face-frown"></i> Unhappy with your face? <span class="msg-highlight">We can transform your look!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-teeth"></i> Need perfect teeth? <span class="msg-highlight">Invisalign experts at your service!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-robot"></i> Want latest technology? <span class="msg-highlight">LUMINA Scanner - First in Chhattisgarh!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-user-md"></i> Need dental implants? <span class="msg-highlight">18+ years of implant expertise!</span>
+                        </span>
+                        <span class="message-item">
+                            <i class="fas fa-heart"></i> Seeking facial aesthetics? <span class="msg-highlight">World-class results guaranteed!</span>
+                        </span>
+                    </div>
                 </div>
                 
                 <p class="hero-desc-new animate__animated animate__fadeInUp animate__delay-1">
@@ -1055,9 +1382,9 @@
                     <div class="hero-card-icon">
                         <i class="fas fa-face-smile"></i>
                     </div>
-                    <h4>Not Happy with Your Face?</h4>
+                    <h4><span class="card-highlight">Not Happy with Your Face?</span></h4>
                     <p>
-                        <a href="{{ url_for('chin_jaw_enhancement') }}">Are you happy with your face? If not, we're here to help</a> — Jawline Enhancement & Facial Aesthetics
+                        <a href="{{ url_for('chin_jaw_enhancement') }}">Are you happy with your face? If not, we're here to help</a> — <span class="card-highlight-text">Jawline Enhancement</span> & <span class="card-highlight-text">Facial Aesthetics</span>
                     </p>
                 </div>
 
@@ -1066,7 +1393,7 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <h4>World's Most Advanced</h4>
-                    <p><span style="color: #c9a86c;">LUMINA Intraoral Scanner</span> — First Time in Chhattisgarh</p>
+                    <p><span class="card-highlight-text">LUMINA Intraoral Scanner</span> — First Time in Chhattisgarh</p>
                 </div>
 
                 <div class="hero-card-new animate__animated animate__fadeInLeft animate__delay-4">
@@ -1075,7 +1402,7 @@
                     </div>
                     <h4>Invisalign Aligners</h4>
                     <p>
-                        <a href="{{ url_for('crowded_teeth_correction') }}">Straighten Your Teeth Invisibly</a> with World-Class Invisalign Aligners
+                        <a href="{{ url_for('crowded_teeth_correction') }}">Straighten Your Teeth Invisibly</a> with <span class="card-highlight-text">World-Class Invisalign Aligners</span>
                     </p>
                 </div>
 
@@ -1134,6 +1461,113 @@
             <div class="wheel"></div>
         </div>
         <span>Scroll Down</span>
+    </div>
+
+    <!-- Skills Ticker -->
+    <div class="testimonial-ticker">
+        <div class="testimonial-ticker-track">
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-tooth"></i></div>
+                <span class="ticker-text">Dental Implants</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-face-smile"></i></div>
+                <span class="ticker-text">Facial Aesthetics</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-robot"></i></div>
+                <span class="ticker-text">Digital Dentistry</span>
+                <span class="ticker-tag">Innovation</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-user-injured"></i></div>
+                <span class="ticker-text">Maxillofacial Trauma</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-bone"></i></div>
+                <span class="ticker-text">TMJ Surgery</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-heartbeat"></i></div>
+                <span class="ticker-text">Oral Cancer Surgery</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-teeth"></i></div>
+                <span class="ticker-text">Invisalign Aligners</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-crosshairs"></i></div>
+                <span class="ticker-text">Guided Implantology</span>
+                <span class="ticker-tag">Technology</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-crown"></i></div>
+                <span class="ticker-text">All-Ceramic Crowns</span>
+                <span class="ticker-tag">Excellence</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-cut"></i></div>
+                <span class="ticker-text">Orthognathic Surgery</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-tooth"></i></div>
+                <span class="ticker-text">Dental Implants</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-face-smile"></i></div>
+                <span class="ticker-text">Facial Aesthetics</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-robot"></i></div>
+                <span class="ticker-text">Digital Dentistry</span>
+                <span class="ticker-tag">Innovation</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-user-injured"></i></div>
+                <span class="ticker-text">Maxillofacial Trauma</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-bone"></i></div>
+                <span class="ticker-text">TMJ Surgery</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-heartbeat"></i></div>
+                <span class="ticker-text">Oral Cancer Surgery</span>
+                <span class="ticker-tag">Expertise</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-teeth"></i></div>
+                <span class="ticker-text">Invisalign Aligners</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-crosshairs"></i></div>
+                <span class="ticker-text">Guided Implantology</span>
+                <span class="ticker-tag">Technology</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-crown"></i></div>
+                <span class="ticker-text">All-Ceramic Crowns</span>
+                <span class="ticker-tag">Excellence</span>
+            </div>
+            <div class="testimonial-ticker-item">
+                <div class="ticker-icon"><i class="fas fa-cut"></i></div>
+                <span class="ticker-text">Orthognathic Surgery</span>
+                <span class="ticker-tag">Specialty</span>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -1407,38 +1841,8 @@
 
 {% block extra_js %}
 <script>
-    // Typing Animation
+    // Counter Animation
     document.addEventListener('DOMContentLoaded', function() {
-        const text = "Oral & Maxillo-Facial Surgeon";
-        const element = document.getElementById('typewriter');
-        let index = 0;
-        let isDeleting = false;
-        
-        function type() {
-            if (isDeleting) {
-                element.textContent = text.substring(0, index - 1);
-                index--;
-            } else {
-                element.textContent = text.substring(0, index + 1);
-                index++;
-            }
-            
-            let typeSpeed = isDeleting ? 50 : 100;
-            
-            if (!isDeleting && index === text.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && index === 0) {
-                isDeleting = false;
-                typeSpeed = 500;
-            }
-            
-            setTimeout(type, typeSpeed);
-        }
-        
-        setTimeout(type, 1000);
-        
-        // Counter Animation
         const counters = document.querySelectorAll('.counter');
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
