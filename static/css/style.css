@@ -365,7 +365,7 @@ body {
 }
 
 .footer h5 {
-    color: var(--primary-red, #8B0000);
+    color: var(#B8860B);
     margin-bottom: 20px;
     font-weight: 600;
     font-size: 1.1rem;
@@ -506,7 +506,7 @@ body {
 }
 
 .footer-map-btn {
-    background: var(--primary-red, #8B0000);
+    background: var(--highlight-gold);
     color: var(--warm-white);
     border: none;
     padding: 10px 20px;
