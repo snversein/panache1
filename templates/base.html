@@ -15,24 +15,40 @@
     {% block extra_css %}{% endblock %}
     <style>
         .top-bar {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
-            padding: 5px 0;
+            background: linear-gradient(90deg, #0B1F2A, #123847, #0B1F2A);
+            background-size: 200% 100%;
+            animation: gradient-shift 8s ease infinite;
+            padding: 8px 0;
             font-size: 0.8rem;
+            border-bottom: 1px solid rgba(0, 194, 199, 0.15);
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .top-bar a {
-            color: rgba(255,255,255,0.9);
+            color: #AFC3C9 !important;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
         .top-bar a:hover {
-            color: var(--accent-sage);
+            color: #00C2C7 !important;
+            text-shadow: 0 0 10px rgba(0, 194, 199, 0.4);
         }
         .top-bar-social {
             display: flex;
-            gap: 12px;
+            gap: 15px;
         }
         .top-bar-social a {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: #AFC3C9;
+            transition: all 0.3s ease;
+        }
+        .top-bar-social a:hover {
+            color: #00C2C7;
+            transform: translateY(-2px);
+            text-shadow: 0 0 15px rgba(0, 194, 199, 0.4);
         }
         .top-bar-info {
             display: flex;
@@ -40,20 +56,25 @@
             flex-wrap: wrap;
         }
         .top-bar-info span {
-            color: rgba(255,255,255,0.9);
+            color: #AFC3C9;
+        }
+        .top-bar-info i {
+            color: #00C2C7;
+            margin-right: 6px;
         }
         @media (max-width: 992px) {
             .top-bar {
-                padding: 8px 0;
+                padding: 10px 0;
             }
             .top-bar .container > .d-flex {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
                 text-align: center;
             }
             .top-bar-info {
                 justify-content: center;
-                gap: 8px 15px;
+                flex-wrap: wrap;
+                gap: 10px 20px;
             }
             .top-bar-info span {
                 font-size: 0.75rem;
@@ -85,30 +106,29 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark " style="top: 3px;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 194, 199, 0.15); position: sticky; top: 0; z-index: 1030;">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Panache Dental" height="50" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="{{ url_for('home') }}" style="transition: all 0.3s ease;">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Panache Dental" height="50" class="d-inline-block align-text-top" style="filter: brightness(1.1);">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 1px solid #00C2C7; padding: 8px 12px; border-radius: 8px;">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">HOME</a>
+                        <a class="nav-link" href="{{ url_for('home') }}" style="position: relative;">HOME</a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             IMPLANTOLOGY
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
 
-                            <li><a class="dropdown-item" href="{{ url_for('full_mouth_implants') }}">FIXED TEETH IN A DAY</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('dental_implants_missing') }}">PLACEMENT OF DENTAL IMPLANTS FOR MISSING SINGLE TOOTH</a></li>
-                            
-                            <li><a class="dropdown-item" href="{{ url_for('gbr') }}">GBR/SINUS LIFT/RIDGE SPLIT</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('full_mouth_implants') }}" style="color: #AFC3C9;"><i class="fas fa-teeth" style="color: #00C2C7; margin-right: 10px;"></i>FIXED TEETH IN A DAY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('dental_implants_missing') }}" style="color: #AFC3C9;"><i class="fas fa-tooth" style="color: #00C2C7; margin-right: 10px;"></i>PLACEMENT OF DENTAL IMPLANTS</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('gbr') }}" style="color: #AFC3C9;"><i class="fas fa-procedures" style="color: #00C2C7; margin-right: 10px;"></i>GBR/SINUS LIFT/RIDGE SPLIT</a></li>
                            
                         </ul>
                     </li>
@@ -116,53 +136,50 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SMILE DESIGNING
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="{{ url_for('digital_smile_design') }}">DIGITAL SMILE DESIGNING</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('invisalign') }}">INVISALIGN</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('crowded_teeth_correction') }}">ORTHODONTIC CORRECTION WITH BRACES/ALIGNERS/INVISALIGN</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('laminates_veneers') }}">LAMINATES/VENEERS</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('all_ceramic_crowns') }}">ALL CERAMIC CROWNS</a></li>
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
+                            <li><a class="dropdown-item" href="{{ url_for('digital_smile_design') }}" style="color: #AFC3C9;"><i class="fas fa-smile-beam" style="color: #00C2C7; margin-right: 10px;"></i>DIGITAL SMILE DESIGNING</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('invisalign') }}" style="color: #AFC3C9;"><i class="fas fa-align-left" style="color: #00C2C7; margin-right: 10px;"></i>INVISALIGN</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('crowded_teeth_correction') }}" style="color: #AFC3C9;"><i class="fas fa-teeth-open" style="color: #00C2C7; margin-right: 10px;"></i>ORTHODONTIC CORRECTION</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('laminates_veneers') }}" style="color: #AFC3C9;"><i class="fas fa-gem" style="color: #00C2C7; margin-right: 10px;"></i>LAMINATES/VENEERS</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('all_ceramic_crowns') }}" style="color: #AFC3C9;"><i class="fas fa-crown" style="color: #00C2C7; margin-right: 10px;"></i>ALL CERAMIC CROWNS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             DENTISTRY
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="{{ url_for('digital_dentistry') }}">DIGITAL DENTISTRY</a></li>
-                             <li><a class="dropdown-item" href="{{ url_for('crown_bridges') }}">CROWN & BRIDGES/FPD</a></li>
-                             <li><a class="dropdown-item" href="{{ url_for('composite_restoration') }}">COMPOSITE/TOOTH COLORED RESTORATION</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('rct') }}">RCT</a></li>
-                           
-                            <li><a class="dropdown-item" href="{{ url_for('teeth_cleaning') }}">TEETH CLEANING/WHITENING</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('extraction') }}">EXTRACTION</a></li>
-                            
-                            
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
+                            <li><a class="dropdown-item" href="{{ url_for('digital_dentistry') }}" style="color: #AFC3C9;"><i class="fas fa-microscope" style="color: #00C2C7; margin-right: 10px;"></i>DIGITAL DENTISTRY</a></li>
+                             <li><a class="dropdown-item" href="{{ url_for('crown_bridges') }}" style="color: #AFC3C9;"><i class="fas fa-crown" style="color: #00C2C7; margin-right: 10px;"></i>CROWN & BRIDGES/FPD</a></li>
+                             <li><a class="dropdown-item" href="{{ url_for('composite_restoration') }}" style="color: #AFC3C9;"><i class="fas fa-fill-drip" style="color: #00C2C7; margin-right: 10px;"></i>COMPOSITE RESTORATION</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('rct') }}" style="color: #AFC3C9;"><i class="fas fa-tooth" style="color: #00C2C7; margin-right: 10px;"></i>RCT</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('teeth_cleaning') }}" style="color: #AFC3C9;"><i class="fas fa-snowflake" style="color: #00C2C7; margin-right: 10px;"></i>TEETH CLEANING/WHITENING</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('extraction') }}" style="color: #AFC3C9;"><i class="fas fa-cut" style="color: #00C2C7; margin-right: 10px;"></i>EXTRACTION</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            FACIAL ESTHETIC SURGERY
+                            FACIAL ESTHETIC
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="{{ url_for('facial_slimming') }}">FACIAL SLIMMING PROCEDURE- BUCCAL FAT REDUCTION</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('chin_jaw_enhancement') }}">CHIN & JAW LINE ENHANCEMENT WITH OGS/CHIN IMPLANTS</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('dimpleplasty') }}">DIMPLEPLASTY</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('lip_reduction') }}">LIP REDUCTION</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('lip_lengthening') }}">LIP LENGTHENING</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('facial_asymmetry') }}">FACIAL ASYMMETRY CORRECTION</a></li>
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
+                            <li><a class="dropdown-item" href="{{ url_for('facial_slimming') }}" style="color: #AFC3C9;"><i class="fas fa-user" style="color: #00C2C7; margin-right: 10px;"></i>FACIAL SLIMMING</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('chin_jaw_enhancement') }}" style="color: #AFC3C9;"><i class="fas fa-chess-king" style="color: #00C2C7; margin-right: 10px;"></i>CHIN & JAW ENHANCEMENT</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('dimpleplasty') }}" style="color: #AFC3C9;"><i class="fas fa-grin" style="color: #00C2C7; margin-right: 10px;"></i>DIMPLEPLASTY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('lip_reduction') }}" style="color: #AFC3C9;"><i class="fas fa-compress-alt" style="color: #00C2C7; margin-right: 10px;"></i>LIP REDUCTION</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('lip_lengthening') }}" style="color: #AFC3C9;"><i class="fas fa-expand-alt" style="color: #00C2C7; margin-right: 10px;"></i>LIP LENGTHENING</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('facial_asymmetry') }}" style="color: #AFC3C9;"><i class="fas fa-balance-scale" style="color: #00C2C7; margin-right: 10px;"></i>FACIAL ASYMMETRY</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                           ORAL AND MAXILLOFACIAL SURGERY
+                           MAXILLOFACIAL
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <li><a class="dropdown-item" href="{{ url_for('jaw_fractures') }}">JAW FRACTURES/ZYGOMA/NASAL ORBIT FRACTURES</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('third_molar_surgery') }}">3RD MOLAR SURGERY</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('maxillo_facial_pathology') }}">MAXILLO-FACIAL PATHOLOGY- CYST/TUMORS IN JAWS</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('tmj_surgery') }}">TMJ SURGERY- TMJR</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('oral_cancer_surgery') }}">ORAL CANCER SURGERY & RECONSTRUCTION</a></li>
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
+                            <li><a class="dropdown-item" href="{{ url_for('jaw_fractures') }}" style="color: #AFC3C9;"><i class="fas fa-bone" style="color: #00C2C7; margin-right: 10px;"></i>JAW FRACTURES</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('third_molar_surgery') }}" style="color: #AFC3C9;"><i class="fas fa-tooth" style="color: #00C2C7; margin-right: 10px;"></i>3RD MOLAR SURGERY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('maxillo_facial_pathology') }}" style="color: #AFC3C9;"><i class="fas fa-file-medical" style="color: #00C2C7; margin-right: 10px;"></i>MAXILLO-FACIAL PATHOLOGY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('tmj_surgery') }}" style="color: #AFC3C9;"><i class="fas fa-face-meh-blank" style="color: #00C2C7; margin-right: 10px;"></i>TMJ SURGERY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('oral_cancer_surgery') }}" style="color: #AFC3C9;"><i class="fas fa-heartbeat" style="color: #00C2C7; margin-right: 10px;"></i>ORAL CANCER SURGERY</a></li>
                         </ul>
                     </li>
                     
@@ -170,10 +187,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ABOUT US
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <li><a class="dropdown-item" href="{{ url_for('about') }}">ABOUT US</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('gallery') }}">GALLERY</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('reviews') }}">REVIEWS</a></li>
+                        <ul class="dropdown-menu" style="background: rgba(11, 31, 42, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1040;">
+                            <li><a class="dropdown-item" href="{{ url_for('about') }}" style="color: #AFC3C9;"><i class="fas fa-info-circle" style="color: #00C2C7; margin-right: 10px;"></i>ABOUT US</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('gallery') }}" style="color: #AFC3C9;"><i class="fas fa-images" style="color: #00C2C7; margin-right: 10px;"></i>GALLERY</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('reviews') }}" style="color: #AFC3C9;"><i class="fas fa-star" style="color: #00C2C7; margin-right: 10px;"></i>REVIEWS</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -187,83 +204,81 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="background: #0B1F2A; border-top: 1px solid rgba(0, 194, 199, 0.2); position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #00C2C7, transparent);"></div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4 scroll-left">
+                <div class="col-lg-4 mb-4">
                     <div class="footer-section">
                         <div class="footer-logo">
-                            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Panache Dental">
+                            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Panache Dental" style="background: #00C2C7; padding: 8px; border-radius: 10px;">
                             <div>
-                                <h4>PANACHE DENTAL & FACIAL AESTHETICS CLINIC</h4>
-                                <p class="text-white-50">Excellence in Dental & Maxillofacial Care</p>
+                                <h4 style="color: #FFFFFF; font-size: 1.1rem; font-weight: 700; margin: 0;">PANACHE DENTAL & FACIAL AESTHETICS</h4>
+                                <p style="color: #7A8E94; font-size: 0.85rem; margin-top: 5px;">Excellence in Dental & Maxillofacial Care</p>
                             </div>
                         </div>
                         <div class="footer-awards">
-                            <div class="footer-award-badge">
+                            <div class="footer-award-badge" style="background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
                                 <i class="fas fa-award me-2"></i>18+ Years Experience
                             </div>
-                            <div class="footer-award-badge">
+                            <div class="footer-award-badge" style="background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
                                 <i class="fas fa-certificate me-2"></i>Certified Specialists
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 scroll-up">
+                <div class="col-lg-4 mb-4">
                     <div class="footer-section">
-                        <h5><i class="fas fa-clock me-2"></i>Clinic Hours</h5>
+                        <h5 style="color: #00C2C7; margin-bottom: 25px; font-weight: 600; font-size: 1.2rem; position: relative; padding-bottom: 15px;"><i class="fas fa-clock me-2"></i>Clinic Hours</h5>
                         <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
+                            <div class="footer-contact-icon" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: #00C2C7;">
                                 <i class="fas fa-calendar-day"></i>
                             </div>
                             <div>
-                                <strong>Monday - Saturday</strong><br>
-                                <span class="text-white-75">12:00 PM - 8:00 PM</span>
+                                <strong style="color: #FFFFFF;">Monday - Saturday</strong><br>
+                                <span style="color: #7A8E94;">12:00 PM - 8:00 PM</span>
                             </div>
                         </div>
                         <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
+                            <div class="footer-contact-icon" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: #00C2C7;">
                                 <i class="fas fa-calendar-times"></i>
                             </div>
                             <div>
-                                <strong>Sunday</strong><br>
-                                <span class="text-white-75">11:00 AM to 2:00 PM</span>
+                                <strong style="color: #FFFFFF;">Sunday</strong><br>
+                                <span style="color: #7A8E94;">11:00 AM to 2:00 PM</span>
                             </div>
                         </div>
-                        <button class="footer-map-btn">
-                            <i class="fas fa-map-marked-alt me-2"></i>Get Directions
-                        </button>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 scroll-right">
+                <div class="col-lg-4 mb-4">
                     <div class="footer-section">
-                        <h5><i class="fas fa-phone me-2"></i>Contact Us</h5>
+                        <h5 style="color: #00C2C7; margin-bottom: 25px; font-weight: 600; font-size: 1.2rem; position: relative; padding-bottom: 15px;"><i class="fas fa-phone me-2"></i>Contact Us</h5>
                         <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
+                            <div class="footer-contact-icon" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: #00C2C7;">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <strong>Phone</strong><br>
-                                <span class="text-white-75">9993888758, 9993078758</span>
+                                <strong style="color: #FFFFFF;">Phone</strong><br>
+                                <span style="color: #7A8E94;"><a href="tel:9993888758" style="color: #7A8E94; text-decoration: none;">9993888758</a>, <a href="tel:9993078758" style="color: #7A8E94; text-decoration: none;">9993078758</a></span>
                             </div>
                         </div>
                         <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
+                            <div class="footer-contact-icon" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: #00C2C7;">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <strong>Email</strong><br>
-                                <span class="text-white-75">panachedental@gmail.com</span>
+                                <strong style="color: #FFFFFF;">Email</strong><br>
+                                <span style="color: #7A8E94;">panachedental@gmail.com</span>
                             </div>
                         </div>
-                        <div class="footer-social-links">
-                            <a href="#" class="footer-social-link" aria-label="Facebook">
+                        <div class="footer-social-links" style="display: flex; gap: 15px; margin-top: 25px;">
+                            <a href="#" class="footer-social-link" aria-label="Facebook" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.1); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00C2C7; font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease;">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="footer-social-link" aria-label="Instagram">
+                            <a href="#" class="footer-social-link" aria-label="Instagram" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.1); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00C2C7; font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease;">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="footer-social-link" aria-label="WhatsApp">
+                            <a href="#" class="footer-social-link" aria-label="WhatsApp" style="width: 45px; height: 45px; background: rgba(0, 194, 199, 0.1); border: 1px solid rgba(0, 194, 199, 0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #00C2C7; font-size: 1.2rem; text-decoration: none; transition: all 0.3s ease;">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
@@ -271,32 +286,32 @@
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 30px; margin-top: 40px;">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="footer-bottom-content">
-                                <div>
+                            <div class="footer-bottom-content" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                                <div style="color: #7A8E94;">
                                     &copy; 2026 PANACHE DENTAL & FACIAL AESTHETICS CLINIC. All rights reserved.
                                 </div>
-                                <div class="footer-links">
-                                    <a href="#">Privacy Policy</a>
-                                    <a href="#">Terms of Service</a>
-                                    <a href="#">Patient Rights</a>
+                                <div class="footer-links" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                    <a href="#" style="color: #7A8E94; text-decoration: none; transition: all 0.3s ease;">Privacy Policy</a>
+                                    <a href="#" style="color: #7A8E94; text-decoration: none; transition: all 0.3s ease;">Terms of Service</a>
+                                    <a href="#" style="color: #7A8E94; text-decoration: none; transition: all 0.3s ease;">Patient Rights</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                            <div class="footer-bottom-content">
-                                <div class="text-white-50">
-                                    <i class="fas fa-heart text-danger me-1"></i>
+                            <div class="footer-bottom-content" style="display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 20px;">
+                                <div style="color: #7A8E94;">
+                                    <i class="fas fa-heart me-1" style="color: #00C2C7;"></i>
                                     Designed By SN Verse
                                 </div>
-                                <div class="footer-awards">
-                                    <div class="footer-award-badge">
+                                <div class="footer-awards" style="display: flex; align-items: center; gap: 12px;">
+                                    <div class="footer-award-badge" style="background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
                                         <i class="fas fa-shield-alt me-1"></i>ISO-Certified
                                     </div>
-                                    <div class="footer-award-badge">
+                                    <div class="footer-award-badge" style="background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
                                         <i class="fas fa-award me-1"></i>Top Rated
                                     </div>
                                 </div>

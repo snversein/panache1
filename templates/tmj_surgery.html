@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 3px solid rgba(18, 56, 71, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 194, 199, 0.3);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.15), rgba(18, 56, 71, 0.8));
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.25), rgba(18, 56, 71, 0.9));
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.5);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,30 +155,40 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">MAXILLOFACIAL SURGERY</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">TMJ Surgery (TMJR)</h1>
-                    <p class="lead mb-4 text-white-50">Dr. Sandeep Prakash provides advanced surgical solutions for temporomandibular joint (TMJ) disorders SPECIALLY TMJ ANKYLOSIS AND ITS RELATED FACIAL ASYMMETRY AND INTERNAL DERANGEMENT OF TMJ.</p>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bolt me-2"></i>MAXILLOFACIAL SURGERY
+                    </span>
+                    <h1 class="display-2 fw-bold mb-4" style="color: #FFFFFF;">TMJ Surgery <span style="color: #00C2C7;">(TMJR)</span></h1>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Dr. Sandeep Prakash provides advanced surgical solutions for temporomandibular joint (TMJ) disorders SPECIALLY TMJ ANKYLOSIS AND ITS RELATED FACIAL ASYMMETRY AND INTERNAL DERANGEMENT OF TMJ.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <h5 style="color: #00C2C7; margin-bottom: 10px;"><i class="fas fa-user-md me-2"></i>Dr. Sandeep Prakash</h5>
+                        <p style="color: #7A8E94; margin-bottom: 8px; font-size: 0.9rem;">Oral & Maxillo-Facial Surgeon</p>
+                        <p style="color: #AFC3C9; margin-bottom: 0; font-size: 0.9rem;">With extensive experience in TMJ surgery and related procedures, Dr. Prakash provides comprehensive care for TMJ disorders.</p>
+                    </div>
                     <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://www.concordoralsurgery.ca/wp-content/uploads/2024/12/tmj-2.jpg" alt="TMJ Surgery" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://www.concordoralsurgery.ca/wp-content/uploads/2024/12/tmj-2.jpg" alt="TMJ Surgery" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -160,94 +196,105 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Duration</div>
-                <div class="stat-number">2-4</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Duration</div>
+                    <div class="stat-number">2-4</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">Local</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">Local</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Months Recovery</div>
-                <div class="stat-number">3-6</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Months Recovery</div>
+                    <div class="stat-number">3-6</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate</div>
-                <div class="stat-number">95%+</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate</div>
+                    <div class="stat-number">95%+</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Advanced TMJ Disorder Treatment</h2>
-                <p class="lead text-muted">When Conservative Care Isn't Enough</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>ADVANCED TMJ DISORDER TREATMENT
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">When Conservative Care <span style="color: #00C2C7;">Isn't Enough</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Temporomandibular Joint (TMJ) disorders</strong> can cause debilitating pain, limited jaw movement, and significantly impact quality of life. When non-surgical treatments fail to provide relief, <strong>TMJ surgery</strong> becomes the definitive solution for lasting improvement.</p>
-            <p>Our <strong>Total Joint Replacement (TMJR)</strong> procedures utilize state-of-the-art prosthetic joints designed to restore normal jaw function, eliminate chronic pain, and return patients to a life free from TMJ limitations.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://www.newsmile4u.com/wp-content/uploads/2022/03/tmj-disorder-treatment.jpg" alt="TMJ Joint Structure" class="img-fluid rounded-3 shadow">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Temporomandibular Joint (TMJ) disorders</strong> can cause debilitating pain, limited jaw movement, and significantly impact quality of life. When non-surgical treatments fail to provide relief, <strong style="color: #00C2C7;">TMJ surgery</strong> becomes the definitive solution for lasting improvement.</p>
+                <p style="color: #AFC3C9;">Our <strong style="color: #00C2C7;">Total Joint Replacement (TMJR)</strong> procedures utilize state-of-the-art prosthetic joints designed to restore normal jaw function, eliminate chronic pain, and return patients to a life free from TMJ limitations.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.newsmile4u.com/wp-content/uploads/2022/03/tmj-disorder-treatment.jpg" alt="TMJ Joint Structure" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Arthrocentesis Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Arthrocentesis (Joint Aspiration)</h2>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <p class="lead mb-4">Arthrocentesis, or joint aspiration, is a minimally invasive, outpatient medical procedure where a sterile needle is inserted into a joint capsule to remove synovial fluid. It is used for both diagnostic analysis (checking for infection, gout, or inflammation) and therapeutic relief (reducing pain, swelling, and pressure in joints like the knees, shoulders, or TMJ).</p>
-                    <div class="procedure-step mb-4" style="background: linear-gradient(135deg, var(--primary-navy), #1a365d); color: white; border-radius: 15px; padding: 20px;">
-                        <h5 style="color: white;"><i class="fas fa-user-md me-2"></i>Procedure</h5>
-                        <p class="mb-0" style="color: rgba(255,255,255,0.9);">A doctor numbs the area with local anesthetic and uses a needle to aspirate fluid, similar to a blood draw.</p>
-                    </div>
-                    <img src="{{ url_for('static', filename='images/arthrocentesis.png') }}" alt="Arthrocentesis Procedure" class="img-fluid rounded-3 shadow mb-4">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-bullseye me-2"></i>Purpose</h5>
-                                <p class="text-muted mb-0">The procedure identifies the cause of joint effusion (fluid buildup) and treats pain.</p>
-                            </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-tint me-2"></i>MINIMALLY INVASIVE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Arthrocentesis <span style="color: #00C2C7;">(Joint Aspiration)</span></h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <p class="lead mb-4" style="color: #AFC3C9;">Arthrocentesis, or joint aspiration, is a minimally invasive, outpatient medical procedure where a sterile needle is inserted into a joint capsule to remove synovial fluid. It is used for both diagnostic analysis (checking for infection, gout, or inflammation) and therapeutic relief (reducing pain, swelling, and pressure in joints like the knees, shoulders, or TMJ).</p>
+                        <div class="procedure-step mb-4" style="background: rgba(18, 56, 71, 0.8); border: 1px solid rgba(0, 194, 199, 0.3); border-left: 4px solid #00C2C7; border-radius: 15px; padding: 20px;">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-user-md me-2"></i>Procedure</h5>
+                            <p class="mb-0" style="color: #AFC3C9;">A doctor numbs the area with local anesthetic and uses a needle to aspirate fluid, similar to a blood draw.</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-stethoscope me-2"></i>Indications</h5>
-                                <p class="text-muted mb-0">It is crucial for diagnosing septic arthritis (infection), crystalline arthropathies (gout/pseudogout), and inflammatory arthritis.</p>
+                        <img src="{{ url_for('static', filename='images/arthrocentesis.png') }}" alt="Arthrocentesis Procedure" class="img-fluid rounded-3 mb-4" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-bullseye me-2"></i>Purpose</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">The procedure identifies the cause of joint effusion (fluid buildup) and treats pain.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-heart me-2"></i>Benefits</h5>
-                                <p class="text-muted mb-0">It provides immediate relief from painful swelling and allows for the injection of medication (e.g., corticosteroids) directly into the joint.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Indications</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">It is crucial for diagnosing septic arthritis (infection), crystalline arthropathies (gout/pseudogout), and inflammatory arthritis.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-exclamation-circle me-2"></i>Risks</h5>
-                                <p class="text-muted mb-0">It is generally safe, though risks include bleeding, infection, or pain.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-heart me-2"></i>Benefits</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">It provides immediate relief from painful swelling and allows for the injection of medication (e.g., corticosteroids) directly into the joint.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Risks</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">It is generally safe, though risks include bleeding, infection, or pain.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -258,35 +305,40 @@
 </div>
 
 <!-- When Surgery Is Needed -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">When is TMJ Surgery Recommended?</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Severe Arthritis</h5>
-                        <p class="text-muted mb-0">Advanced degenerative joint disease that has not responded to conservative treatments like medications, physical therapy, or splints.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-circle me-2"></i>WHEN NEEDED
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">When is TMJ Surgery <span style="color: #00C2C7;">Recommended?</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-broken-bone me-2"></i>Traumatic Injury</h5>
-                        <p class="text-muted mb-0">Fractured or severely damaged temporomandibular joint from accidents, sports injuries, or other traumatic events.</p>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-triangle me-2"></i>Severe Arthritis</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Advanced degenerative joint disease that has not responded to conservative treatments like medications, physical therapy, or splints.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-times-circle me-2"></i>Failed Previous Surgery</h5>
-                        <p class="text-muted mb-0">Complications or unsatisfactory results from previous TMJ procedures requiring revision surgery.</p>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-broken-bone me-2"></i>Traumatic Injury</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Fractured or severely damaged temporomandibular joint from accidents, sports injuries, or other traumatic events.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-bolt me-2"></i>Chronic Pain</h5>
-                        <p class="text-muted mb-0">Severe, persistent pain affecting daily activities, sleep, and overall quality of life despite conservative management.</p>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-times-circle me-2"></i>Failed Previous Surgery</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Complications or unsatisfactory results from previous TMJ procedures requiring revision surgery.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-bolt me-2"></i>Chronic Pain</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Severe, persistent pain affecting daily activities, sleep, and overall quality of life despite conservative management.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,45 +347,50 @@
 </div>
 
 <!-- TMJ Ankylosis Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">TMJ Ankylosis</h2>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <p class="lead mb-4">Temporomandibular joint (TMJ) ankylosis is a chronic condition characterized by the fibrous or bony fusion of the mandibular condyle to the glenoid fossa, resulting in limited mouth opening (hypomobility or immobility). It is a pathological, often trauma-induced disorder causing significant functional difficulties with chewing, speaking, and oral hygiene, frequently leading to facial deformity in growing children.</p>
-                    <img src="{{ url_for('static', filename='images/tmj_ankylosis.png') }}" alt="TMJ Ankylosis" class="img-fluid rounded-3 shadow mb-4">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-link me-2"></i>Fusion Types</h5>
-                                <p class="text-muted mb-0">It can be classified as either fibrous (fibrous tissue adhesion) or bony (bony union), ranging from partial to complete immobility of the joint.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-link me-2"></i>TMJ ANKYLOSIS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">TMJ <span style="color: #00C2C7;">Ankylosis</span></h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <p class="lead mb-4" style="color: #AFC3C9;">Temporomandibular joint (TMJ) ankylosis is a chronic condition characterized by the fibrous or bony fusion of the mandibular condyle to the glenoid fossa, resulting in limited mouth opening (hypomobility or immobility). It is a pathological, often trauma-induced disorder causing significant functional difficulties with chewing, speaking, and oral hygiene, frequently leading to facial deformity in growing children.</p>
+                        <img src="{{ url_for('static', filename='images/tmj_ankylosis.png') }}" alt="TMJ Ankylosis" class="img-fluid rounded-3 mb-4" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-link me-2"></i>Fusion Types</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">It can be classified as either fibrous (fibrous tissue adhesion) or bony (bony union), ranging from partial to complete immobility of the joint.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-notes-medical me-2"></i>Causes</h5>
-                                <p class="text-muted mb-0">Trauma (e.g., condylar fractures, hematomas) is the most common cause, followed by infection (septic arthritis), systemic diseases like rheumatoid arthritis, and previous surgery.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-notes-medical me-2"></i>Causes</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">Trauma (e.g., condylar fractures, hematomas) is the most common cause, followed by infection (septic arthritis), systemic diseases like rheumatoid arthritis, and previous surgery.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-stethoscope me-2"></i>Symptoms</h5>
-                                <p class="text-muted mb-0">Primary symptoms include inability or difficulty opening the mouth, restricted jaw movement, pain, facial asymmetry (if occurring during childhood growth), and malocclusion.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Symptoms</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">Primary symptoms include inability or difficulty opening the mouth, restricted jaw movement, pain, facial asymmetry (if occurring during childhood growth), and malocclusion.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-exclamation-triangle me-2"></i>Consequences</h5>
-                                <p class="text-muted mb-0">If untreated, it can lead to severe facial deformity, breathing issues (airway obstruction), and poor oral hygiene.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-triangle me-2"></i>Consequences</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">If untreated, it can lead to severe facial deformity, breathing issues (airway obstruction), and poor oral hygiene.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="procedure-step" style="background: linear-gradient(135deg, var(--primary-navy), #1a365d); color: white; border-radius: 15px; padding: 20px;">
-                                <h5 style="color: white;"><i class="fas fa-user-md me-2"></i>Treatment</h5>
-                                <p class="mb-0" style="color: rgba(255,255,255,0.9);">Management is typically surgical, involving the release of the ankylotic mass and reconstruction of the joint, often using graft materials.</p>
+                            <div class="col-lg-12">
+                                <div class="procedure-step" style="background: rgba(18, 56, 71, 0.8); border: 1px solid rgba(0, 194, 199, 0.3); border-left: 4px solid #00C2C7; border-radius: 15px; padding: 20px;">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-user-md me-2"></i>Treatment</h5>
+                                    <p class="mb-0" style="color: #AFC3C9;">Management is typically surgical, involving the release of the ankylotic mass and reconstruction of the joint, often using graft materials.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -344,79 +401,88 @@
 </div>
 
 <!-- Surgical Options -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Advanced Surgical Options</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tools"></i>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-tools me-2"></i>SURGICAL OPTIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Our Advanced <span style="color: #00C2C7;">Surgical Options</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Arthroscopy</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Minimally invasive procedure using small cameras and specialized instruments to diagnose and treat internal joint problems with minimal tissue disruption.</p>
                         </div>
-                        <h4>Arthroscopy</h4>
-                        <p class="text-muted">Minimally invasive procedure using small cameras and specialized instruments to diagnose and treat internal joint problems with minimal tissue disruption.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Total Joint Replacement (TMJR)</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Complete joint replacement using custom-designed prosthetic devices made from biocompatible materials for long-term function.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h4>Total Joint Replacement (TMJR)</h4>
-                        <p class="text-muted">Complete joint replacement using custom-designed prosthetic devices made from biocompatible materials for long-term function.</p>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>
 </div>
 
 <!-- Benefits Grid -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Arthrocentesis</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <h4>Pain Relief</h4>
-                        <p class="text-muted">Eliminate chronic jaw pain, headaches, and facial discomfort that have persisted despite other treatments.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-thumbs-up me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of <span style="color: #00C2C7;">Arthrocentesis</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-utensils"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Pain Relief</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Eliminate chronic jaw pain, headaches, and facial discomfort that have persisted despite other treatments.</p>
                         </div>
-                        <h4>Improved Function</h4>
-                        <p class="text-muted">Restore normal chewing, speaking, and swallowing abilities for improved nutrition and quality of life.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-expand-arrows-alt"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Improved Function</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Restore normal chewing, speaking, and swallowing abilities for improved nutrition and quality of life.</p>
                         </div>
-                        <h4>Increased Range of Motion</h4>
-                        <p class="text-muted">Regain normal jaw opening and movement patterns, eliminating restrictions that affect daily activities.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Increased Range of Motion</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Regain normal jaw opening and movement patterns, eliminating restrictions that affect daily activities.</p>
                         </div>
-                        <h4>Long-Term Solution</h4>
-                        <p class="text-muted">Provide lasting results with durable prosthetic materials designed for decades of reliable function.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Long-Term Solution</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Provide lasting results with durable prosthetic materials designed for decades of reliable function.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -424,47 +490,50 @@
     </div>
 </div>
 
-
-
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is TMJ surgery safe?
-                        </button>
-                        <div class="faq-answer">
-                            Yes, TMJ surgery is a well-established procedure with high success rates when performed by experienced maxillofacial surgeons. We uses advanced imaging and surgical techniques to maximize safety and outcomes.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked <span style="color: #00C2C7;">Questions</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Is TMJ surgery safe?
+                            </button>
+                            <div class="faq-answer">
+                                Yes, TMJ surgery is a well-established procedure with high success rates when performed by experienced maxillofacial surgeons. We use advanced imaging and surgical techniques to maximize safety and outcomes.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does recovery take?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Initial recovery takes 2-4 weeks for basic healing, with full functional recovery typically achieved within 3-6 months. Individual recovery times vary based on the specific procedure and patient factors.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long does recovery take?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Initial recovery takes 2-4 weeks for basic healing, with full functional recovery typically achieved within 3-6 months. Individual recovery times vary based on the specific procedure and patient factors.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will I be able to eat normally after surgery?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Yes, patients typically progress from liquid diets to soft foods and eventually return to normal eating patterns within 6-12 weeks, depending on their individual healing progress.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will I be able to eat normally after surgery?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Yes, patients typically progress from liquid diets to soft foods and eventually return to normal eating patterns within 6-12 weeks, depending on their individual healing progress.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long do TMJ implants last?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Modern TMJ prosthetic devices are designed for long-term durability, with many lasting 15-20 years or more. Regular follow-up care helps ensure optimal longevity and function.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long do TMJ implants last?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Modern TMJ prosthetic devices are designed for long-term durability, with many lasting 15-20 years or more. Regular follow-up care helps ensure optimal longevity and function.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -474,80 +543,85 @@
 </div>
 
 <!-- TMJ Ankylosis FAQ Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Common FAQs Regarding TMJ Ankylosis Surgery</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What is the purpose of the surgery?
-                        </button>
-                        <div class="faq-answer">
-                            The main goals are to remove the ankylotic mass (bony fusion), restore mouth opening, improve chewing/speech, and correct facial deformities.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-link me-2"></i>TMJ ANKYLOSIS FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Common FAQs Regarding <span style="color: #00C2C7;">TMJ Ankylosis Surgery</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                What is the purpose of the surgery?
+                            </button>
+                            <div class="faq-answer">
+                                The main goals are to remove the ankylotic mass (bony fusion), restore mouth opening, improve chewing/speech, and correct facial deformities.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What are the different types of surgery?
-                        </button>
-                        <div class="faq-answer d-none">
-                            <ul class="mb-0 ps-3">
-                                <li><strong>Gap Arthroplasty:</strong> Removing the fused bone to create a gap.</li>
-                                <li><strong>Interpositional Arthroplasty:</strong> A gap is created and filled with materials (fat, cartilage, or temporalis fascia) to prevent re-fusion.</li>
-                                <li><strong>Total Joint Replacement:</strong> Replacing the damaged joint with a prosthetic.</li>
-                            </ul>
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                What are the different types of surgery?
+                            </button>
+                            <div class="faq-answer d-none">
+                                <ul class="mb-0 ps-3" style="color: #AFC3C9;">
+                                    <li><strong style="color: #FFFFFF;">Gap Arthroplasty:</strong> Removing the fused bone to create a gap.</li>
+                                    <li><strong style="color: #FFFFFF;">Interpositional Arthroplasty:</strong> A gap is created and filled with materials (fat, cartilage, or temporalis fascia) to prevent re-fusion.</li>
+                                    <li><strong style="color: #FFFFFF;">Total Joint Replacement:</strong> Replacing the damaged joint with a prosthetic.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is surgery always necessary?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Yes, for true bony or fibrous ankylosis, surgery is required to restore function, as it will not resolve on its own.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Is surgery always necessary?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Yes, for true bony or fibrous ankylosis, surgery is required to restore function, as it will not resolve on its own.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What causes TMJ ankylosis?
-                        </button>
-                        <div class="faq-answer d-none">
-                            The most common cause is trauma (direct blow to the jaw), followed by infections or as a complication of previous joint surgeries.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                What causes TMJ ankylosis?
+                            </button>
+                            <div class="faq-answer d-none">
+                                The most common cause is trauma (direct blow to the jaw), followed by infections or as a complication of previous joint surgeries.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long is the recovery?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Recovery varies by procedure, ranging from two weeks for arthroplasty to three to eight weeks for total joint replacement.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long is the recovery?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Recovery varies by procedure, ranging from two weeks for arthroplasty to three to eight weeks for total joint replacement.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What are the main risks?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Risks include re-ankylosis (re-fusion), facial nerve damage, bleeding, and infection.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                What are the main risks?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Risks include re-ankylosis (re-fusion), facial nerve damage, bleeding, and infection.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is physical therapy needed?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Yes, intensive, long-term post-surgical physical therapy is mandatory to prevent scar tissue formation and maintain the new jaw movement.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Is physical therapy needed?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Yes, intensive, long-term post-surgical physical therapy is mandatory to prevent scar tissue formation and maintain the new jaw movement.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Why is this surgery challenging?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Because the jaw is already locked, anesthesia and breathing tube insertion (intubation) can be very difficult for anesthesiologists, sometimes requiring a nasal approach.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Why is this surgery challenging?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Because the jaw is already locked, anesthesia and breathing tube insertion (intubation) can be very difficult for anesthesiologists, sometimes requiring a nasal approach.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -556,19 +630,22 @@
     </div>
 </div>
 
-
-
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready for Lasting TMJ Relief?</h2>
-                    <p class="lead mb-4">Schedule a consultation to explore your surgical options and reclaim your life from chronic TMJ pain.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready for Lasting <span style="color: #00C2C7;">TMJ Relief?</span></h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Schedule a consultation to explore your surgical options and reclaim your life from chronic TMJ pain.</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,56 +3,115 @@
 {% block title %}Contact - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
 
 {% block content %}
+<style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+.contact-info {
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+}
+.appointment-form {
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+}
+.form-control {
+    background: rgba(11, 31, 42, 0.6);
+    border: 1px solid rgba(0, 194, 199, 0.2);
+    color: #FFFFFF;
+    padding: 12px 15px;
+    border-radius: 10px;
+}
+.form-control:focus {
+    background: rgba(11, 31, 42, 0.8);
+    border-color: #00C2C7;
+    color: #FFFFFF;
+    box-shadow: 0 0 0 0.2rem rgba(0, 194, 199, 0.25);
+}
+.form-control::placeholder {
+    color: #7A8E94;
+}
+.form-label {
+    color: #AFC3C9;
+    font-weight: 500;
+}
+.text-accent { color: #00C2C7 !important; }
+</style>
+
 <!-- Contact Header -->
-<section class="py-5">
-    <div class="container">
+<section class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
         <div class="text-center mb-5">
-            <h1 class="display-4 fw-bold" style="color: var(--primary-red);">Contact Us</h1>
-            <p class="lead">Get in touch for expert dental and maxillofacial care</p>
+            <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                <i class="fas fa-envelope me-2"></i>GET IN TOUCH
+            </span>
+            <h1 class="display-4 fw-bold" style="color: #FFFFFF;">Contact <span style="color: #00C2C7;">Us</span></h1>
+            <p class="lead" style="color: #AFC3C9;">Get in touch for expert dental and maxillofacial care</p>
         </div>
     </div>
 </section>
 
 <!-- Clinic Information -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-clinic-medical"></i> PANACHE DENTAL & FACIAL AESTHETICS CLINIC
+<section class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+            <i class="fas fa-clinic-medical me-2"></i>CLINIC INFO
+        </span>
+        <h2 class="display-5 fw-bold mb-5" style="color: #FFFFFF;">
+            <i class="fas fa-hospital me-2"></i> PANACHE DENTAL & FACIAL AESTHETICS CLINIC
         </h2>
-        <div class="row">
+        <div class="row g-4">
             <div class="col-md-8">
                 <div class="contact-info mb-4">
-                    <h4 style="color: var(--primary-red); mb-4;">Clinic Details</h4>
+                    <h4 style="color: #00C2C7; margin-bottom: 20px;"><i class="fas fa-info-circle me-2"></i>Clinic Details</h4>
                     <div class="row mb-3">
                         <div class="col-sm-3">
-                            <strong style="color: var(--primary-brown);"><i class="fas fa-map-marker-alt"></i> Address:</strong>
+                            <strong style="color: #00C2C7;"><i class="fas fa-map-marker-alt me-2"></i> Address:</strong>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9" style="color: #AFC3C9;">
                             1st Floor, Rama Trade Centre, Beside Axis Bank, Old Bus Stand, Bilaspur, Chhattisgarh
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-3">
-                            <strong style="color: var(--primary-brown);"><i class="fas fa-phone"></i> Phone:</strong>
+                            <strong style="color: #00C2C7;"><i class="fas fa-phone me-2"></i> Phone:</strong>
                         </div>
                         <div class="col-sm-9">
-                            <a href="tel:9993888758" class="text-decoration-none">9993888758</a>, 
-                            <a href="tel:9993078758" class="text-decoration-none">9993078758</a>
+                            <a href="tel:9993888758" style="color: #00C2C7; text-decoration: none;">9993888758</a>, 
+                            <a href="tel:9993078758" style="color: #00C2C7; text-decoration: none;">9993078758</a>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-3">
-                            <strong style="color: var(--primary-brown);"><i class="fas fa-envelope"></i> Email:</strong>
+                            <strong style="color: #00C2C7;"><i class="fas fa-envelope me-2"></i> Email:</strong>
                         </div>
                         <div class="col-sm-9">
-                            <a href="mailto:panachedental@gmail.com" class="text-decoration-none">panachedental@gmail.com</a>
+                            <a href="mailto:panachedental@gmail.com" style="color: #00C2C7; text-decoration: none;">panachedental@gmail.com</a>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-3">
-                            <strong style="color: var(--primary-brown);"><i class="fas fa-clock"></i> Timings:</strong>
+                            <strong style="color: #00C2C7;"><i class="fas fa-clock me-2"></i> Timings:</strong>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-9" style="color: #AFC3C9;">
                             Monday - Saturday: 12:00 PM - 8:00 PM<br>
                             Sunday: Closed
                         </div>
@@ -60,12 +119,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="contact-info">
-                    <h5 style="color: var(--primary-red); mb-3;">Emergency Contact</h5>
-                    <p class="mb-3">For dental emergencies and facial trauma cases:</p>
-                    <div class="text-center">
-                        <h3 style="color: var(--primary-red);">9993888758</h3>
-                        <small>Available 24/7 for emergencies</small>
+                <div class="contact-info text-center">
+                    <h5 style="color: #00C2C7; margin-bottom: 15px;"><i class="fas fa-exclamation-circle me-2"></i>Emergency Contact</h5>
+                    <p class="mb-3" style="color: #AFC3C9;">For dental emergencies and facial trauma cases:</p>
+                    <div>
+                        <h3 style="color: #00C2C7; text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);">9993888758</h3>
+                        <small style="color: #7A8E94;">Available 24/7 for emergencies</small>
                     </div>
                 </div>
             </div>
@@ -74,15 +133,18 @@
 </section>
 
 <!-- Appointment Form & Map -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title">
-            <i class="fas fa-calendar-check"></i> Book Appointment
+<section class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+            <i class="fas fa-calendar-check me-2"></i>BOOK NOW
+        </span>
+        <h2 class="display-5 fw-bold mb-5" style="color: #FFFFFF;">
+            <i class="fas fa-calendar-plus me-2"></i> Book Appointment
         </h2>
-        <div class="row">
+        <div class="row g-4">
             <div class="col-md-6">
                 <div class="appointment-form">
-                    <h4 class="mb-4" style="color: var(--primary-red);">Schedule Your Consultation</h4>
+                    <h4 class="mb-4" style="color: #00C2C7;"><i class="fas fa-user-md me-2"></i>Schedule Your Consultation</h4>
                     <form id="appointmentForm">
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -148,21 +210,21 @@
                             <label for="message" class="form-label">Describe your concern</label>
                             <textarea class="form-control" id="message" rows="3" placeholder="Please briefly describe your dental concern or the reason for your visit..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-submit">
-                            <i class="fas fa-paper-plane"></i> Book Appointment
+                        <button type="submit" class="btn btn-accent btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i> Book Appointment
                         </button>
                     </form>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="contact-info">
-                    <h4 class="mb-4" style="color: var(--primary-brown);">Clinic Location</h4>
+                    <h4 class="mb-4" style="color: #00C2C7;"><i class="fas fa-map-marked-alt me-2"></i>Clinic Location</h4>
                     <div class="ratio ratio-16x9 mb-4" style="height: 400px;">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.663607404206!2d77.2098719!3d28.5421193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3ea3de5b679%3A0x350ca7fd35c5141c!2sPanache%20Dental!5e0!3m2!1sen!2sin!4v1737470000000"
                             width="100%" 
                             height="400" 
-                            style="border:0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" 
+                            style="border:0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -175,33 +237,33 @@
 </section>
 
 <!-- Quick Contact Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row">
+<section class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
             <div class="col-md-4 text-center mb-4">
                 <div class="contact-info">
-                    <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px;"></i>
-                    <h5 style="color: var(--primary-brown);">Call Us</h5>
-                    <p>For appointments and inquiries</p>
-                    <h4 style="color: var(--primary-red);">9993888758</h4>
-                    <h4 style="color: var(--primary-red);">9993078758</h4>
+                    <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #00C2C7;">Call Us</h5>
+                    <p style="color: #AFC3C9;">For appointments and inquiries</p>
+                    <h4 style="color: #FFFFFF;">9993888758</h4>
+                    <h4 style="color: #FFFFFF;">9993078758</h4>
                 </div>
             </div>
             <div class="col-md-4 text-center mb-4">
                 <div class="contact-info">
-                    <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--primary-brown); margin-bottom: 15px;"></i>
-                    <h5 style="color: var(--primary-brown);">Email Us</h5>
-                    <p>For general inquiries</p>
-                    <h5 style="color: var(--secondary-red);">panachedental@gmail.com</h5>
+                    <i class="fas fa-envelope" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #00C2C7;">Email Us</h5>
+                    <p style="color: #AFC3C9;">For general inquiries</p>
+                    <h5 style="color: #FFFFFF;">panachedental@gmail.com</h5>
                 </div>
             </div>
             <div class="col-md-4 text-center mb-4">
                 <div class="contact-info">
-                    <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--secondary-red); margin-bottom: 15px;"></i>
-                    <h5 style="color: var(--primary-brown);">Working Hours</h5>
-                    <p>Monday - Saturday</p>
-                    <h5 style="color: var(--light-brown);">12:00 PM - 8:00 PM</h5>
-                    <p class="mb-0">Sunday: Closed</p>
+                    <i class="fas fa-clock" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #00C2C7;">Working Hours</h5>
+                    <p style="color: #AFC3C9;">Monday - Saturday</p>
+                    <h5 style="color: #FFFFFF;">12:00 PM - 8:00 PM</h5>
+                    <p class="mb-0" style="color: #7A8E94;">Sunday: Closed</p>
                 </div>
             </div>
         </div>
@@ -209,16 +271,16 @@
 </section>
 
 <!-- Important Information -->
-<section class="py-5">
-    <div class="container">
+<section class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
         <div class="contact-info">
-            <h4 class="mb-4" style="color: var(--primary-red);">
-                <i class="fas fa-info-circle"></i> Important Information
+            <h4 class="mb-4" style="color: #00C2C7;">
+                <i class="fas fa-info-circle me-2"></i> Important Information
             </h4>
             <div class="row">
                 <div class="col-md-6">
-                    <h5 style="color: var(--primary-brown);">Before Your Visit:</h5>
-                    <ul>
+                    <h5 style="color: #00C2C7;">Before Your Visit:</h5>
+                    <ul style="color: #AFC3C9;">
                         <li>Please bring your previous dental records if available</li>
                         <li>Carry your ID proof for registration</li>
                         <li>Arrive 10 minutes before your scheduled appointment</li>
@@ -226,8 +288,8 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <h5 style="color: var(--primary-brown);">Payment Options:</h5>
-                    <ul>
+                    <h5 style="color: #00C2C7;">Payment Options:</h5>
+                    <ul style="color: #AFC3C9;">
                         <li>Cash payments accepted</li>
                         <li>Credit/Debit card facility available</li>
                         <li>Insurance documentation assistance provided</li>

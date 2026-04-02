@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Invisalign - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
+{% block title %}Invisalign Treatment - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
 
 {% block content %}
 <style>
@@ -19,45 +19,173 @@
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
     opacity: 0.3;
 }
-.section-padding { padding: 60px 0; }
-
-.info-box {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    height: 100%;
-}
-.info-box-accent {
-    border-left: 4px solid var(--accent-sage);
-}
-
 .feature-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+   
+    border-radius: 20px;
+    padding: 30px;
     height: 100%;
-    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
 }
 .feature-icon {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 15px;
+    margin-bottom: 20px;
+    color: var(--warm-white);
     font-size: 1.5rem;
 }
-
+.procedure-step {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-sage);
+    transition: all 0.3s ease;
+}
+.procedure-step:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: rgba(18, 56, 71, 0.6);
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.comparison-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+}
+.comparison-table thead {
+    background: var(--primary-navy);
+    color: white;
+}
+.comparison-table th {
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+.comparison-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+.check-green {
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.empty-dash {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+.step-card {
+   
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+.step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-sage), var(--primary-navy));
+    border-radius: 20px 20px 0 0;
+}
+.step-card:hover {
+    transform: translateY(-10px);
+}
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-sage);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
 .bullet-list {
     list-style: none;
     padding: 0;
@@ -84,144 +212,86 @@
     font-size: 0.8rem;
     flex-shrink: 0;
 }
-
-.step-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    height: 100%;
+.recovery-timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
     position: relative;
+    padding: 20px 0;
 }
-.step-card::before {
+.recovery-timeline::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 25px;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-sage), #2ecc71);
-    border-radius: 20px 20px 0 0;
+    height: 2px;
+    background: var(--accent-sage);
+    z-index: 1;
 }
-.step-card:hover {
-    transform: translateY(-10px);
+.timeline-point {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    
+    padding: 0 10px;
 }
-.step-number {
+.timeline-dot {
     width: 50px;
     height: 50px;
     background: var(--accent-sage);
-    color: white;
     border-radius: 50%;
+    margin: 0 auto 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    color: var(--warm-white);
     font-weight: bold;
-    margin: 0 auto 20px;
 }
-
-.comparison-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 100%;
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
 }
-.comparison-table thead {
-    background: var(--primary-navy);
-    color: white;
+.hero-image {
+    animation: fadeInRight 0.8s ease-out;
+    position: relative;
 }
-.comparison-table th {
-    padding: 12px 8px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-.comparison-table th:first-child {
-    
-    font-size: 0.85rem;
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
-.comparison-table td {
-    padding: 12px 8px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    font-size: 0.85rem;
+@media (max-width: 768px) {
+    .hero-gradient { padding: 3rem 0; }
+    .display-2 { font-size: 2.5rem; }
+    .recovery-timeline { flex-direction: column; align-items: center; gap: 30px; }
+    .recovery-timeline::before { width: 3px; height: 100%; top: 0; left: 50%; right: auto; transform: translateX(-50%); }
+    .timeline-point { padding: 0; }
+    .cta-box { padding: 40px 20px; }
 }
-.comparison-table tr:last-child td {
-    border-bottom: none;
-}
-.check-green {
-    color: #27ae60;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-.empty-dash {
-    color: #ccc;
-    font-size: 1.1rem;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-.faq-question {
-    background: var(--primary-navy);
-    color: white;
-    padding: 18px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    width: 100%;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1rem;
-}
-.faq-question:hover {
-    background: var(--secondary-navy);
-}
-.faq-answer {
-    padding: 18px 20px;
-    background: #f8f9fa;
-}
-
-.cta-section {
-    background: linear-gradient(135deg, var(--primary-navy), var(--secondary-navy));
-    border-radius: 20px;
-    padding: 50px;
-    text-align: center;
-    color: white;
-}
-.cta-section h2 { color: white; }
-
-.bg-sage-light { background: #f0f7f4; }
-.text-sage { color: var(--accent-sage); }
 </style>
 
-<!-- Hero Section (Unchanged) -->
+<!-- Hero Section -->
 <div class="hero-gradient py-5">
     <div class="container">
-        <div class="row align-items-center min-vh-75">
+        <div class="row align-items-center min-vh-100">
             <div class="col-lg-6">
                 <div class="hero-content">
                     <div class="badge bg-light text-dark mb-3">PREMIUM ALIGNER TREATMENT</div>
                     <h1 class="display-2 fw-bold mb-4 text-white">Invisalign</h1>
-                    <h2 class="h3 mb-4 text-white-50">Your Smile's Glow Up – The Invisalign Way</h2>
+                    <h2 class="h3 mb-4 text-white-50">Your Smile's Glow Up – The Clear Way</h2>
                     <p class="lead mb-4 text-white-50">Discover the clear way to a confident smile with Invisalign. No wires. No brackets. No awkward metal smiles. Just clear, removable aligners designed to fit your life.</p>
                     <div class="d-flex gap-3">
                         <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
                         <a href="#process" class="btn btn-outline-light btn-lg">Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="hero-image py-2">
+                <div class="hero-image">
                     <img src="{{ url_for('static', filename='images/invisalign_hero_section.png') }}" alt="Invisalign" class="img-fluid rounded-4 shadow-lg">
                 </div>
             </div>
@@ -229,340 +299,455 @@
     </div>
 </div>
 
-<!-- Welcome Section -->
-<section class="section-padding">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
-                <h2 class="display-5 fw-bold">Welcome To The World Of ALIGNERS</h2>
-                <p class="text-muted">Modern, nearly invisible orthodontic treatment</p>
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Treatment Duration</div>
+                <div class="stat-number">12-18</div>
+                <div class="small text-muted">Months</div>
             </div>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="info-box info-box-accent">
-                    <p class="mb-3"><strong>Aligners</strong> are a modern, nearly invisible orthodontic treatment (transparent plastic trays) used to straighten teeth without the traditional look of metal braces.</p>
-                    <p class="mb-0">They consist of a series of custom-made, transparent plastic trays that fit snugly over your teeth, applying gentle, consistent pressure to move them into their ideal positions.</p>
-                </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Daily Wear</div>
+                <div class="stat-number">20-22</div>
+                <div class="small text-muted">Hours</div>
             </div>
-            <div class="col-lg-4">
-                <div class="info-box" style="border-top: 4px solid var(--accent-sage);">
-                    <h5 class="text-sage mb-2">Premium Aligner Treatment</h5>
-                    <h4 class="mb-2">INVISALIGN</h4>
-                    <h6 class="text-muted mb-3">INVIS-ALIGN = Invisible + Aligners</h6>
-                    <hr>
-                    <p class="mb-0 small"><strong>Invisalign</strong> is an American-based Company owned and operated by <strong>Align Technology, Inc.</strong>, a multinational medical device company.</p>
-                </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Aligner Change</div>
+                <div class="stat-number">1-2</div>
+                <div class="small text-muted">Weeks</div>
             </div>
-            <div class="col-lg-4">
-                <img src="{{ url_for('static', filename='images/invisalign_img_1.png') }}" alt="Aligners" class="img-fluid rounded-4" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Virtually Invisible</div>
+                <div class="stat-number">100%</div>
+                <div class="small text-muted">Discreet</div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<!-- Welcome Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Welcome To The World Of ALIGNERS</h2>
+                <p class="lead">Modern, nearly invisible orthodontic treatment</p>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="procedure-step">
+                <h5><i class="fas fa-info-circle me-2"></i>What Are Aligners?</h5>
+                <p class=" mb-0">Aligners are a modern, nearly invisible orthodontic treatment using transparent plastic trays to straighten teeth without the traditional look of metal braces.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="procedure-step">
+                <h5><i class="fas fa-star me-2"></i>Premium Treatment</h5>
+                <p class=" mb-0"><strong>Invisalign</strong> by Align Technology, Inc. is an American-based company providing custom-made, transparent plastic trays that fit snugly over your teeth.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="procedure-step">
+                <h5><i class="fas fa-magic me-2"></i>How It Works</h5>
+                <p class=" mb-0">Gentle, consistent pressure is applied to move teeth into their ideal positions through a series of custom-made aligners changed every 1-2 weeks.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Benefits Section -->
-<section class="section-padding bg-sage-light">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
                 <h2 class="display-5 fw-bold">What Makes Invisalign Special?</h2>
             </div>
-        </div>
-        <div class="row g-3">
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">👁️</div>
-                    <h5>Nearly Invisible</h5>
-                    <p class="text-muted small mb-0">Most people won't even notice you're wearing them.</p>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Nearly Invisible</h4>
+                        <p class="">Most people won't even notice you're wearing them.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h5>Comfortable Fit</h5>
-                    <p class="text-muted small mb-0">Smooth plastic aligners — no sharp wires or tightening pain.</p>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Comfortable Fit</h4>
+                        <p class="">Smooth plastic aligners — no sharp wires or tightening pain.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">🔓</div>
-                    <h5>Removable Freedom</h5>
-                    <p class="text-muted small mb-0">Eat what you love. Brush with ease. Live normally.</p>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-unlock"></i>
+                        </div>
+                        <h4>Removable Freedom</h4>
+                        <p class="">Eat what you love. Brush with ease. Live normally.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h5>Predictable Results</h5>
-                    <p class="text-muted small mb-0">See your future smile before you even start.</p>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Predictable Results</h4>
+                        <p class="">See your future smile before you even start treatment.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">🧬</div>
-                    <h5>SmartTrack Material</h5>
-                    <p class="text-muted small mb-0">Made from a patented thermoplastic material.</p>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h4>SmartTrack Material</h4>
+                        <p class="">Made from a patented thermoplastic material for optimal results.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h5>Custom-Fitted</h5>
-                    <p class="text-muted small mb-0">Virtually invisible and custom-fitted to your teeth.</p>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h4>Custom-Fitted</h4>
+                        <p class="">Virtually invisible and custom-fitted to your teeth.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- Your Smile Upgraded -->
-<section class="section-padding">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
                 <h2 class="display-5 fw-bold">Your Smile. Upgraded.</h2>
-                <p class="text-muted">With Invisalign, your transformation is:</p>
+                <p class="lead ">With Invisalign, your transformation is:</p>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <ul class="bullet-list">
+                <li><span class="bullet"><i class="fas fa-check"></i></span> <div><strong>Subtle</strong> — Gradual, discreet teeth movement</div></li>
+                <li><span class="bullet"><i class="fas fa-check"></i></span> <div><strong>Smart</strong> — Advanced digital planning technology</div></li>
+                <li><span class="bullet"><i class="fas fa-check"></i></span> <div><strong>Scientifically designed</strong> — Proven treatment methodology</div></li>
+                <li><span class="bullet"><i class="fas fa-check"></i></span> <div><strong>Made just for YOU</strong> — Customized treatment plan</div></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Process Section -->
+<div id="process" class="container py-5 ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">The Invisalign Process</h2>
+                <p class="lead ">Your journey to a perfect smile in 3 simple steps</p>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Digital Scan</h4>
+                <p class="">Advanced 3D imaging creates your personalized treatment plan using iTero Lumina scanner.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Custom Aligners</h4>
+                <p class="">Receive a series of clear trays specially designed to gently shift your teeth step by step.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Smile Transformation</h4>
+                <p class="">Watch your smile transform beautifully. New smile. New confidence. Same you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Technology Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advanced Technology</h2>
+                <p class="lead ">See Your Future Smile Before Treatment Begins</p>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+            <img src="{{ url_for('static', filename='images/invisalign_img3.png') }}" alt="Technology" class="img-fluid rounded-3 shadow">
+        </div>
+        <div class="col-lg-7">
+            <div class="procedure-step">
+                <h5><i class="fas fa-laptop me-2"></i>Digital Scanning with iTero Lumina</h5>
+                <p class=" mb-3">Even before we start, we perform a detailed digital scan of your teeth using the advanced iTero Lumina scanner and the latest smile-design software.</p>
+                <p class=" mb-2"><strong>This allows us to:</strong></p>
                 <ul class="bullet-list">
-                    <li><span class="bullet">✓</span> <div><strong>Subtle</strong> — Gradual, discreet teeth movement</div></li>
-                    <li><span class="bullet">✓</span> <div><strong>Smart</strong> — Advanced digital planning technology</div></li>
-                    <li><span class="bullet">✓</span> <div><strong>Scientifically designed</strong> — Proven treatment methodology</div></li>
-                    <li><span class="bullet">✓</span> <div><strong>Made just for YOU</strong> — Customized treatment plan</div></li>
+                    <li><span class="bullet"><i class="fas fa-check"></i></span> Show you a simulation of your new smile</li>
+                    <li><span class="bullet"><i class="fas fa-check"></i></span> Plan every step of your tooth movement</li>
+                    <li><span class="bullet"><i class="fas fa-check"></i></span> Give you a clear picture of your final results</li>
                 </ul>
             </div>
         </div>
     </div>
-</section>
-
-<!-- Process Section -->
-<section id="process" class="section-padding bg-sage-light">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
-                <h2 class="display-5 fw-bold">The Invisalign Process</h2>
-                <p class="text-muted">Your journey to a perfect smile in 3 simple steps</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h5>Digital Scan</h5>
-                    <p class="text-muted small mb-0">Advanced 3D imaging creates your personalized treatment plan using iTero Lumina scanner.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h5>Custom Aligners</h5>
-                    <p class="text-muted small mb-0">Receive a series of clear trays specially designed to gently shift your teeth step by step.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h5>Smile Transformation</h5>
-                    <p class="text-muted small mb-0">Watch your smile transform beautifully. New smile. New confidence. Same you.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-lg-12 text-center">
-                <img src="{{ url_for('static', filename='images/invisalign_img_2.png') }}" alt="Process" class="img-fluid rounded-4" style="max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 <!-- Comparison Section -->
-<section class="section-padding" style="overflow-x: hidden;">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
+<div class="container py-5 ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
                 <h2 class="display-5 fw-bold">Invisalign vs Traditional Braces</h2>
-                <p class="text-muted">Compared to traditional wires and brackets, the benefits of Invisalign treatment are clear.</p>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <table class="table comparison-table mb-0">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Invisalign</th>
-                            <th>Braces</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Personalised plans with doctor-directed care</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="check-green">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Less painful and more comfortable</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Treatment completed on average 5 months faster</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Fewer visits to the dentist</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>No emergency visits due to broken wires</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Removable for eating, brushing, flossing</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Easier to maintain oral hygiene</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Virtually invisible</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Track progress with My Invisalign™ app</td>
-                            <td><span class="check-green">✓</span></td>
-                            <td><span class="empty-dash">—</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p class="lead ">Compared to traditional wires and brackets, the benefits of Invisalign treatment are clear.</p>
             </div>
         </div>
     </div>
-</section>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Invisalign</th>
+                        <th>Braces</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Personalised plans with doctor-directed care</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td>Less painful and more comfortable</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Treatment completed on average 5 months faster</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fewer visits to the dentist</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>No emergency visits due to broken wires</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Removable for eating, brushing, flossing</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Easier to maintain oral hygiene</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Virtually invisible</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                    <tr>
+                        <td>Track progress with My Invisalign app</td>
+                        <td><span class="check-green"><i class="fas fa-check-circle"></i></span></td>
+                        <td><span class="empty-dash">—</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-<!-- Technology Section -->
-<section class="section-padding bg-sage-light">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-12">
-                <h2 class="display-5 fw-bold">Advanced Technology</h2>
-                <p class="text-muted">See Your Future Smile Before Treatment Begins</p>
-            </div>
-        </div>
-        <div class="row g-4 align-items-center">
-            <div class="col-lg-5">
-                <img src="{{ url_for('static', filename='images/invisalign_img3.png') }}" alt="Technology" class="img-fluid rounded-4" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            </div>
-            <div class="col-lg-7">
-                <div class="info-box">
-                    <h5 class="text-sage">Digital Scanning with iTero Lumina</h5>
-                    <p class="mb-3">Even before we start, we perform a detailed digital scan of your teeth using the advanced iTero Lumina scanner and the latest smile-design software.</p>
-                    <p class="mb-3"><strong>This allows us to:</strong></p>
-                    <ul class="bullet-list">
-                        <li><span class="bullet">✓</span> <div>Show you a simulation of your new smile</div></li>
-                        <li><span class="bullet">✓</span> <div>Plan every step of your tooth movement</div></li>
-                        <li><span class="bullet">✓</span> <div>Give you a clear picture of your final results</div></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row g-4 mt-3">
-            <div class="col-lg-6">
-                <div class="info-box">
-                    <h5 class="text-sage">First Approval… Then Treatment Begins</h5>
-                    <p class="mb-2">You get to see your smile transformation in advance and approve the plan with confidence.</p>
-                    <p class="mb-0">Each aligner is designed specifically for your smile and works step-by-step to gently shift your teeth into alignment.</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="{{ url_for('static', filename='images/invisalign_img_4.png') }}" alt="Results" class="img-fluid rounded-4" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+<!-- Ideal Candidates -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Are You an Ideal Candidate?</h2>
             </div>
         </div>
     </div>
-</section>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="procedure-step">
+                <h5><i class="fas fa-check-circle text-success me-2"></i>Invisalign Can Help With:</h5>
+                <ul class=" mb-0 ps-3">
+                    <li>Crowded teeth</li>
+                    <li>Gaps between teeth</li>
+                    <li>Overbite (upper teeth over lower)</li>
+                    <li>Underbite (lower teeth over upper)</li>
+                    <li>Crossbite</li>
+                    <li>Open bite</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="procedure-step">
+                <h5><i class="fas fa-info-circle text-info me-2"></i>Good Candidates Should:</h5>
+                <ul class=" mb-0 ps-3">
+                    <li>Be committed to wearing aligners 20-22 hours/day</li>
+                    <li>Have all permanent teeth erupted</li>
+                    <li>Have good oral health</li>
+                    <li>Be willing to change aligners on schedule</li>
+                    <li>Attend regular check-up appointments</li>
+                    <li>Have realistic expectations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recovery Timeline -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Treatment Timeline</h2>
+            </div>
+        </div>
+    </div>
+    <div class="recovery-timeline">
+        <div class="timeline-point">
+            <div class="timeline-dot"><i class="fas fa-1"></i></div>
+            <h6>Week 1</h6>
+            <p class="small ">Initial consultation & scan</p>
+        </div>
+        <div class="timeline-point">
+            <div class="timeline-dot"><i class="fas fa-2"></i></div>
+            <h6>Week 2</h6>
+            <p class="small ">Receive first aligners</p>
+        </div>
+        <div class="timeline-point">
+            <div class="timeline-dot"><i class="fas fa-sync"></i></div>
+            <h6>Every 1-2 Weeks</h6>
+            <p class="small ">Change to new aligner set</p>
+        </div>
+        <div class="timeline-point">
+            <div class="timeline-dot"><i class="fas fa-check"></i></div>
+            <h6>12-18 Months</h6>
+            <p class="small ">Complete transformation</p>
+        </div>
+    </div>
+</div>
 
 <!-- FAQ Section -->
-<section class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center mb-5">
-                    <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                                Where are Invisalign aligners manufactured?
-                            </button>
-                            <div class="faq-answer">
-                                All Invisalign products are designed, manufactured and marketed by Align Technology, whose global headquarters are in California, USA, and whose manufacturing operation unit is in Juarez, Mexico.
-                            </div>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Where are Invisalign aligners manufactured?
+                        </button>
+                        <div class="faq-answer">
+                            All Invisalign products are designed, manufactured and marketed by Align Technology, whose global headquarters are in California, USA, and whose manufacturing operation unit is in Juarez, Mexico.
                         </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                                How do I seek Invisalign treatment?
-                            </button>
-                            <div class="faq-answer d-none">
-                                There are many Invisalign-trained doctors available and listed on this website.
-                            </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How do I seek Invisalign treatment?
+                        </button>
+                        <div class="faq-answer d-none">
+                            There are many Invisalign-trained doctors available and listed on this website.
                         </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                                How long will treatment take?
-                            </button>
-                            <div class="faq-answer d-none">
-                                The length of your treatment will depend on your specific needs and will be determined by your Invisalign-trained doctor. The average treatment for an adult is about 12 to 18 months, and for teenagers, treatment length may vary.
-                            </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long will treatment take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            The length of your treatment will depend on your specific needs and will be determined by your Invisalign-trained doctor. The average treatment for an adult is about 12 to 18 months, and for teenagers, treatment length may vary.
                         </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                                Do I need to wear my aligners all day?
-                            </button>
-                            <div class="faq-answer d-none">
-                                You should wear each aligner for 20 to 22 hours a day during your treatment for best results and a timely outcome.
-                            </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Do I need to wear my aligners all day?
+                        </button>
+                        <div class="faq-answer d-none">
+                            You should wear each aligner for 20 to 22 hours a day during your treatment for best results and a timely outcome.
                         </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                                How often do I need to see my doctor during treatment?
-                            </button>
-                            <div class="faq-answer d-none">
-                                You will visit your Invisalign-trained doctor for a check-up approximately every 6–8 weeks to see how your treatment is progressing.
-                            </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How often do I need to see my doctor during treatment?
+                        </button>
+                        <div class="faq-answer d-none">
+                            You will visit your Invisalign-trained doctor for a check-up approximately every 6–8 weeks to see how your treatment is progressing.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can I eat and drink with my aligners in?
+                        </button>
+                        <div class="faq-answer d-none">
+                            You should remove your aligners when eating or drinking anything other than water. This prevents staining and damage to the aligners.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will wearing aligners affect my speech?
+                        </button>
+                        <div class="faq-answer d-none">
+                            You may have a slight lisp initially when you start wearing your aligners, but this typically resolves within a few days as you get used to them.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- CTA Section -->
-<section id="consultation" class="section-padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="cta-section">
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
                     <h2 class="display-5 fw-bold mb-4">Book Your Free Consultation Now</h2>
-                    <p class="lead mb-4 opacity-75">Start your journey to a confident smile with Invisalign at Panache Dental.</p>
-                    <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg px-5">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg px-5">Call Us Now</a>
+                    <p class="lead mb-4">Start your journey to a confident smile with Invisalign at Panache Dental.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

@@ -4,20 +4,23 @@
 
 {% block content %}
 <style>
-:root {
-    --primary-navy: #1A3B5D;
-    --secondary-navy: #2C4F7C;
-    --primary-red: #8B0000;
-    --warm-white: #FFFFFF;
-    --light-gray: #F5F7F9;
-    --border-light: #E1E8ED;
-    --text-charcoal: #333333;
-    --text-muted: #666666;
-    --highlight-gold: #B8860B;
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
 }
-
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -28,47 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
-
 .feature-card {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -82,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 3px solid rgba(18, 56, 71, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 194, 199, 0.3);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.15), rgba(18, 56, 71, 0.8));
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -106,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.25), rgba(18, 56, 71, 0.9));
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.5);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -142,10 +155,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
-
 .asymmetry-types {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -153,25 +165,24 @@
     margin: 30px 0;
 }
 .asymmetry-type {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
 }
 .asymmetry-type:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
-
-/* Before/After Comparison */
 .comparison-slider {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     margin: 40px 0;
 }
 .comparison-container {
@@ -212,10 +223,10 @@
     left: 50%;
     width: 4px;
     height: 100%;
-    background: white;
+    background: #00C2C7;
     cursor: ew-resize;
     z-index: 3;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 194, 199, 0.5);
 }
 .slider-handle::before {
     content: '⟷';
@@ -223,7 +234,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #FFFFFF;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -231,8 +242,8 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: var(--primary-navy);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: #00C2C7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .slider-labels {
     position: absolute;
@@ -245,28 +256,30 @@
     z-index: 4;
 }
 .slider-label {
-    background: rgba(255,255,255,0.9);
+    background: rgba(18, 56, 71, 0.8);
+    backdrop-filter: blur(10px);
     padding: 8px 16px;
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px);
+    color: #FFFFFF;
+    border: 1px solid rgba(0, 194, 199, 0.3);
 }
-
 .testimonial-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     height: 100%;
 }
 .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 .testimonial-stars {
-    color: #ffc107;
+    color: #FFD700;
     margin-bottom: 15px;
 }
 .testimonial-author {
@@ -278,31 +291,31 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: var(--accent-sage);
+    background: linear-gradient(135deg, #00C2C7, #00E0E6);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #FFFFFF;
     font-weight: bold;
     margin-right: 15px;
 }
-
 .pricing-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
     position: relative;
 }
 .pricing-card.featured {
     transform: scale(1.05);
-    border: 2px solid var(--accent-sage);
+    border: 2px solid #00C2C7;
 }
 .pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 .pricing-card.featured:hover {
     transform: translateY(-10px) scale(1.05);
@@ -310,7 +323,7 @@
 .price-tag {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin: 20px 0;
 }
 .price-currency {
@@ -319,9 +332,8 @@
 }
 .price-period {
     font-size: 1rem;
-    color: var(--accent-sage);
+    color: #00C2C7;
 }
-
 .recovery-timeline {
     display: flex;
     justify-content: space-between;
@@ -336,29 +348,28 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     z-index: 1;
 }
 .timeline-point {
     text-align: center;
     position: relative;
     z-index: 2;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.8);
     padding: 0 10px;
 }
 .timeline-dot {
     width: 50px;
     height: 50px;
-    background: var(--accent-sage);
+    background: linear-gradient(135deg, #00C2C7, #00E0E6);
     border-radius: 50%;
     margin: 0 auto 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--warm-white);
+    color: #FFFFFF;
     font-weight: bold;
 }
-
 .hero-content {
     animation: fadeInUp 0.8s ease-out;
 }
@@ -366,7 +377,6 @@
     animation: fadeInRight 0.8s ease-out;
     position: relative;
 }
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -377,7 +387,6 @@
         transform: translateY(0);
     }
 }
-
 @keyframes fadeInRight {
     from {
         opacity: 0;
@@ -388,7 +397,6 @@
         transform: translateX(0);
     }
 }
-
 @media (max-width: 768px) {
     .hero-gradient {
         padding: 3rem 0;
@@ -425,7 +433,6 @@
         padding: 40px 20px;
     }
 }
-
 @media (max-width: 576px) {
     .display-5 {
         font-size: 2rem;
@@ -444,7 +451,6 @@
         font-size: 18px;
     }
 }
-
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -454,40 +460,36 @@
     opacity: 1;
     transform: translateY(0);
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
                         <i class="fas fa-balance-scale me-2"></i>FACIAL BALANCING
-                    </div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Facial Asymmetry Correction</h1>
-                    <h2 class="h3 mb-4 text-white-50">Restore Natural Facial Harmony</h2>
-                    <p class="lead mb-4 text-white-50">Achieve perfect facial balance through advanced surgical techniques customized for your unique features. Regain confidence with natural-looking, harmonious results.</p>
-                    <div class="mt-4 p-3 rounded-3" style="background: rgba(255,255,255,0.1); border-left: 4px solid #c9a86c;">
-                        <p class="mb-0 text-white small"><strong>Dr. Sandeep Prakash</strong> is a specialist in facial asymmetry correction and reconstruction. His extensive experience in treating traumatic facial injuries enables him to restore facial balance and symmetry with exceptional precision and natural results.</p>
+                    </span>
+                    <h1 class="display-2 fw-bold mb-4" style="color: #FFFFFF;">Facial Asymmetry <span style="color: #00C2C7;">Correction</span></h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Restore Natural Facial Harmony</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Achieve perfect facial balance through advanced surgical techniques customized for your unique features. Regain confidence with natural-looking, harmonious results.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-left: 4px solid #00C2C7; border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <p class="mb-0" style="color: #AFC3C9; font-size: 0.9rem;"><strong style="color: #FFFFFF;">Dr. Sandeep Prakash</strong> is a specialist in facial asymmetry correction and reconstruction. His extensive experience in treating traumatic facial injuries enables him to restore facial balance and symmetry with exceptional precision and natural results.</p>
                     </div>
                     <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">
-                            <i class="fas fa-calendar-check me-2"></i>Book Consultation
-                        </a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-info-circle me-2"></i>Learn More
-                        </a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-images me-2"></i>Gallery
-                        </a>
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="hero-image position-relative">
-                    <img src="https://elosklinik.com/wp-content/uploads/2025/03/yuz-asimetrisi.jpg" alt="Facial Asymmetry Correction" class="img-fluid rounded-4 shadow-lg">
-                    
+                <div class="hero-image">
+                    <img src="https://elosklinik.com/wp-content/uploads/2025/03/yuz-asimetrisi.jpg" alt="Facial Asymmetry Correction" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -495,85 +497,94 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Procedure</div>
-                <div class="stat-number">2-4</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Procedure</div>
+                    <div class="stat-number">2-4</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia</div>
-                <div class="stat-number">General</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia</div>
+                    <div class="stat-number">General</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Weeks Recovery</div>
-                <div class="stat-number">2-4</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Weeks Recovery</div>
+                    <div class="stat-number">2-4</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate</div>
-                <div class="stat-number">95%</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate</div>
+                    <div class="stat-number">95%</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Science of Facial Balance</h2>
-                <p class="lead text-muted">Advanced techniques for achieving facial harmony and symmetry</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>SCIENCE OF FACIAL BALANCE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Advanced techniques for achieving <span style="color: #00C2C7;">facial harmony and symmetry</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Facial asymmetry</strong> refers to <strong>imbalanced proportions and alignment of facial features</strong>. When one side of the face appears different from the other, it can affect overall appearance and self-confidence. Our advanced surgical techniques address both <strong>bony structures</strong> and <strong>soft tissues</strong> to create a harmonious, natural look.</p>
-            <p>Using <strong>digital analysis</strong>, precise measurements, and surgical planning, we can correct asymmetries resulting from trauma, developmental issues, or natural aging. The goal is <strong>facial harmony</strong> that appears natural and balanced.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://www.direct-aesthetics.com/wp-content/uploads/2024/03/facial-balancing-with-fillers.jpg" alt="Facial Analysis" class="img-fluid rounded-3 shadow">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Facial asymmetry</strong> refers to <strong style="color: #00C2C7;">imbalanced proportions and alignment of facial features</strong>. When one side of the face appears different from the other, it can affect overall appearance and self-confidence. Our advanced surgical techniques address both <strong style="color: #00C2C7;">bony structures</strong> and <strong style="color: #00C2C7;">soft tissues</strong> to create a harmonious, natural look.</p>
+                <p style="color: #AFC3C9;">Using <strong style="color: #00C2C7;">digital analysis</strong>, precise measurements, and surgical planning, we can correct asymmetries resulting from trauma, developmental issues, or natural aging. The goal is <strong style="color: #00C2C7;">facial harmony</strong> that appears natural and balanced.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.direct-aesthetics.com/wp-content/uploads/2024/03/facial-balancing-with-fillers.jpg" alt="Facial Analysis" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Types of Asymmetry -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Common Types of Facial Asymmetry</h2>
-            </div>
-            <div class="asymmetry-types">
-                <div class="asymmetry-type">
-                    <h4><i class="fas fa-baby text-primary mb-3"></i></h4>
-                    <h4>Congenital Asymmetry</h4>
-                    <p>Present from birth, affecting natural facial development and creating noticeable imbalance between facial sides.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>TYPES OF ASYMMETRY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Common Types of <span style="color: #00C2C7;">Facial Asymmetry</span></h2>
                 </div>
-                <div class="asymmetry-type">
-                    <h4><i class="fas fa-car-crash text-primary mb-3"></i></h4>
-                    <h4>Traumatic Asymmetry</h4>
-                    <p>Resulting from accidents or injuries affecting facial structure, causing uneven appearance.</p>
-                </div>
-                <div class="asymmetry-type">
-                    <h4><i class="fas fa-brain text-primary mb-3"></i></h4>
-                    <h4>Developmental Issues</h4>
-                    <p>Growth abnormalities during development affecting facial proportions and symmetry.</p>
-                </div>
-                <div class="asymmetry-type">
-                    <h4><i class="fas fa-clock text-primary mb-3"></i></h4>
-                    <h4>Age-Related Changes</h4>
-                    <p>Natural aging causing gradual volume loss and facial asymmetry over time.</p>
+                <div class="asymmetry-types">
+                    <div class="asymmetry-type">
+                        <h4 style="color: #00C2C7;"><i class="fas fa-baby mb-3"></i></h4>
+                        <h4 style="color: #FFFFFF;">Congenital Asymmetry</h4>
+                        <p style="color: #AFC3C9; margin: 0;">Present from birth, affecting natural facial development and creating noticeable imbalance between facial sides.</p>
+                    </div>
+                    <div class="asymmetry-type">
+                        <h4 style="color: #00C2C7;"><i class="fas fa-car-crash mb-3"></i></h4>
+                        <h4 style="color: #FFFFFF;">Traumatic Asymmetry</h4>
+                        <p style="color: #AFC3C9; margin: 0;">Resulting from accidents or injuries affecting facial structure, causing uneven appearance.</p>
+                    </div>
+                    <div class="asymmetry-type">
+                        <h4 style="color: #00C2C7;"><i class="fas fa-brain mb-3"></i></h4>
+                        <h4 style="color: #FFFFFF;">Developmental Issues</h4>
+                        <p style="color: #AFC3C9; margin: 0;">Growth abnormalities during development affecting facial proportions and symmetry.</p>
+                    </div>
+                    <div class="asymmetry-type">
+                        <h4 style="color: #00C2C7;"><i class="fas fa-clock mb-3"></i></h4>
+                        <h4 style="color: #FFFFFF;">Age-Related Changes</h4>
+                        <p style="color: #AFC3C9; margin: 0;">Natural aging causing gradual volume loss and facial asymmetry over time.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -581,35 +592,40 @@
 </div>
 
 <!-- Treatment Techniques -->
-<div id="procedure" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Advanced Treatment Techniques</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-cut me-2"></i>Surgical Contouring</h5>
-                        <p class="text-muted mb-0">Precision repositioning of tissues and bone structures for optimal facial symmetry.</p>
-                    </div>
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-tools me-2"></i>TECHNIQUES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Our Advanced <span style="color: #00C2C7;">Treatment Techniques</span></h2>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-bone me-2"></i>Bone Grafting</h5>
-                        <p class="text-muted mb-0">Building lost volume with bone grafts for structural support and balance.</p>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-cut me-2"></i>Surgical Contouring</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Precision repositioning of tissues and bone structures for optimal facial symmetry.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-cubes me-2"></i>Facial Implants</h5>
-                        <p class="text-muted mb-0">Implants to restore vertical dimension and create harmonious contours.</p>
+                    <div class="col-lg-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-bone me-2"></i>Bone Grafting</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Building lost volume with bone grafts for structural support and balance.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-desktop me-2"></i>Digital Planning</h5>
-                        <p class="text-muted mb-0">3D imaging and computer modeling for predictable, precise results.</p>
+                    <div class="col-lg-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-cubes me-2"></i>Facial Implants</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Implants to restore vertical dimension and create harmonious contours.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-desktop me-2"></i>Digital Planning</h5>
+                            <p style="color: #AFC3C9; margin: 0;">3D imaging and computer modeling for predictable, precise results.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -618,129 +634,141 @@
 </div>
 
 <!-- Benefits Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Treatment</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4>Facial Harmony</h4>
-                        <p class="text-muted">Restores natural balance and symmetry for aesthetic facial appearance.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-thumbs-up me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of <span style="color: #00C2C7;">Treatment</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Facial Harmony</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Restores natural balance and symmetry for aesthetic facial appearance.</p>
                         </div>
-                        <h4>Enhanced Confidence</h4>
-                        <p class="text-muted">Boosted self-esteem and social confidence through improved appearance.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Enhanced Confidence</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Boosted self-esteem and social confidence through improved appearance.</p>
                         </div>
-                        <h4>Improved Function</h4>
-                        <p class="text-muted">Better bite alignment and speech clarity through corrected positioning.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Improved Function</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Better bite alignment and speech clarity through corrected positioning.</p>
                         </div>
-                        <h4>Long-Lasting Results</h4>
-                        <p class="text-muted">Durable and stable corrections with minimal maintenance needed.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Long-Lasting Results</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Durable and stable corrections with minimal maintenance needed.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <!-- Recovery Timeline -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Recovery Journey</h2>
-            </div>
-            <div class="recovery-timeline">
-                <div class="timeline-point">
-                    <div class="timeline-dot">1</div>
-                    <h6>Week 1-2</h6>
-                    <p class="small text-muted">Initial healing, swelling</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-clock me-2"></i>RECOVERY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Recovery <span style="color: #00C2C7;">Journey</span></h2>
                 </div>
-                <div class="timeline-point">
-                    <div class="timeline-dot">2</div>
-                    <h6>Week 2-4</h6>
-                    <p class="small text-muted">Swelling subsides</p>
-                </div>
-                <div class="timeline-point">
-                    <div class="timeline-dot">3</div>
-                    <h6>Month 1-3</h6>
-                    <p class="small text-muted">Visible improvement</p>
-                </div>
-                <div class="timeline-point">
-                    <div class="timeline-dot">4</div>
-                    <h6>Month 3-6</h6>
-                    <p class="small text-muted">Final results</p>
+                <div class="recovery-timeline">
+                    <div class="timeline-point">
+                        <div class="timeline-dot">1</div>
+                        <h6 style="color: #FFFFFF;">Week 1-2</h6>
+                        <p class="small" style="color: #AFC3C9;">Initial healing, swelling</p>
+                    </div>
+                    <div class="timeline-point">
+                        <div class="timeline-dot">2</div>
+                        <h6 style="color: #FFFFFF;">Week 2-4</h6>
+                        <p class="small" style="color: #AFC3C9;">Swelling subsides</p>
+                    </div>
+                    <div class="timeline-point">
+                        <div class="timeline-dot">3</div>
+                        <h6 style="color: #FFFFFF;">Month 1-3</h6>
+                        <p class="small" style="color: #AFC3C9;">Visible improvement</p>
+                    </div>
+                    <div class="timeline-point">
+                        <div class="timeline-dot">4</div>
+                        <h6 style="color: #FFFFFF;">Month 3-6</h6>
+                        <p class="small" style="color: #AFC3C9;">Final results</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Is facial asymmetry treatment painful?
-                        </button>
-                        <div class="faq-answer">
-                            Modern techniques and anesthesia make procedures generally comfortable. Some post-operative discomfort is normal and easily managed with prescribed medication.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked <span style="color: #00C2C7;">Questions</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Is facial asymmetry treatment painful?
+                            </button>
+                            <div class="faq-answer">
+                                Modern techniques and anesthesia make procedures generally comfortable. Some post-operative discomfort is normal and easily managed with prescribed medication.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            How long is the recovery process?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Initial recovery takes 1-2 weeks for basic healing. Full recovery with stable results typically achieved within 3-6 months depending on complexity.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long is the recovery process?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Initial recovery takes 1-2 weeks for basic healing. Full recovery with stable results typically achieved within 3-6 months depending on complexity.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Will results look natural?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Advanced techniques ensure natural-looking results that blend seamlessly with your features. No one will know you've had work done unless you tell them.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will results look natural?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Advanced techniques ensure natural-looking results that blend seamlessly with your features. No one will know you've had work done unless you tell them.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            Am I a good candidate?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Ideal candidates are in good health, have realistic expectations, and have noticeable facial asymmetry affecting their appearance or confidence.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Am I a good candidate?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Ideal candidates are in good health, have realistic expectations, and have noticeable facial asymmetry affecting their appearance or confidence.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -750,16 +778,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready for Facial Harmony?</h2>
-                    <p class="lead mb-4">Transform your appearance and boost confidence with our expert facial asymmetry correction. Schedule your personalized consultation today.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready for Facial <span style="color: #00C2C7;">Harmony?</span></h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Transform your appearance and boost confidence with our expert facial asymmetry correction. Schedule your personalized consultation today.</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -768,7 +801,6 @@
 </div>
 
 <script>
-// Interactive Before/After Slider
 document.addEventListener('DOMContentLoaded', function() {
     const comparisonSlider = document.querySelector('.comparison-slider');
     if (comparisonSlider) {
@@ -794,7 +826,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Touch support
         sliderHandle.addEventListener('touchstart', () => isSliding = true);
         document.addEventListener('touchend', () => isSliding = false);
         document.addEventListener('touchmove', (e) => {
@@ -803,24 +834,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Initialize slider position
         updateSliderPosition(container.getBoundingClientRect().left + container.offsetWidth / 2);
     }
 
-    // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
             const answer = this.nextElementSibling;
             const isActive = this.classList.contains('active');
             
-            // Close all other FAQs
             faqQuestions.forEach(q => {
                 q.classList.remove('active');
                 q.nextElementSibling.classList.add('d-none');
             });
             
-            // Toggle current FAQ
             if (!isActive) {
                 this.classList.add('active');
                 answer.classList.remove('d-none');
@@ -828,7 +855,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -842,7 +868,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -856,7 +881,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
     document.addEventListener('DOMContentLoaded', () => {
         const animatedElements = document.querySelectorAll('.feature-card, .stat-box, .procedure-step, .timeline-point, .asymmetry-type, .pricing-card, .testimonial-card');
         
@@ -865,7 +889,6 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(el);
         });
 
-        // Add parallax effect to hero section
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroGradient = document.querySelector('.hero-gradient');

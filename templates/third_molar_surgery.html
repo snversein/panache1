@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 3px solid rgba(18, 56, 71, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 194, 199, 0.3);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.15), rgba(18, 56, 71, 0.8));
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.25), rgba(18, 56, 71, 0.9));
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.5);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,43 +155,53 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
-
 .feature-icon-small {
     width: 40px;
     height: 40px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #00C2C7;
     flex-shrink: 0;
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">ORAL SURGERY</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Third Molar Surgery</h1>
-                    <h2 class="h3 mb-4 text-white-50">Wisdom Tooth Extraction</h2>
-                    <p class="lead mb-4 text-white-50">Dr Sandeep Prakash has an expertise in removal of impacted or problematic wisdom teeth with advanced and minimally invansive techniques which aids in faster recovery.</p>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bolt me-2"></i>ORAL SURGERY
+                    </span>
+                    <h1 class="display-2 fw-bold mb-4" style="color: #FFFFFF;">Third Molar <span style="color: #00C2C7;">Surgery</span></h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Wisdom Tooth Extraction</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Dr Sandeep Prakash has an expertise in removal of impacted or problematic wisdom teeth with advanced and minimally invasive techniques which aids in faster recovery.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <h5 style="color: #00C2C7; margin-bottom: 10px;"><i class="fas fa-user-md me-2"></i>Dr. Sandeep Prakash</h5>
+                        <p style="color: #7A8E94; margin-bottom: 8px; font-size: 0.9rem;">Oral & Maxillo-Facial Surgeon</p>
+                        <p style="color: #AFC3C9; margin-bottom: 0; font-size: 0.9rem;">Specialized in painless wisdom tooth extraction using minimally invasive techniques for faster healing and minimal discomfort.</p>
+                    </div>
                     <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2021/07/0721-sunstar-ebrief-01.jpg" alt="Wisdom Tooth Surgery" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://dimensionsofdentalhygiene.com/wp-content/uploads/2021/07/0721-sunstar-ebrief-01.jpg" alt="Wisdom Tooth Surgery" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -173,81 +209,91 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Minutes Duration</div>
-                <div class="stat-number">30-90</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Minutes Duration</div>
+                    <div class="stat-number">30-90</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">Local</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Days Initial Recovery</div>
+                    <div class="stat-number">3-7</div>
+                </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">Local</div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Days Initial Recovery</div>
-                <div class="stat-number">3-7</div>
-            </div>
-        </div>
-
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Professional Wisdom Tooth Removal</h2>
-                <p class="lead text-muted">Advanced Extraction for Optimal Oral Health</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>PROFESSIONAL WISDOM TOOTH REMOVAL
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Advanced Extraction for <span style="color: #00C2C7;">Optimal Oral Health</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Third molars</strong>, commonly known as wisdom teeth, are the last teeth to develop, typically emerging between ages 17-25. Due to limited space in modern jaws, these teeth often become <strong>impacted</strong> or cause various dental problems.</p>
-            <p>Our surgical expert Dr. Sandeep Prakash specializes in <strong>painless wisdom tooth extraction</strong> using minimally invasive techniques that preserve surrounding bone and tissue, ensuring faster healing and minimal post-operative discomfort.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://chambleedental.com/wp-content/uploads/wisdom-teeth20176s.jpg" alt="Wisdom Tooth X-Ray" class="img-fluid rounded-3 shadow">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Third molars</strong>, commonly known as wisdom teeth, are the last teeth to develop, typically emerging between ages 17-25. Due to limited space in modern jaws, these teeth often become <strong style="color: #00C2C7;">impacted</strong> or cause various dental problems.</p>
+                <p style="color: #AFC3C9;">Our surgical expert Dr. Sandeep Prakash specializes in <strong style="color: #00C2C7;">painless wisdom tooth extraction</strong> using minimally invasive techniques that preserve surrounding bone and tissue, ensuring faster healing and minimal post-operative discomfort.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://chambleedental.com/wp-content/uploads/wisdom-teeth20176s.jpg" alt="Wisdom Tooth X-Ray" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
         </div>
     </div>
 </div>
 
 <!-- When Surgery is Needed -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">When is Third Molar Surgery Needed?</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-tooth me-2"></i>Impacted Teeth</h5>
-                        <p class="text-muted mb-0">Teeth that don't have enough room to emerge properly or grow at abnormal angles, trapped in jawbone or gums.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-circle me-2"></i>WHEN NEEDED
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">When is Third Molar <span style="color: #00C2C7;">Surgery Needed?</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle me-2"></i>Infection Risk</h5>
-                        <p class="text-muted mb-0">Partially erupted teeth prone to pericoronitis, decay, and bacterial infections due to difficult cleaning access.</p>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-tooth me-2"></i>Impacted Teeth</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Teeth that don't have enough room to emerge properly or grow at abnormal angles, trapped in jawbone or gums.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-compress me-2"></i>Crowding Issues</h5>
-                        <p class="text-muted mb-0">Wisdom teeth pushing adjacent teeth out of alignment, causing orthodontic problems and bite issues.</p>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle me-2"></i>Infection Risk</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Partially erupted teeth prone to pericoronitis, decay, and bacterial infections due to difficult cleaning access.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-moon me-2"></i>Cyst Formation</h5>
-                        <p class="text-muted mb-0">If impacted 3rd molars are not removed surgically there are chances of  cyst or tumor formation around the 3rd molar.</p>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-compress me-2"></i>Crowding Issues</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Wisdom teeth pushing adjacent teeth out of alignment, causing orthodontic problems and bite issues.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-moon me-2"></i>Cyst Formation</h5>
+                            <p style="color: #AFC3C9; margin: 0;">If impacted 3rd molars are not removed surgically there are chances of cyst or tumor formation around the 3rd molar.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,40 +302,38 @@
 </div>
 
 <!-- Surgical Approach -->
-<div id="procedure" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Advanced Surgical Approach</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Comprehensive Assessment</h5>
-                        <p class="text-muted">Digital X-rays and 3D cone beam imaging for precise evaluation of tooth position, nerve proximity, and surgical planning.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Expert Anesthesia</h5>
-                        <p class="text-muted">An Electronic Anaesthesia Delivery System
- for painless dental procedures offers a modern, 
-patient-friendly alternative to traditional injections. 
-This advanced device uses controlled,
- computer-assisted technology to deliver anaesthetic
- precisely and at a consistent flow rate, 
-minimizing discomfort and anxiety. .</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Minimally Invasive Extraction</h5>
-                        <p class="text-muted">Gentle bone removal and tooth sectioning techniques to minimize trauma and preserve healthy tissue.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Precise Closure</h5>
-                        <p class="text-muted">Dissolvable sutures and optional bone grafting for optimal healing and preservation of jaw structure.</p>
-                    </div>
-                    
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-microscope me-2"></i>OUR APPROACH
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Our Advanced <span style="color: #00C2C7;">Surgical Approach</span></h2>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://cdn.prod.website-files.com/646fe284ced23f0c4cdba13c/6494cc1b17230924ee82513f_Third%20molar%20surgery.jpeg" alt="Surgical Procedure" class="img-fluid rounded-3 shadow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Comprehensive Assessment</h5>
+                            <p style="color: #AFC3C9;">Digital X-rays and 3D cone beam imaging for precise evaluation of tooth position, nerve proximity, and surgical planning.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Expert Anesthesia</h5>
+                            <p style="color: #AFC3C9;">An Electronic Anaesthesia Delivery System for painless dental procedures offers a modern, patient-friendly alternative to traditional injections. This advanced device uses controlled, computer-assisted technology to deliver anaesthetic precisely and at a consistent flow rate, minimizing discomfort and anxiety.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Minimally Invasive Extraction</h5>
+                            <p style="color: #AFC3C9;">Gentle bone removal and tooth sectioning techniques to minimize trauma and preserve healthy tissue.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Precise Closure</h5>
+                            <p style="color: #AFC3C9;">Dissolvable sutures and optional bone grafting for optimal healing and preservation of jaw structure.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://cdn.prod.website-files.com/646fe284ced23f0c4cdba13c/6494cc1b17230924ee82513f_Third%20molar%20surgery.jpeg" alt="Surgical Procedure" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+                    </div>
                 </div>
             </div>
         </div>
@@ -297,47 +341,52 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- Benefits Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Timely Wisdom Tooth Removal</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Prevents Future Problems</h4>
-                        <p class="text-muted">Early removal prevents potential complications like infections, cysts, and damage to adjacent teeth.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-thumbs-up me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of Timely <span style="color: #00C2C7;">Wisdom Tooth Removal</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Prevents Future Problems</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Early removal prevents potential complications like infections, cysts, and damage to adjacent teeth.</p>
                         </div>
-                        <h4>Relieves Pain & Discomfort</h4>
-                        <p class="text-muted">Eliminates chronic pain, pressure, and discomfort associated with impacted or problematic wisdom teeth.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-teeth"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Relieves Pain & Discomfort</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Eliminates chronic pain, pressure, and discomfort associated with impacted or problematic wisdom teeth.</p>
                         </div>
-                        <h4>Protects Surrounding Teeth</h4>
-                        <p class="text-muted">Prevents crowding, decay in adjacent teeth, and maintains proper bite alignment.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-teeth"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Protects Surrounding Teeth</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Prevents crowding, decay in adjacent teeth, and maintains proper bite alignment.</p>
                         </div>
-                        <h4>Improves Overall Health</h4>
-                        <p class="text-muted">Reduces infection risk and contributes to better overall oral and systemic health.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Improves Overall Health</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Reduces infection risk and contributes to better overall oral and systemic health.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -346,33 +395,38 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- Recovery Timeline -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Recovery Process</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Day 1-3</h5>
-                        <p class="text-muted">Initial healing phase with some swelling and discomfort. Soft food diet and rest recommended.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Day 4-7</h5>
-                        <p class="text-muted">Significant improvement in symptoms. Gradual return to normal activities and diet progression.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Week 2-3</h5>
-                        <p class="text-muted">Most discomfort resolved. Sutures dissolve. Return to normal oral hygiene and most activities.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Week 4-6</h5>
-                        <p class="text-muted">Complete healing of soft tissues. Bone remodeling continues internally for several months.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-clock me-2"></i>RECOVERY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Recovery <span style="color: #00C2C7;">Process</span></h2>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://www.stevebureauoms.com/files/2014/12/Wisdom-Tooth-Removal.jpg" alt="Recovery Process" class="img-fluid rounded-3 shadow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Day 1-3</h5>
+                            <p style="color: #AFC3C9;">Initial healing phase with some swelling and discomfort. Soft food diet and rest recommended.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Day 4-7</h5>
+                            <p style="color: #AFC3C9;">Significant improvement in symptoms. Gradual return to normal activities and diet progression.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Week 2-3</h5>
+                            <p style="color: #AFC3C9;">Most discomfort resolved. Sutures dissolve. Return to normal oral hygiene and most activities.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Week 4-6</h5>
+                            <p style="color: #AFC3C9;">Complete healing of soft tissues. Bone remodeling continues internally for several months.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://www.stevebureauoms.com/files/2014/12/Wisdom-Tooth-Removal.jpg" alt="Recovery Process" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+                    </div>
                 </div>
             </div>
         </div>
@@ -380,56 +434,61 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- Post-Operative Care -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Post-Operative Care Instructions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h4>Diet Guidelines</h4>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ Soft food diet for 3-5 days</li>
-                            <li class="mb-2">✓ Avoid hot foods and liquids</li>
-                            <li class="mb-2">✓ No straws or sucking actions</li>
-                            <li class="mb-2">✓ Stay hydrated with water</li>
-                            <li class="mb-2">✓ Gradually reintroduce solid foods</li>
-                        </ul>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-hand-holding-medical me-2"></i>POST-OP CARE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Post-Operative <span style="color: #00C2C7;">Care Instructions</span></h2>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-toothbrush"></i>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Diet Guidelines</h4>
+                            <ul class="list-unstyled small" style="color: #AFC3C9;">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soft food diet for 3-5 days</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Avoid hot foods and liquids</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>No straws or sucking actions</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Stay hydrated with water</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gradually reintroduce solid foods</li>
+                            </ul>
                         </div>
-                        <h4>Oral Hygiene</h4>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ Gentle salt water rinses</li>
-                            <li class="mb-2">✓ Avoid brushing extraction site</li>
-                            <li class="mb-2">✓ Careful cleaning of other teeth</li>
-                            <li class="mb-2">✓ Use prescribed mouthwash</li>
-                            <li class="mb-2">✓ Resume normal hygiene after 1 week</li>
-                        </ul>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-snowflake"></i>
+                    <div class="col-lg-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-toothbrush"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Oral Hygiene</h4>
+                            <ul class="list-unstyled small" style="color: #AFC3C9;">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Gentle salt water rinses</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Avoid brushing extraction site</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Careful cleaning of other teeth</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Use prescribed mouthwash</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Resume normal hygiene after 1 week</li>
+                            </ul>
                         </div>
-                        <h4>Swelling & Pain Management</h4>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ Cold compress for first 48 hours</li>
-                            <li class="mb-2">✓ Take prescribed medications</li>
-                            <li class="mb-2">✓ Keep head elevated when resting</li>
-                            <li class="mb-2">✓ Avoid strenuous activities</li>
-                            <li class="mb-2">✓ Follow medication schedule</li>
-                        </ul>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Swelling & Pain Management</h4>
+                            <ul class="list-unstyled small" style="color: #AFC3C9;">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cold compress for first 48 hours</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Take prescribed medications</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Keep head elevated when resting</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Avoid strenuous activities</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Follow medication schedule</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -438,50 +497,55 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- Extn/3rd Molar Extraction - Piezosurgery -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Extn/3rd Molar Extraction</h2>
-                <p class="lead text-muted">We use advanced bone cutting tools – PEIZO-SURGERY UNIT</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="procedure-step mb-4">
-                        <h5><i class="fas fa-wave-square me-2"></i>Its advantages compared to drills are</h5>
-                        <p class="text-muted mb-0">Piezosurgery uses ultrasonic micro-vibrations to cut bone without damaging surrounding soft tissues.</p>
-                    </div>
-                    <div class="row g-4 mb-4">
-                        <div class="col-lg-12">
-                            <div class="procedure-step" style="background: linear-gradient(135deg, var(--primary-navy), #1a365d); color: white; border-radius: 15px; padding: 25px;">
-                                <h5 style="color: white;"><i class="fas fa-wave-square me-2"></i>What is Piezosurgery?</h5>
-                                <p class="mb-0" style="color: rgba(255,255,255,0.9);">Piezosurgery is an advanced surgical technique that uses ultrasonic micro-vibrations to cut bone with extreme precision. Unlike traditional rotary instruments, it selectively cuts mineralized tissue while preserving soft tissues, making it ideal for complex extractions like impacted third molars.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-wave-square me-2"></i>ADVANCED TECHNOLOGY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Extn/3rd Molar <span style="color: #00C2C7;">Extraction</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">We use advanced bone cutting tools - PEIZO-SURGERY UNIT</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="procedure-step mb-4">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-wave-square me-2"></i>Its advantages compared to drills are</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Piezosurgery uses ultrasonic micro-vibrations to cut bone without damaging surrounding soft tissues.</p>
+                        </div>
+                        <div class="row g-4 mb-4">
+                            <div class="col-lg-12">
+                                <div class="procedure-step" style="background: rgba(18, 56, 71, 0.8); border: 1px solid rgba(0, 194, 199, 0.3); border-left: 4px solid #00C2C7; border-radius: 15px; padding: 25px;">
+                                    <h5 style="color: #FFFFFF;"><i class="fas fa-wave-square me-2"></i>What is Piezosurgery?</h5>
+                                    <p class="mb-0" style="color: #AFC3C9;">Piezosurgery is an advanced surgical technique that uses ultrasonic micro-vibrations to cut bone with extreme precision. Unlike traditional rotary instruments, it selectively cuts mineralized tissue while preserving soft tissues, making it ideal for complex extractions like impacted third molars.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-heartbeat me-2"></i>Reduced Pain & Swelling</h5>
-                                <p class="text-muted mb-0">Clinical studies show patients often experience significantly lower postoperative pain and swelling compared to traditional methods.</p>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-heartbeat me-2"></i>Reduced Pain & Swelling</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">Clinical studies show patients often experience significantly lower postoperative pain and swelling compared to traditional methods.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-bolt me-2"></i>Faster Recovery</h5>
-                                <p class="text-muted mb-0">Because the bone cuts are cleaner and more precise, the body typically reacts with less inflammation, leading to a quicker return to normal activities.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-bolt me-2"></i>Faster Recovery</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">Because the bone cuts are cleaner and more precise, the body typically reacts with less inflammation, leading to a quicker return to normal activities.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-shield-alt me-2"></i>Nerve Protection</h5>
-                                <p class="text-muted mb-0">The technology is "tissue-selective," meaning it acts on mineralized bone while sparing delicate nerves (like the inferior alveolar nerve), blood vessels, and gums.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-shield-alt me-2"></i>Nerve Protection</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">The technology is "tissue-selective," meaning it acts on mineralized bone while sparing delicate nerves (like the inferior alveolar nerve), blood vessels, and gums.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="procedure-step">
-                                <h5><i class="fas fa-smile me-2"></i>Greater Comfort</h5>
-                                <p class="text-muted mb-0">Piezosurgery produces less vibration and noise than traditional drills, which helps reduce patient anxiety and psychological stress.</p>
+                            <div class="col-md-6">
+                                <div class="procedure-step">
+                                    <h5 style="color: #00C2C7;"><i class="fas fa-smile me-2"></i>Greater Comfort</h5>
+                                    <p style="color: #AFC3C9; margin: 0;">Piezosurgery produces less vibration and noise than traditional drills, which helps reduce patient anxiety and psychological stress.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -492,41 +556,46 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- MECTRON We Use -->
-<div class="container py-5 bg-light">
-    <div class="row align-items-center">
-        <div class="col-lg-6">
-            <img src="https://dental.mectron.com/fileadmin/user_upload/dental/general/pictures/products/AIR-POLISHING/units/combi_touch/gen_air_pol_combi_touch_silver_4x3.jpg" alt="MECTRON Piezo Surgery Device" class="img-fluid rounded-4 shadow">
-        </div>
-        <div class="col-lg-6">
-            <h2 class="display-5 fw-bold mb-4">MECTRON - What We Use</h2>
-            <p class="lead">We use MECTRON's advanced piezoelectric surgical system for all our bone surgery procedures.</p>
-            <p>MECTRON is a world-renowned Italian manufacturer of dental surgical equipment, known for their precision and reliability in oral and maxillofacial surgery.</p>
-            <div class="mt-4">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon-small me-3">
-                        <i class="fas fa-check"></i>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="https://dental.mectron.com/fileadmin/user_upload/dental/general/pictures/products/AIR-POLISHING/units/combi_touch/gen_air_pol_combi_touch_silver_4x3.jpg" alt="MECTRON Piezo Surgery Device" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3);">
+            </div>
+            <div class="col-lg-6">
+                <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                    <i class="fas fa-tools me-2"></i>EQUIPMENT
+                </span>
+                <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">MECTRON - <span style="color: #00C2C7;">What We Use</span></h2>
+                <p class="lead" style="color: #AFC3C9;">We use MECTRON's advanced piezoelectric surgical system for all our bone surgery procedures.</p>
+                <p style="color: #AFC3C9;">MECTRON is a world-renowned Italian manufacturer of dental surgical equipment, known for their precision and reliability in oral and maxillofacial surgery.</p>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon-small me-3">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #FFFFFF;">Italian Precision Engineering</strong>
+                            <p class="mb-0" style="color: #AFC3C9;">Made in Italy with highest quality standards</p>
+                        </div>
                     </div>
-                    <div>
-                        <strong>Italian Precision Engineering</strong>
-                        <p class="mb-0 text-muted">Made in Italy with highest quality standards</p>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="feature-icon-small me-3">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #FFFFFF;">Advanced Ultrasonic Technology</strong>
+                            <p class="mb-0" style="color: #AFC3C9;">Superior precision in bone cutting procedures</p>
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <div class="feature-icon-small me-3">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <div>
-                        <strong>Advanced Ultrasonic Technology</strong>
-                        <p class="mb-0 text-muted">Superior precision in bone cutting procedures</p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <div class="feature-icon-small me-3">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <div>
-                        <strong>Patient Safety First</strong>
-                        <p class="mb-0 text-muted">Minimally invasive with reduced recovery time</p>
+                    <div class="d-flex align-items-center">
+                        <div class="feature-icon-small me-3">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong style="color: #FFFFFF;">Patient Safety First</strong>
+                            <p class="mb-0" style="color: #AFC3C9;">Minimally invasive with reduced recovery time</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -535,44 +604,49 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is wisdom tooth removal painful?
-                        </button>
-                        <div class="faq-answer">
-                            The procedure is performed under local anesthesia, ensuring you feel no pain during the extraction. Post-operative discomfort is typically mild and managed with prescribed medications.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked <span style="color: #00C2C7;">Questions</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Is wisdom tooth removal painful?
+                            </button>
+                            <div class="faq-answer">
+                                The procedure is performed under local anesthesia, ensuring you feel no pain during the extraction. Post-operative discomfort is typically mild and managed with prescribed medications.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            When should wisdom teeth be removed?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Early removal (teens to early 20s) is recommended when roots are not fully formed, making extraction easier and recovery faster. However, removal can be done at any age when needed.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                When should wisdom teeth be removed?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Early removal (teens to early 20s) is recommended when roots are not fully formed, making extraction easier and recovery faster. However, removal can be done at any age when needed.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does the procedure take?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Single tooth extraction typically takes 30-45 minutes. Multiple wisdom teeth may require 60-90 minutes. Time varies based on tooth position and complexity.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long does the procedure take?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Single tooth extraction typically takes 30-45 minutes. Multiple wisdom teeth may require 60-90 minutes. Time varies based on tooth position and complexity.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will removing wisdom teeth change my face shape?
-                        </button>
-                        <div class="faq-answer d-none">
-                            No, wisdom tooth removal does not change your face shape. The procedure only removes teeth that are causing problems and has no impact on facial structure.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will removing wisdom teeth change my face shape?
+                            </button>
+                            <div class="faq-answer d-none">
+                                No, wisdom tooth removal does not change your face shape. The procedure only removes teeth that are causing problems and has no impact on facial structure.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -582,16 +656,21 @@ minimizing discomfort and anxiety. .</p>
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Need Wisdom Tooth Removal?</h2>
-                    <p class="lead mb-4">Get expert evaluation and painless extraction with our advanced surgical techniques.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Emergency Appointment</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Need Wisdom <span style="color: #00C2C7;">Tooth Removal?</span></h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Get expert evaluation and painless extraction with our advanced surgical techniques.</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Emergency Appointment</a>
+                        </div>
                     </div>
                 </div>
             </div>

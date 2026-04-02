@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
+    border: 3px solid rgba(18, 56, 71, 0.6);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: rgba(0, 194, 199, 0.15);
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: rgba(0, 194, 199, 0.25);
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.4);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,8 +155,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
 .crown-types {
     display: flex;
@@ -141,37 +167,45 @@
     flex: 1;
     text-align: center;
     padding: 20px;
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     transition: all 0.3s ease;
 }
 .crown-type:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">RESTORATIVE DENTISTRY</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">All Ceramic Crowns</h1>
-                    <h2 class="h3 mb-4 text-white-50">Advanced Aesthetic Restoration</h2>
-                    <p class="lead mb-4 text-white-50">Transform your damaged or decayed teeth with beautiful, natural-looking ceramic crowns that combine strength with exceptional aesthetics for the perfect smile.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-crown me-2"></i>RESTORATIVE DENTISTRY
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4" style="color: #FFFFFF;">All Ceramic Crowns</h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Advanced Aesthetic Restoration</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Transform your damaged or decayed teeth with beautiful, natural-looking ceramic crowns that combine strength with exceptional aesthetics for the perfect smile.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
-                    <p class="mt-4 text-white" style="font-size: 1rem; opacity: 0.9;">Experience next-generation digital scanning technology in our clinic. Say goodbye to impression putty and uncomfortable gag-inducing trays, and hello to comfort and accuracy.</p>
+                    <p class="mt-4" style="color: #FFFFFF; font-size: 1rem; opacity: 0.9;">Experience next-generation digital scanning technology in our clinic. Say goodbye to impression putty and uncomfortable gag-inducing trays, and hello to comfort and accuracy.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://www.emadental.com/assets/images/crown-1.jpg" alt="All Ceramic Crowns" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://www.emadental.com/assets/images/crown-1.jpg" alt="All Ceramic Crowns" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -179,90 +213,99 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Visits Required</div>
-                <div class="stat-number">2-3</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Visits Required</div>
+                    <div class="stat-number">2-3</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">Local</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">Local</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Years Lifespan</div>
-                <div class="stat-number">10-15</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Years Lifespan</div>
+                    <div class="stat-number">10-15</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Duration</div>
-                <div class="stat-number">2-3</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Duration</div>
+                    <div class="stat-number">2-3</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Perfect Blend of Strength and Beauty</h2>
-                <p class="lead text-muted">Advanced Ceramic Technology for Natural Results</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Perfect Blend of Strength and Beauty</h2>
+                    <p class="lead" style="color: #AFC3C9;">Advanced Ceramic Technology for Natural Results</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>All-ceramic crowns</strong> represent the pinnacle of modern restorative dentistry, offering exceptional strength combined with lifelike aesthetics. These metal-free restorations are crafted from advanced ceramic materials that mimic the light-reflecting properties of natural tooth enamel.</p>
-            <p>Whether you're restoring a single tooth or multiple teeth, our <strong>ceramic crowns</strong> provide the perfect balance of durability and beauty, ensuring your restored teeth blend seamlessly with your natural smile while withstanding the forces of daily chewing and function.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://www.dentalholidayscrete.com/wp-content/uploads/2018/02/caserussian-105-e1648215343922.jpg" alt="Ceramic Crown" class="img-fluid rounded-3 shadow">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">All-ceramic crowns</strong> represent the pinnacle of modern restorative dentistry, offering exceptional strength combined with lifelike aesthetics. These metal-free restorations are crafted from advanced ceramic materials that mimic the light-reflecting properties of natural tooth enamel.</p>
+                <p style="color: #AFC3C9;">Whether you're restoring a single tooth or multiple teeth, our <strong style="color: #00C2C7;">ceramic crowns</strong> provide the perfect balance of durability and beauty, ensuring your restored teeth blend seamlessly with your natural smile while withstanding the forces of daily chewing and function.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.dentalholidayscrete.com/wp-content/uploads/2018/02/caserussian-105-e1648215343922.jpg" alt="Ceramic Crown" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Types of Ceramic Crowns -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Types of All-Ceramic Crowns</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>CROWN TYPES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Types of All-Ceramic Crowns</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h4>E.max Crowns</h4>
-                        <p class="text-muted">Lithium disilicate glass-ceramic crowns with superior aesthetics and natural translucency. Ideal for front teeth where appearance matters most.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">E.max Crowns</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Lithium disilicate glass-ceramic crowns with superior aesthetics and natural translucency. Ideal for front teeth where appearance matters most.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h4>Empress Crowns</h4>
-                        <p class="text-muted">Heat-pressed glass-ceramic crowns with excellent light transmission and chameleon effect, blending perfectly with surrounding teeth.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Empress Crowns</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Heat-pressed glass-ceramic crowns with excellent light transmission and chameleon effect, blending perfectly with surrounding teeth.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <h4>Monolithic Crowns</h4>
-                        <p class="text-muted">Single-material construction for enhanced strength and natural appearance. No layering means more consistent color and translucency.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Monolithic Crowns</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Single-material construction for enhanced strength and natural appearance. No layering means more consistent color and translucency.</p>
                 </div>
             </div>
         </div>
@@ -270,113 +313,126 @@
 </div>
 
 <!-- When Ceramic Crowns are Needed -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">When Are Ceramic Crowns Recommended?</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>INDICATIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">When Are Ceramic Crowns Recommended?</h2>
+                </div>
             </div>
-            <div class="row">
-                
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Cracked or Fractured Teeth</h5>
-                        <p class="text-muted mb-0">To protect weakened teeth from further damage and restore function and appearance.</p>
-                    </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #FFA500;"><i class="fas fa-exclamation-triangle me-2"></i>Cracked or Fractured Teeth</h5>
+                    <p style="color: #AFC3C9; margin: 0;">To protect weakened teeth from further damage and restore function and appearance.</p>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>After Root Canal Treatment</h5>
-                        <p class="text-muted mb-0">To strengthen and protect teeth that have become brittle following root canal therapy.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #FFA500;"><i class="fas fa-exclamation-triangle me-2"></i>After Root Canal Treatment</h5>
+                    <p style="color: #AFC3C9; margin: 0;">To strengthen and protect teeth that have become brittle following root canal therapy.</p>
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
 
 <!-- Procedure Details -->
-<div id="procedure" class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Crown Placement Process</h2>
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-list-ol me-2"></i>THE PROCESS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Crown Placement Process</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Consultation & Planning</h5>
-                        <p class="text-muted">Comprehensive examination with digital scanning and shade matching for perfect results.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Tooth Preparation</h5>
-                        <p class="text-muted">Gentle removal of damaged tooth structure and shaping to create space for the crown.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Digital Impressions</h5>
-                        <p class="text-muted">Precision digital scanning or traditional impressions for accurate crown fabrication.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Temporary Crown</h5>
-                        <p class="text-muted">Placement of temporary crown to protect the tooth while the final restoration is created.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Final Crown Placement</h5>
-                        <p class="text-muted">Precise cementation of the custom ceramic crown and final adjustments for perfect fit.</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Consultation & Planning</h5>
+                    <p style="color: #AFC3C9;">Comprehensive examination with digital scanning and shade matching for perfect results.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://media.healthdirect.org.au/images/inline/original/dental-crown-procedure-illustration-c33196.jpg" alt="Crown Procedure" class="img-fluid rounded-3 shadow">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Tooth Preparation</h5>
+                    <p style="color: #AFC3C9;">Gentle removal of damaged tooth structure and shaping to create space for the crown.</p>
                 </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Digital Impressions</h5>
+                    <p style="color: #AFC3C9;">Precision digital scanning or traditional impressions for accurate crown fabrication.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Temporary Crown</h5>
+                    <p style="color: #AFC3C9;">Placement of temporary crown to protect the tooth while the final restoration is created.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Final Crown Placement</h5>
+                    <p style="color: #AFC3C9;">Precise cementation of the custom ceramic crown and final adjustments for perfect fit.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://media.healthdirect.org.au/images/inline/original/dental-crown-procedure-illustration-c33196.jpg" alt="Crown Procedure" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- Benefits Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of All-Ceramic Crowns</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of All-Ceramic Crowns</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>Natural Appearance</h4>
-                        <p class="text-muted">Superior translucency and light reflection that perfectly mimics natural tooth enamel, making them virtually indistinguishable.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Natural Appearance</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Superior translucency and light reflection that perfectly mimics natural tooth enamel, making them virtually indistinguishable.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Biocompatibility</h4>
-                        <p class="text-muted">Metal-free materials eliminate allergic reactions and gum tissue discoloration, ensuring optimal oral health.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Biocompatibility</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Metal-free materials eliminate allergic reactions and gum tissue discoloration, ensuring optimal oral health.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4>Exceptional Strength</h4>
-                        <p class="text-muted">Modern ceramics withstand chewing forces and resist fracture, providing long-lasting durability.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Exceptional Strength</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Modern ceramics withstand chewing forces and resist fracture, providing long-lasting durability.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <h4>Stain Resistance</h4>
-                        <p class="text-muted">Non-porous surface resists staining from coffee, tea, wine, and other common staining agents.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Stain Resistance</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Non-porous surface resists staining from coffee, tea, wine, and other common staining agents.</p>
                 </div>
             </div>
         </div>
@@ -384,45 +440,50 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-comments me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked Questions</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long do ceramic crowns last?
-                        </button>
-                        <div class="faq-answer">
-                            With proper care, all-ceramic crowns typically last 10-15 years. Some patients enjoy them for 20+ years with good oral hygiene and regular dental check-ups.
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        How long do ceramic crowns last?
+                    </button>
+                    <div class="faq-answer">
+                        With proper care, all-ceramic crowns typically last 10-15 years. Some patients enjoy them for 20+ years with good oral hygiene and regular dental check-ups.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Are ceramic crowns strong enough for back teeth?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Yes! Modern ceramic materials like zirconia are extremely strong - even stronger than some metal-ceramic crowns. They can easily withstand the forces of back teeth chewing.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Are ceramic crowns strong enough for back teeth?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Yes! Modern ceramic materials like zirconia are extremely strong - even stronger than some metal-ceramic crowns. They can easily withstand the forces of back teeth chewing.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will the crown match my other teeth?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Absolutely! We use advanced shade matching technology and can even customize the translucency and color characteristics to blend perfectly with your natural teeth.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Will the crown match my other teeth?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Absolutely! We use advanced shade matching technology and can even customize the translucency and color characteristics to blend perfectly with your natural teeth.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is the procedure painful?
-                        </button>
-                        <div class="faq-answer d-none">
-                            The procedure is performed under local anesthesia, ensuring you feel no pain. Some sensitivity may occur during preparation, but this is eliminated by the anesthetic.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Is the procedure painful?
+                    </button>
+                    <div class="faq-answer d-none">
+                        The procedure is performed under local anesthesia, ensuring you feel no pain. Some sensitivity may occur during preparation, but this is eliminated by the anesthetic.
                     </div>
                 </div>
             </div>
@@ -431,16 +492,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready to Restore Your Smile?</h2>
-                    <p class="lead mb-4">Discover how all-ceramic crowns can restore damaged teeth with beautiful, natural-looking results.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready to Restore Your Smile?</h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Discover how all-ceramic crowns can restore damaged teeth with beautiful, natural-looking results.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

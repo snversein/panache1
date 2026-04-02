@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 3px solid rgba(18, 56, 71, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 194, 199, 0.3);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.15), rgba(18, 56, 71, 0.8));
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.25), rgba(18, 56, 71, 0.9));
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.5);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,30 +155,48 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
+.warning-box {
+    background: linear-gradient(135deg, rgba(23, 162, 184, 0.2), rgba(18, 56, 71, 0.8));
+    border: 1px solid rgba(23, 162, 184, 0.3);
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+}
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">ORAL PATHOLOGY</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Maxillo-Facial Pathology</h1>
-                    <p class="lead mb-4 text-white-50">Dr Sandeep Prakash is experts in diagnosing and treating diseases,  and tumors affecting the mouth, jaws, face. He combines expertise in clinical, radiographic, and histopathological (microscopic) examination to diagnose conditions like  cysts & tumors of jaw, salivary gland disorders & oral cancer,.</p>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bolt me-2"></i>ORAL PATHOLOGY
+                    </span>
+                    <h1 class="display-2 fw-bold mb-4" style="color: #FFFFFF;">Maxillo-Facial <span style="color: #00C2C7;">Pathology</span></h1>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Dr Sandeep Prakash is experts in diagnosing and treating diseases, and tumors affecting the mouth, jaws, face. He combines expertise in clinical, radiographic, and histopathological (microscopic) examination to diagnose conditions like cysts & tumors of jaw, salivary gland disorders & oral cancer.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <h5 style="color: #00C2C7; margin-bottom: 10px;"><i class="fas fa-user-md me-2"></i>Dr. Sandeep Prakash</h5>
+                        <p style="color: #7A8E94; margin-bottom: 8px; font-size: 0.9rem;">Oral & Maxillo-Facial Surgeon</p>
+                        <p style="color: #AFC3C9; margin-bottom: 0; font-size: 0.9rem;">Expert in diagnosing and treating oral pathologies with comprehensive care approaches.</p>
+                    </div>
                     <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Get Evaluation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="{{ url_for('static', filename='images/maxillo_hero.png') }}" alt="Maxillofacial Pathology" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ url_for('static', filename='images/maxillo_hero.png') }}" alt="Maxillofacial Pathology" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -160,74 +204,78 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Duration</div>
-                <div class="stat-number">2-4</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Duration</div>
+                    <div class="stat-number">2-4</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">Local/General</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Weeks Recovery</div>
+                    <div class="stat-number">1-2</div>
+                </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">Local/General</div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Weeks Recovery</div>
-                <div class="stat-number">1-2</div>
-            </div>
-        </div>
-        
     </div>
 </div>
 
-
-
 <!-- Conditions We Treat -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Conditions We Treat</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <h4>Odontogenic Cysts</h4>
-                        <p class="text-muted">Radicular cysts, dentigerous cysts, and other cysts arising from tooth development processes that can cause jaw swelling and bone destruction.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>CONDITIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Conditions <span style="color: #00C2C7;">We Treat</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tint"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Odontogenic Cysts</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Radicular cysts, dentigerous cysts, and other cysts arising from tooth development processes that can cause jaw swelling and bone destruction.</p>
                         </div>
-                        <h4>Non-Odontogenic Cysts</h4>
-                        <p class="text-muted">Nasopalatine duct cysts, nasolabial cysts, and other developmental cysts not related to tooth formation but affecting facial structures.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Non-Odontogenic Cysts</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Nasopalatine duct cysts, nasolabial cysts, and other developmental cysts not related to tooth formation but affecting facial structures.</p>
                         </div>
-                        <h4>Benign Tumors</h4>
-                        <p class="text-muted">Ameloblastoma, odontogenic keratocyst, and other non-cancerous growths that require surgical removal and reconstruction.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Benign Tumors</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Ameloblastoma, odontogenic keratocyst, and other non-cancerous growths that require surgical removal and reconstruction.</p>
                         </div>
-                        <h4>Malignant Tumors And Oral Cancer</h4>
-                        <p class="text-muted">Early detection and comprehensive treatment of jaw cancers with coordinated oncology care and reconstruction.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Malignant Tumors And Oral Cancer</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Early detection and comprehensive treatment of jaw cancers with coordinated oncology care and reconstruction.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,71 +284,76 @@
 </div>
 
 <!-- Obstructive Sleep Apnea Treatment -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Obstructive Sleep Apnea (OSA) Treatment</h2>
-                <p class="lead text-muted">Surgical Solutions for Better Sleep</p>
-            </div>
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <p class="mb-3">Oral and Maxillofacial Surgeons (OMFS) play a critical role in treating obstructive sleep apnea (OSA) when conservative therapies like CPAP fail. They specialize in anatomical corrections of the jaw, palate, and airway through procedures to expand airways and reduce snoring/apnea.</p>
-                    <p>Dr Sandeep Prakash is extensively trained in the field of orthognathic surgery which is nothing but moving jaws in its correct position to improve airway patency and overall respiratory function.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-moon me-2"></i>SLEEP APNEA
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Obstructive Sleep Apnea <span style="color: #00C2C7;">(OSA) Treatment</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">Surgical Solutions for Better Sleep</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 mb-4">
-                    <h3 class="mb-4">Surgical Interventions</h3>
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <p class="mb-3" style="color: #AFC3C9;">Oral and Maxillofacial Surgeons (OMFS) play a critical role in treating obstructive sleep apnea (OSA) when conservative therapies like CPAP fail. They specialize in anatomical corrections of the jaw, palate, and airway through procedures to expand airways and reduce snoring/apnea.</p>
+                        <p style="color: #AFC3C9;">Dr Sandeep Prakash is extensively trained in the field of orthognathic surgery which is nothing but moving jaws in its correct position to improve airway patency and overall respiratory function.</p>
+                    </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                <div class="row">
+                    <div class="col-lg-12 mb-4">
+                        <h3 class="mb-4" style="color: #FFFFFF;">Surgical Interventions</h3>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Maxillomandibular Advancement (MMA)</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Moving the jaw forward to open the upper airway. This procedure effectively expands the airway passage and reduces snoring and apnea events significantly.</p>
                         </div>
-                        <h4>Maxillomandibular Advancement (MMA)</h4>
-                        <p class="text-muted">Moving the jaw forward to open the upper airway. This procedure effectively expands the airway passage and reduces snoring and apnea events significantly.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Genioglossus Advancement</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Advancing the tongue muscle anchor to prevent airway collapse during sleep, keeping the airway open for uninterrupted breathing.</p>
                         </div>
-                        <h4>Genioglossus Advancement</h4>
-                        <p class="text-muted">Advancing the tongue muscle anchor to prevent airway collapse during sleep, keeping the airway open for uninterrupted breathing.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">SARPE / DOME</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Surgically Assisted Rapid Palatal Expansion / Distraction Osteogenesis Maxillary Expansion. Widening the upper jaw to improve nasal breathing and airway capacity.</p>
                         </div>
-                        <h4>SARPE / DOME</h4>
-                        <p class="text-muted">Surgically Assisted Rapid Palatal Expansion / Distraction Osteogenesis Maxillary Expansion. Widening the upper jaw to improve nasal breathing and airway capacity.</p>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12 mb-4">
-                    <h3 class="mb-4">Collaboration</h3>
-                </div>
-                <div class="col-lg-12">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-hands-helping text-primary me-2"></i>Multidisciplinary Approach</h5>
-                        <p class="text-muted mb-0">OMFS work closely with sleep physicians, relying on polysomnography (PSG) data to determine the severity of sleep apnea and monitor treatment outcomes.</p>
+                <div class="row mt-4">
+                    <div class="col-lg-12 mb-4">
+                        <h3 class="mb-4" style="color: #FFFFFF;">Collaboration</h3>
                     </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-tooth text-primary me-2"></i>Oral Appliances</h5>
-                        <p class="text-muted mb-0">In some cases, OMFS work with dental specialists to fit oral appliances to reposition the jaw for better breathing.</p>
+                    <div class="col-lg-12">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-hands-helping me-2"></i>Multidisciplinary Approach</h5>
+                            <p style="color: #AFC3C9; margin: 0;">OMFS work closely with sleep physicians, relying on polysomnography (PSG) data to determine the severity of sleep apnea and monitor treatment outcomes.</p>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-tooth me-2"></i>Oral Appliances</h5>
+                            <p style="color: #AFC3C9; margin: 0;">In some cases, OMFS work with dental specialists to fit oral appliances to reposition the jaw for better breathing.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <div class="warning-box" style="background: linear-gradient(135deg, #17a2b8, #138496); border-radius: 15px; padding: 30px;">
-                        <h4 class="text-white mb-3"><i class="fas fa-info-circle me-2"></i>When to Consider Surgery</h4>
-                        <p class="text-white mb-0">For specialized care, individuals with severe sleep apnea, particularly those who cannot tolerate CPAP, should be referred to an OMFS for surgical consultation.</p>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="warning-box" style="background: linear-gradient(135deg, rgba(23, 162, 184, 0.2), rgba(18, 56, 71, 0.8)); border: 1px solid rgba(23, 162, 184, 0.3); border-radius: 15px; padding: 30px;">
+                            <h4 class="mb-3" style="color: #00C2C7;"><i class="fas fa-info-circle me-2"></i>When to Consider Surgery</h4>
+                            <p class="mb-0" style="color: #AFC3C9;">For specialized care, individuals with severe sleep apnea, particularly those who cannot tolerate CPAP, should be referred to an OMFS for surgical consultation.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -309,35 +362,40 @@
 </div>
 
 <!-- Warning Signs -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Warning Signs & Symptoms</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Swelling That Doesn't Resolve</h5>
-                        <p class="text-muted mb-0">Persistent facial or jaw swelling that doesn't improve with time or treatment.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-triangle me-2"></i>WARNING SIGNS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Warning Signs & <span style="color: #00C2C7;">Symptoms</span></h2>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Painless Lumps or Growths</h5>
-                        <p class="text-muted mb-0">Unexplained masses or growths in the jaw, face, or neck region.</p>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Swelling That Doesn't Resolve</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Persistent facial or jaw swelling that doesn't improve with time or treatment.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Numbness in Face or Mouth</h5>
-                        <p class="text-muted mb-0">Persistent numbness or tingling in facial areas without obvious cause.</p>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Painless Lumps or Growths</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Unexplained masses or growths in the jaw, face, or neck region.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Loose Teeth Without Cause</h5>
-                        <p class="text-muted mb-0">Teeth becoming loose without trauma or periodontal disease explanation.</p>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Numbness in Face or Mouth</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Persistent numbness or tingling in facial areas without obvious cause.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Loose Teeth Without Cause</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Teeth becoming loose without trauma or periodontal disease explanation.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -345,79 +403,86 @@
     </div>
 </div>
 
-
 <!-- Treatment Options -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Comprehensive Treatment Options</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-cut"></i>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>TREATMENTS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Comprehensive <span style="color: #00C2C7;">Treatment Options</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Surgical Excision</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Complete removal of cysts and tumors with preservation of surrounding structures and function where possible.</p>
                         </div>
-                        <h4>Surgical Excision</h4>
-                        <p class="text-muted">Complete removal of cysts and tumors with preservation of surrounding structures and function where possible.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Reconstruction</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Restoration of form and function using bone grafts, advanced techniques, and implant-supported rehabilitation.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bone"></i>
-                        </div>
-                        <h4>Reconstruction</h4>
-                        <p class="text-muted">Restoration of form and function using bone grafts, advanced techniques, and implant-supported rehabilitation.</p>
-                    </div>
-                </div>
-                
-                
             </div>
         </div>
     </div>
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Are all jaw growths cancerous?
-                        </button>
-                        <div class="faq-answer">
-                            No, most jaw growths and cysts are benign (non-cancerous). However, proper diagnosis is essential as some can be aggressive or potentially malignant. Early evaluation ensures appropriate treatment.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked <span style="color: #00C2C7;">Questions</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Are all jaw growths cancerous?
+                            </button>
+                            <div class="faq-answer">
+                                No, most jaw growths and cysts are benign (non-cancerous). However, proper diagnosis is essential as some can be aggressive or potentially malignant. Early evaluation ensures appropriate treatment.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How are jaw cysts diagnosed?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Diagnosis typically involves clinical examination, radiographic imaging (X-rays, CT scans), and often a biopsy for histopathological examination to determine the exact nature of the lesion.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How are jaw cysts diagnosed?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Diagnosis typically involves clinical examination, radiographic imaging (X-rays, CT scans), and often a biopsy for histopathological examination to determine the exact nature of the lesion.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will surgery affect my appearance?
-                        </button>
-                        <div class="faq-answer d-none">
-                            We use minimally invasive approaches and advanced reconstruction techniques to minimize aesthetic impact. Most procedures preserve facial appearance, with reconstruction when needed.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will surgery affect my appearance?
+                            </button>
+                            <div class="faq-answer d-none">
+                                We use minimally invasive approaches and advanced reconstruction techniques to minimize aesthetic impact. Most procedures preserve facial appearance, with reconstruction when needed.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does recovery take?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Recovery varies by procedure complexity. Simple cyst removal may heal in 1-2 weeks, while complex tumor resections with reconstruction may require 6-12 weeks for full recovery.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long does recovery take?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Recovery varies by procedure complexity. Simple cyst removal may heal in 1-2 weeks, while complex tumor resections with reconstruction may require 6-12 weeks for full recovery.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -427,22 +492,25 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Concerned About Jaw Growth?</h2>
-                    <p class="lead mb-4">Get expert evaluation and peace of mind with our comprehensive diagnostic services.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Concerned About <span style="color: #00C2C7;">Jaw Growth?</span></h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Get expert evaluation and peace of mind with our comprehensive diagnostic services.</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}

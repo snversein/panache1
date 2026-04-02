@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
+    border: 3px solid rgba(18, 56, 71, 0.6);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: rgba(0, 194, 199, 0.15);
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: rgba(0, 194, 199, 0.25);
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.4);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,8 +155,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
 .bridge-comparison {
     display: flex;
@@ -141,37 +167,44 @@
     flex: 1;
     text-align: center;
     padding: 20px;
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
 }
 .bridge-item.featured {
-    background: var(--accent-sage);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.3), rgba(18, 56, 71, 0.6));
+    border: 2px solid #00C2C7;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">FULL MOUTH REHABILITATION</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Malo's Bridge</h1>
-                    <h2 class="h3 mb-4 text-white-50">Revolutionary Full-Arch Bridge System</h2>
-                    <p class="lead mb-4 text-white-50">Experience immediate full mouth rehabilitation with the innovative Malo's Bridge system - a revolutionary solution for complete dental restoration in just 24-48 hours.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-archway me-2"></i>FULL MOUTH REHABILITATION
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4" style="color: #FFFFFF;">Malo's Bridge</h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Revolutionary Full-Arch Bridge System</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Experience immediate full mouth rehabilitation with the innovative Malo's Bridge system - a revolutionary solution for complete dental restoration in just 24-48 hours.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://www.datadentallab.com/uploads/202339306/malo-implant-bridge57c11712-0200-45a6-ac4b-d172412b8c60.jpg" alt="Malo's Bridge" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://www.datadentallab.com/uploads/202339306/malo-implant-bridge57c11712-0200-45a6-ac4b-d172412b8c60.jpg" alt="Malo's Bridge" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -179,59 +212,63 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Treatment Time</div>
-                <div class="stat-number">24-48</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Treatment Time</div>
+                    <div class="stat-number">24-48</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Implants Required</div>
-                <div class="stat-number">4-6</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Implants Required</div>
+                    <div class="stat-number">4-6</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Implants Placed</div>
-                <div class="stat-number">4-6</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Implants Placed</div>
+                    <div class="stat-number">4-6</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate</div>
-                <div class="stat-number">98%+</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate</div>
+                    <div class="stat-number">98%+</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Future of Full Mouth Rehabilitation</h2>
-                <p class="lead text-muted">Innovative Bridge System for Immediate Results</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Future of Full Mouth Rehabilitation</h2>
+                    <p class="lead" style="color: #AFC3C9;">Innovative Bridge System for Immediate Results</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3">The <strong>Malo's Bridge</strong> represents a breakthrough in full-arch rehabilitation, offering patients a complete dental restoration solution in just 24-48 hours. This innovative system utilizes strategically placed implants to support a full-arch bridge, restoring both function and aesthetics.</p>
-            <p>Developed by Dr. Paulo Malo, the <strong>Malo's Bridge</strong> provides immediate loading capabilities, allowing patients to leave with a beautiful, functional smile on the same day as surgery - perfect for those seeking complete dental transformation without the lengthy healing periods of traditional methods.</p>
-        </div>
-        <div class="col-lg-6">
-            <div class="bridge-comparison">
-                <div class="bridge-item">
-                    <h5>Traditional Approach</h5>
-                    <p>Multiple surgeries<br>6-12 months treatment<br>Gradual restoration</p>
-                </div>
-                <div class="bridge-item featured">
-                    <h5>Malo's Bridge</h5>
-                    <p>Single surgery<br>24-48 hours<br>Immediate full restoration</p>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;">The <strong style="color: #00C2C7;">Malo's Bridge</strong> represents a breakthrough in full-arch rehabilitation, offering patients a complete dental restoration solution in just 24-48 hours. This innovative system utilizes strategically placed implants to support a full-arch bridge, restoring both function and aesthetics.</p>
+                <p style="color: #AFC3C9;">Developed by Dr. Paulo Malo, the <strong style="color: #00C2C7;">Malo's Bridge</strong> provides immediate loading capabilities, allowing patients to leave with a beautiful, functional smile on the same day as surgery - perfect for those seeking complete dental transformation without the lengthy healing periods of traditional methods.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="bridge-comparison">
+                    <div class="bridge-item">
+                        <h5 style="color: #FFFFFF;">Traditional Approach</h5>
+                        <p style="color: #AFC3C9; margin: 0;">Multiple surgeries<br>6-12 months treatment<br>Gradual restoration</p>
+                    </div>
+                    <div class="bridge-item featured">
+                        <h5 style="color: #00C2C7;">Malo's Bridge</h5>
+                        <p style="color: #FFFFFF; margin: 0;">Single surgery<br>24-48 hours<br>Immediate full restoration</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -239,48 +276,53 @@
 </div>
 
 <!-- System Components -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">How the Malo's Bridge Works</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-cogs me-2"></i>HOW IT WORKS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">How the Malo's Bridge Works</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-crosshairs"></i>
-                        </div>
-                        <h4>Strategic Implant Placement</h4>
-                        <p class="text-muted">4-6 strategically positioned implants provide optimal support and stability for the entire arch, ensuring long-term success.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crosshairs"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Strategic Implant Placement</h4>
+                    <p style="color: #AFC3C9; margin: 0;">4-6 strategically positioned implants provide optimal support and stability for the entire arch, ensuring long-term success.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h4>Immediate Loading Protocol</h4>
-                        <p class="text-muted">Specialized angulation and placement allow for immediate loading, enabling same-day restoration of full dental function.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Immediate Loading Protocol</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Specialized angulation and placement allow for immediate loading, enabling same-day restoration of full dental function.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <h4>Custom Bridge Framework</h4>
-                        <p class="text-muted">Precision-milled titanium framework provides exceptional strength and ensures accurate fit for optimal comfort and function.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-industry"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Custom Bridge Framework</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Precision-milled titanium framework provides exceptional strength and ensures accurate fit for optimal comfort and function.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h4>Aesthetic Restoration</h4>
-                        <p class="text-muted">High-quality porcelain or zirconia restorations create natural-looking teeth with perfect color matching and translucency.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Aesthetic Restoration</h4>
+                    <p style="color: #AFC3C9; margin: 0;">High-quality porcelain or zirconia restorations create natural-looking teeth with perfect color matching and translucency.</p>
                 </div>
             </div>
         </div>
@@ -288,36 +330,41 @@
 </div>
 
 <!-- Ideal Candidates -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Ideal Candidates for Malo's Bridge</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-user-check me-2"></i>CANDIDATES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Ideal Candidates for Malo's Bridge</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Multiple Missing Teeth</h5>
-                        <p class="text-muted mb-0">Patients missing most or all teeth in one or both arches seeking complete restoration.</p>
-                    </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #00C2C7;"><i class="fas fa-check-circle me-2"></i>Multiple Missing Teeth</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Patients missing most or all teeth in one or both arches seeking complete restoration.</p>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Failed Dentures</h5>
-                        <p class="text-muted mb-0">Those dissatisfied with removable dentures wanting a fixed, stable alternative.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #00C2C7;"><i class="fas fa-check-circle me-2"></i>Failed Dentures</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Those dissatisfied with removable dentures wanting a fixed, stable alternative.</p>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Sufficient Bone Density</h5>
-                        <p class="text-muted mb-0">Adequate jawbone volume to support 4-6 implants (bone grafting available if needed).</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #00C2C7;"><i class="fas fa-check-circle me-2"></i>Sufficient Bone Density</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Adequate jawbone volume to support 4-6 implants (bone grafting available if needed).</p>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Good General Health</h5>
-                        <p class="text-muted mb-0">Overall good health without uncontrolled medical conditions that could affect healing.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="procedure-step">
+                    <h5 style="color: #00C2C7;"><i class="fas fa-check-circle me-2"></i>Good General Health</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Overall good health without uncontrolled medical conditions that could affect healing.</p>
                 </div>
             </div>
         </div>
@@ -325,82 +372,92 @@
 </div>
 
 <!-- Procedure Details -->
-<div id="procedure" class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Malo's Bridge Procedure</h2>
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-list-ol me-2"></i>THE PROCESS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Malo's Bridge Procedure</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Comprehensive Planning</h5>
-                        <p class="text-muted">3D imaging, digital scanning, and precise planning for optimal implant positioning and bridge design.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Surgical Placement</h5>
-                        <p class="text-muted">Strategic placement of 4-6 implants under anesthesia, typically completed in 2-3 hours.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Immediate Bridge Loading</h5>
-                        <p class="text-muted">Custom-fabricated bridge immediately attached to implants, providing instant function and aesthetics.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Final Integration</h4>
-                        <p class="text-muted">Monitoring of osseointegration over 3-6 months with final adjustments and permanent bridge placement.</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Comprehensive Planning</h5>
+                    <p style="color: #AFC3C9;">3D imaging, digital scanning, and precise planning for optimal implant positioning and bridge design.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://www.wmdentallab.com/upload/310/20191228101413728592.jpg" alt="Malo's Bridge Procedure" class="img-fluid rounded-3 shadow">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Surgical Placement</h5>
+                    <p style="color: #AFC3C9;">Strategic placement of 4-6 implants under anesthesia, typically completed in 2-3 hours.</p>
                 </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Immediate Bridge Loading</h5>
+                    <p style="color: #AFC3C9;">Custom-fabricated bridge immediately attached to implants, providing instant function and aesthetics.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Final Integration</h5>
+                    <p style="color: #AFC3C9;">Monitoring of osseointegration over 3-6 months with final adjustments and permanent bridge placement.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.wmdentallab.com/upload/310/20191228101413728592.jpg" alt="Malo's Bridge Procedure" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- Benefits Grid -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Malo's Bridge</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of Malo's Bridge</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Immediate Results</h4>
-                        <p class="text-muted">Walk in with missing teeth and walk out with a complete, functional smile in just 24-48 hours.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Immediate Results</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Walk in with missing teeth and walk out with a complete, functional smile in just 24-48 hours.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-teeth"></i>
-                        </div>
-                        <h4>Full Function Restoration</h4>
-                        <p class="text-muted">Eat, speak, and smile confidently with a fixed restoration that feels and functions like natural teeth.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-teeth"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Full Function Restoration</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Eat, speak, and smile confidently with a fixed restoration that feels and functions like natural teeth.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Long-Term Solution</h4>
-                        <p class="text-muted">Durable construction with proven success rate exceeding 98% and decades of reliable function.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Long-Term Solution</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Durable construction with proven success rate exceeding 98% and decades of reliable function.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Improved Quality of Life</h4>
-                        <p class="text-muted">Enhanced confidence, better nutrition, and elimination of denture-related problems for daily comfort.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Improved Quality of Life</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Enhanced confidence, better nutrition, and elimination of denture-related problems for daily comfort.</p>
                 </div>
             </div>
         </div>
@@ -408,29 +465,30 @@
 </div>
 
 <!-- After Care -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">After Care & Maintenance</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <img src="https://wilsoneastdental.com/wp-content/uploads/2023/05/Teeth-Whitening.jpg" alt="Dental Care" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-home me-2"></i>Immediate Post-Operative Care</h5>
-                        <p class="text-muted mb-0">Soft diet for first week, prescribed medications, and careful oral hygiene around the surgical sites.</p>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-toothbrush me-2"></i>Oral Hygiene Routine</h5>
-                        <p class="text-muted mb-0">Special cleaning tools for under the bridge, regular brushing, and antimicrobial rinses for optimal health.</p>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-calendar-check me-2"></i>Regular Follow-Up Visits</h5>
-                        <p class="text-muted mb-0">Scheduled check-ups at 1 week, 1 month, 3 months, and 6 months to monitor healing and integration.</p>
-                    </div>
+            <div class="col-lg-6">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-heart me-2"></i>AFTERCARE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">After Care & Maintenance</h2>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://wilsoneastdental.com/wp-content/uploads/2023/05/Teeth-Whitening.jpg" alt="Dental Care" class="img-fluid rounded-3 shadow">
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-home me-2"></i>Immediate Post-Operative Care</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Soft diet for first week, prescribed medications, and careful oral hygiene around the surgical sites.</p>
+                </div>
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-tooth me-2"></i>Oral Hygiene Routine</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Special cleaning tools for under the bridge, regular brushing, and antimicrobial rinses for optimal health.</p>
+                </div>
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-calendar-check me-2"></i>Regular Follow-Up Visits</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Scheduled check-ups at 1 week, 1 month, 3 months, and 6 months to monitor healing and integration.</p>
                 </div>
             </div>
         </div>
@@ -438,45 +496,50 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-comments me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked Questions</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does a Malo's Bridge last?
-                        </button>
-                        <div class="faq-answer">
-                            With proper care and maintenance, a Malo's Bridge can last 15-25 years or even longer. Regular dental check-ups and good oral hygiene are essential for longevity.
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        How long does a Malo's Bridge last?
+                    </button>
+                    <div class="faq-answer">
+                        With proper care and maintenance, a Malo's Bridge can last 15-25 years or even longer. Regular dental check-ups and good oral hygiene are essential for longevity.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is the procedure painful?
-                        </button>
-                        <div class="faq-answer d-none">
-                            The surgery is performed under anesthesia, ensuring you feel no pain during the procedure. Post-operative discomfort is typically managed with prescribed medications and resolves within a few days.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Is the procedure painful?
+                    </button>
+                    <div class="faq-answer d-none">
+                        The surgery is performed under anesthesia, ensuring you feel no pain during the procedure. Post-operative discomfort is typically managed with prescribed medications and resolves within a few days.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Can I eat normally with a Malo's Bridge?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Yes! The Malo's Bridge provides excellent chewing function. After the initial healing period, you can enjoy most foods with confidence, including harder foods that were difficult with dentures.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Can I eat normally with a Malo's Bridge?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Yes! The Malo's Bridge provides excellent chewing function. After the initial healing period, you can enjoy most foods with confidence, including harder foods that were difficult with dentures.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What if I don't have enough bone for implants?
-                        </button>
-                        <div class="faq-answer d-none">
-                            We offer bone grafting procedures to build up the jawbone and create a solid foundation for the implants. This can be done prior to or during the Malo's Bridge procedure.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        What if I don't have enough bone for implants?
+                    </button>
+                    <div class="faq-answer d-none">
+                        We offer bone grafting procedures to build up the jawbone and create a solid foundation for the implants. This can be done prior to or during the Malo's Bridge procedure.
                     </div>
                 </div>
             </div>
@@ -485,16 +548,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready for a Complete Smile Transformation?</h2>
-                    <p class="lead mb-4">Discover if Malo's Bridge is your solution for full mouth restoration in just 24-48 hours.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready for a Complete Smile Transformation?</h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Discover if Malo's Bridge is your solution for full mouth restoration in just 24-48 hours.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

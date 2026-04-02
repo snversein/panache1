@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
+    border: 3px solid rgba(18, 56, 71, 0.6);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: rgba(0, 194, 199, 0.15);
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: rgba(0, 194, 199, 0.25);
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.4);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,8 +155,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
 .before-after {
     display: flex;
@@ -146,30 +172,35 @@
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid rgba(0, 194, 199, 0.2);
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">BONE REGENERATION</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Guided Bone Regeneration</h1>
-                    <h2 class="h3 mb-4 text-white-50">Advanced Bone Grafting Techniques</h2>
-                    <p class="lead mb-4 text-white-50">Rebuild lost bone structure with innovative GBR techniques, creating the foundation for successful dental implants and optimal oral health.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bone me-2"></i>BONE REGENERATION
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4" style="color: #FFFFFF;">Guided Bone Regeneration</h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Advanced Bone Grafting Techniques</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Rebuild lost bone structure with innovative GBR techniques, creating the foundation for successful dental implants and optimal oral health.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://i1.wp.com/drericbattista.com/wp-content/uploads/2020/12/bone-800x640.jpg" alt="Guided Bone Regeneration" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://i1.wp.com/drericbattista.com/wp-content/uploads/2020/12/bone-800x640.jpg" alt="Guided Bone Regeneration" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -177,81 +208,90 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Minutes Duration</div>
-                <div class="stat-number">60-90</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Minutes Duration</div>
+                    <div class="stat-number">60-90</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">Local</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">Local</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Months Healing</div>
-                <div class="stat-number">4-6</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Months Healing</div>
+                    <div class="stat-number">4-6</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate</div>
-                <div class="stat-number">90%+</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate</div>
+                    <div class="stat-number">90%+</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- What is Bone Regeneration -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">What is Bone Regeneration?</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>LEARN MORE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">What is Bone Regeneration?</h2>
+                </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <p class="lead">In modern dentistry, <strong>Advanced Bone Regeneration</strong> refers to sophisticated techniques and materials used to rebuild jawbone that has been lost due to tooth extraction, gum disease, or trauma.</p>
-                    <p>Think of it as <strong>"rebuilding the foundation."</strong> Just as you wouldn't build a house on shifting sand, you can't place a dental implant or a stable bridge in a jawbone that is too thin or weak.</p>
-                    <p>Our advanced bone regeneration procedures help create a strong, stable foundation for:</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--accent-sage);"></i><strong>Dental Implants</strong> - Providing secure anchorage for replacement teeth</li>
-                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--accent-sage);"></i><strong>Dental Bridges</strong> - Ensuring stable support for prosthetic teeth</li>
-                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--accent-sage);"></i><strong>Better Oral Health</strong> - Preventing further bone loss and maintaining facial structure</li>
-                        <li class="mb-0"><i class="fas fa-check-circle me-2" style="color: var(--accent-sage);"></i><strong>Natural Appearance</strong> - Preserving facial contours and smile aesthetics</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://magdentalmadrid.com/wp-content/uploads/2024/10/shutterstock_2212028029-1-scaled.jpg" alt="Bone Regeneration Illustration" class="img-fluid rounded-4 shadow">
-                </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="lead" style="color: #AFC3C9;">In modern dentistry, <strong style="color: #00C2C7;">Advanced Bone Regeneration</strong> refers to sophisticated techniques and materials used to rebuild jawbone that has been lost due to tooth extraction, gum disease, or trauma.</p>
+                <p style="color: #AFC3C9;">Think of it as <strong style="color: #00C2C7;">"rebuilding the foundation."</strong> Just as you wouldn't build a house on shifting sand, you can't place a dental implant or a stable bridge in a jawbone that is too thin or weak.</p>
+                <p style="color: #AFC3C9;">Our advanced bone regeneration procedures help create a strong, stable foundation for:</p>
+                <ul class="list-unstyled" style="color: #AFC3C9;">
+                    <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: #00C2C7;"></i><strong style="color: #FFFFFF;">Dental Implants</strong> - Providing secure anchorage for replacement teeth</li>
+                    <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: #00C2C7;"></i><strong style="color: #FFFFFF;">Dental Bridges</strong> - Ensuring stable support for prosthetic teeth</li>
+                    <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: #00C2C7;"></i><strong style="color: #FFFFFF;">Better Oral Health</strong> - Preventing further bone loss and maintaining facial structure</li>
+                    <li class="mb-0"><i class="fas fa-check-circle me-2" style="color: #00C2C7;"></i><strong style="color: #FFFFFF;">Natural Appearance</strong> - Preserving facial contours and smile aesthetics</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://magdentalmadrid.com/wp-content/uploads/2024/10/shutterstock_2212028029-1-scaled.jpg" alt="Bone Regeneration Illustration" class="img-fluid rounded-4" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Advanced Bone Regeneration Solutions</h2>
-                <p class="lead text-muted">Building the Foundation for Dental Success</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Advanced Bone Regeneration Solutions</h2>
+                    <p class="lead" style="color: #AFC3C9;">Building the Foundation for Dental Success</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Guided Bone Regeneration (GBR)</strong> is a sophisticated surgical procedure that rebuilds lost bone structure in the jaw, creating the ideal foundation for dental implants or preserving facial aesthetics. When bone loss occurs due to periodontal disease, trauma, or tooth extraction, GBR techniques can regenerate natural bone.</p>
-            <p>Our <strong>bone regeneration</strong> approach combines advanced biomaterials with specialized membranes to guide new bone growth in specific areas. This predictable procedure restores both height and width of jawbone, enabling successful implant placement even in challenging cases.</p>
-        </div>
-        <div class="col-lg-6">
-            <div class="before-after">
-                <div class="before-after-item" >
-                <img src="https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41368-021-00143-3/MediaObjects/41368_2021_143_Fig1_HTML.png" style="height:300px; object-fit:contain;"">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Guided Bone Regeneration (GBR)</strong> is a sophisticated surgical procedure that rebuilds lost bone structure in the jaw, creating the ideal foundation for dental implants or preserving facial aesthetics. When bone loss occurs due to periodontal disease, trauma, or tooth extraction, GBR techniques can regenerate natural bone.</p>
+                <p style="color: #AFC3C9;">Our <strong style="color: #00C2C7;">bone regeneration</strong> approach combines advanced biomaterials with specialized membranes to guide new bone growth in specific areas. This predictable procedure restores both height and width of jawbone, enabling successful implant placement even in challenging cases.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="before-after">
+                    <div class="before-after-item">
+                        <img src="https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41368-021-00143-3/MediaObjects/41368_2021_143_Fig1_HTML.png" style="height: 300px; object-fit: contain;">
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,48 +299,53 @@
 </div>
 
 <!-- When GBR is Needed -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">When is Guided Bone Regeneration Needed?</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-bullseye me-2"></i>INDICATIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">When is Guided Bone Regeneration Needed?</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <h4>Insufficient Bone for Implants</h4>
-                        <p class="text-muted">When jawbone lacks adequate height, width, or density to support dental implants, GBR creates the necessary foundation.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Insufficient Bone for Implants</h4>
+                    <p style="color: #AFC3C9; margin: 0;">When jawbone lacks adequate height, width, or density to support dental implants, GBR creates the necessary foundation.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bone"></i>
-                        </div>
-                        <h4>Post-Extraction Bone Loss</h4>
-                        <p class="text-muted">Prevents natural bone resorption after tooth extraction, preserving ridge dimensions for future restoration.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bone"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Post-Extraction Bone Loss</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Prevents natural bone resorption after tooth extraction, preserving ridge dimensions for future restoration.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h4>Periodontal Bone Defects</h4>
-                        <p class="text-muted">Reverses bone loss caused by gum disease, restoring support for natural teeth and improving oral health.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Periodontal Bone Defects</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Reverses bone loss caused by gum disease, restoring support for natural teeth and improving oral health.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h4>Aesthetic Enhancement</h4>
-                        <p class="text-muted">Corrects facial contour defects and provides support for lips and cheeks, improving overall appearance.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Aesthetic Enhancement</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Corrects facial contour defects and provides support for lips and cheeks, improving overall appearance.</p>
                 </div>
             </div>
         </div>
@@ -308,55 +353,60 @@
 </div>
 
 <!-- Sinus Lift Direct vs Indirect -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Sinus Lift: Direct vs Indirect</h2>
-                <p class="lead text-muted">Understanding the two approaches to sinus augmentation</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon" style="background: var(--accent-sage);">
-                            <i class="fas fa-arrow-up"></i>
-                        </div>
-                        <h4>Indirect Sinus Lift (Osteotome Technique)</h4>
-                        <p class="text-muted mb-3"><strong>When used:</strong> Suitable for cases requiring 1-4mm of bone height increase.</p>
-                        <p class="text-muted mb-3"><strong>Procedure:</strong> The sinus floor is gently lifted through the implant site using specialized osteotome instruments, without creating a surgical window.</p>
-                        <p class="text-muted mb-0"><strong>Advantages:</strong></p>
-                        <ul class="text-muted">
-                            <li>Less invasive with minimal trauma</li>
-                            <li>Faster healing time</li>
-                            <li>Can be done simultaneously with implant placement</li>
-                            <li>Reduced postoperative discomfort</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="feature-card h-100">
-                        <div class="feature-icon" style="background: var(--accent-sage);">
-                            <i class="fas fa-window-maximize"></i>
-                        </div>
-                        <h4>Direct Sinus Lift (Lateral Window Technique)</h4>
-                        <p class="text-muted mb-3"><strong>When used:</strong> Required for cases needing more than 4-5mm of bone height increase.</p>
-                        <p class="text-muted mb-3"><strong>Procedure:</strong> A surgical window is created in the sinus wall to access the sinus cavity. The sinus membrane is carefully lifted, and bone graft material is placed beneath it.</p>
-                        <p class="text-muted mb-0"><strong>Advantages:</strong></p>
-                        <ul class="text-muted">
-                            <li>Allows for greater bone augmentation</li>
-                            <li>Better visualization of sinus anatomy</li>
-                            <li>More predictable results for large defects</li>
-                            <li>Can correct severe bone loss cases</li>
-                        </ul>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-arrows-alt-v me-2"></i>TECHNIQUES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Sinus Lift: Direct vs Indirect</h2>
+                    <p class="lead" style="color: #AFC3C9;">Understanding the two approaches to sinus augmentation</p>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <div class="alert" style="background: rgba(107, 142, 122, 0.1); border-left: 4px solid var(--accent-sage);">
-                        <h5><i class="fas fa-info-circle me-2"></i>Which Technique is Right for You?</h5>
-                        <p class="mb-0">Our expert team will evaluate your specific case through 3D CT scanning to determine the most appropriate sinus lift technique for your unique situation and implant needs.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-arrow-up"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Indirect Sinus Lift (Osteotome Technique)</h4>
+                    <p style="color: #AFC3C9; margin: 0 0 15px;"><strong>When used:</strong> Suitable for cases requiring 1-4mm of bone height increase.</p>
+                    <p style="color: #AFC3C9; margin: 0 0 15px;"><strong>Procedure:</strong> The sinus floor is gently lifted through the implant site using specialized osteotome instruments, without creating a surgical window.</p>
+                    <p style="color: #00C2C7; margin: 0 0 10px;"><strong>Advantages:</strong></p>
+                    <ul style="color: #AFC3C9; padding-left: 20px;">
+                        <li>Less invasive with minimal trauma</li>
+                        <li>Faster healing time</li>
+                        <li>Can be done simultaneously with implant placement</li>
+                        <li>Reduced postoperative discomfort</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h4 style="color: #FFFFFF;">Direct Sinus Lift (Lateral Window Technique)</h4>
+                    <p style="color: #AFC3C9; margin: 0 0 15px;"><strong>When used:</strong> Required for cases needing more than 4-5mm of bone height increase.</p>
+                    <p style="color: #AFC3C9; margin: 0 0 15px;"><strong>Procedure:</strong> A surgical window is created in the sinus wall to access the sinus cavity. The sinus membrane is carefully lifted, and bone graft material is placed beneath it.</p>
+                    <p style="color: #00C2C7; margin: 0 0 10px;"><strong>Advantages:</strong></p>
+                    <ul style="color: #AFC3C9; padding-left: 20px;">
+                        <li>Allows for greater bone augmentation</li>
+                        <li>Better visualization of sinus anatomy</li>
+                        <li>More predictable results for large defects</li>
+                        <li>Can correct severe bone loss cases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <div style="background: rgba(0, 194, 199, 0.15); border-left: 4px solid #00C2C7; border-radius: 15px; padding: 20px;">
+                    <h5 style="color: #00C2C7;"><i class="fas fa-info-circle me-2"></i>Which Technique is Right for You?</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Our expert team will evaluate your specific case through 3D CT scanning to determine the most appropriate sinus lift technique for your unique situation and implant needs.</p>
                 </div>
             </div>
         </div>
@@ -364,60 +414,65 @@
 </div>
 
 <!-- Ridge Split Procedure -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Ridge Split Procedure</h2>
-                <p class="lead text-muted">An innovative technique for horizontal bone augmentation</p>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="https://denpedia.com/wp-content/uploads/2024/10/ridge-expansion.jpg" alt="Ridge Split Procedure" class="img-fluid rounded-4 shadow">
-                </div>
-                <div class="col-lg-6">
-                    <h4>What is Ridge Split?</h4>
-                    <p class="text-muted">Ridge split (also called ridge expansion or bone splitting) is a surgical technique used to increase the width of a narrow jawbone, allowing for dental implant placement without the need for extensive bone grafting.</p>
-                    
-                    <h4 class="mt-4">How It Works:</h4>
-                    <ol class="text-muted">
-                        <li class="mb-2"><strong>Precise Division:</strong> The ridge is carefully split lengthwise using specialized instruments</li>
-                        <li class="mb-2"><strong>Gentle Expansion:</strong> The split edges are gradually widened to create space</li>
-                        <li class="mb-2"><li class="mb-2"><strong>Bone Grafting:</strong> Bone graft material is placed in the created space</li>
-                        <li class="mb-2"><strong>Implant Placement:</strong> Dental implants can often be placed simultaneously</li>
-                    </ol>
-                    
-                    <h4 class="mt-4">Benefits:</h4>
-                    <ul class="text-muted">
-                        <li>Minimally invasive alternative to block grafting</li>
-                        <li>Reduces treatment time significantly</li>
-                        <li>Often allows immediate implant placement</li>
-                        <li>Preserves existing bone structure</li>
-                        <li>Faster healing and recovery</li>
-                    </ul>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-cut me-2"></i>PROCEDURE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Ridge Split Procedure</h2>
+                    <p class="lead" style="color: #AFC3C9;">An innovative technique for horizontal bone augmentation</p>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-4">
-                    <div class="text-center p-4">
-                        <i class="fas fa-ruler-horizontal" style="font-size: 2.5rem; color: var(--accent-sage);"></i>
-                        <h5 class="mt-3">Ideal for Narrow Ridges</h5>
-                        <p class="text-muted mb-0">Perfect for cases where the jawbone is too narrow for implants but has adequate height</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <img src="https://denpedia.com/wp-content/uploads/2024/10/ridge-expansion.jpg" alt="Ridge Split Procedure" class="img-fluid rounded-4" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
+            <div class="col-lg-6">
+                <h4 style="color: #FFFFFF;">What is Ridge Split?</h4>
+                <p style="color: #AFC3C9;">Ridge split (also called ridge expansion or bone splitting) is a surgical technique used to increase the width of a narrow jawbone, allowing for dental implant placement without the need for extensive bone grafting.</p>
+                    
+                <h4 class="mt-4" style="color: #00C2C7;">How It Works:</h4>
+                <ol style="color: #AFC3C9; padding-left: 20px;">
+                    <li class="mb-2"><strong style="color: #FFFFFF;">Precise Division:</strong> The ridge is carefully split lengthwise using specialized instruments</li>
+                    <li class="mb-2"><strong style="color: #FFFFFF;">Gentle Expansion:</strong> The split edges are gradually widened to create space</li>
+                    <li class="mb-2"><strong style="color: #FFFFFF;">Bone Grafting:</strong> Bone graft material is placed in the created space</li>
+                    <li class="mb-2"><strong style="color: #FFFFFF;">Implant Placement:</strong> Dental implants can often be placed simultaneously</li>
+                </ol>
+                    
+                <h4 class="mt-4" style="color: #00C2C7;">Benefits:</h4>
+                <ul style="color: #AFC3C9; padding-left: 20px;">
+                    <li>Minimally invasive alternative to block grafting</li>
+                    <li>Reduces treatment time significantly</li>
+                    <li>Often allows immediate implant placement</li>
+                    <li>Preserves existing bone structure</li>
+                    <li>Faster healing and recovery</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-5 g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="fas fa-ruler-horizontal" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #FFFFFF;">Ideal for Narrow Ridges</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Perfect for cases where the jawbone is too narrow for implants but has adequate height</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="text-center p-4">
-                        <i class="fas fa-clock" style="font-size: 2.5rem; color: var(--accent-sage);"></i>
-                        <h5 class="mt-3">Time Saving</h5>
-                        <p class="text-muted mb-0">Significantly reduces overall treatment time compared to traditional bone grafting</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="fas fa-clock" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #FFFFFF;">Time Saving</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Significantly reduces overall treatment time compared to traditional bone grafting</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="text-center p-4">
-                        <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-sage);"></i>
-                        <h5 class="mt-3">High Success Rate</h5>
-                        <p class="text-muted mb-0">Proven technique with excellent long-term outcomes when performed by experienced surgeons</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center">
+                    <i class="fas fa-check-circle" style="font-size: 2.5rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                    <h5 style="color: #FFFFFF;">High Success Rate</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Proven technique with excellent long-term outcomes when performed by experienced surgeons</p>
                 </div>
             </div>
         </div>
@@ -425,48 +480,53 @@
 </div>
 
 <!-- GBR Components -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">GBR Components & Materials</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-tools me-2"></i>MATERIALS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">GBR Components & Materials</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h4>Bone Graft Materials</h4>
-                        <p class="text-muted">Various options including autograft (patient's own bone), allograft (donor bone), alloplasts (synthetic), and xenografts (animal-derived) for different clinical situations.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Bone Graft Materials</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Various options including autograft (patient's own bone), allograft (donor bone), alloplasts (synthetic), and xenografts (animal-derived) for different clinical situations.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-filter"></i>
-                        </div>
-                        <h4>Barrier Membranes</h4>
-                        <p class="text-muted">Resorbable and non-resorbable membranes that prevent soft tissue invasion, allowing bone cells to regenerate undisturbed in the treatment area.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-filter"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Barrier Membranes</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Resorbable and non-resorbable membranes that prevent soft tissue invasion, allowing bone cells to regenerate undisturbed in the treatment area.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <h4>Growth Factors</h4>
-                        <p class="text-muted">Biologically active proteins (PRF, BMP) that stimulate and accelerate bone formation for enhanced healing and predictable results.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microscope"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Growth Factors</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Biologically active proteins (PRF, BMP) that stimulate and accelerate bone formation for enhanced healing and predictable results.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h4>Fixation Devices</h4>
-                        <p class="text-muted">Titanium screws and tacks that secure membranes in place, ensuring stable conditions for optimal bone regeneration.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Fixation Devices</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Titanium screws and tacks that secure membranes in place, ensuring stable conditions for optimal bone regeneration.</p>
                 </div>
             </div>
         </div>
@@ -474,120 +534,135 @@
 </div>
 
 <!-- Procedure Details -->
-<div id="procedure" class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The GBR Procedure</h2>
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-list-ol me-2"></i>THE PROCESS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The GBR Procedure</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Comprehensive Evaluation</h5>
-                        <p class="text-muted">3D imaging and bone density assessment to determine exact bone requirements and plan GBR procedure.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Site Preparation</h5>
-                        <p class="text-muted">Careful removal of any compromised tissue and creation of space for bone graft material placement.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Graft Placement</h5>
-                        <p class="text-muted">Precise placement of bone graft material in the deficient area, ensuring proper contour and volume.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Membrane Application</h5>
-                        <p class="text-muted">Placement of barrier membrane to protect graft and direct bone growth in desired areas.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Suturing & Healing</h5>
-                        <p class="text-muted">Secure closure with sutures and protective dressing for optimal healing conditions.</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Comprehensive Evaluation</h5>
+                    <p style="color: #AFC3C9;">3D imaging and bone density assessment to determine exact bone requirements and plan GBR procedure.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://smilematters.in/wp-content/uploads/2020/12/image-dental.jpg" alt="GBR Procedure" class="img-fluid rounded-3 shadow">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Site Preparation</h5>
+                    <p style="color: #AFC3C9;">Careful removal of any compromised tissue and creation of space for bone graft material placement.</p>
                 </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Graft Placement</h5>
+                    <p style="color: #AFC3C9;">Precise placement of bone graft material in the deficient area, ensuring proper contour and volume.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Membrane Application</h5>
+                    <p style="color: #AFC3C9;">Placement of barrier membrane to protect graft and direct bone growth in desired areas.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Suturing & Healing</h5>
+                    <p style="color: #AFC3C9;">Secure closure with sutures and protective dressing for optimal healing conditions.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://smilematters.in/wp-content/uploads/2020/12/image-dental.jpg" alt="GBR Procedure" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- Recovery Timeline -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Recovery and Healing Process</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-clock me-2"></i>RECOVERY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Recovery and Healing Process</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Week 1-2</h5>
-                        <p class="text-muted">Initial healing with mild swelling and discomfort. Soft diet and gentle oral hygiene to protect the surgical site.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Week 3-6</h5>
-                        <p class="text-muted">Early bone formation begins. Most discomfort resolves. Gradual return to normal activities and diet.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Month 3-6</h5>
-                        <p class="text-muted">Significant bone maturation. Follow-up imaging to assess bone regeneration progress and plan next steps.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Month 6-9</h5>
-                        <p class="text-muted">Complete bone integration achieved. Site ready for implant placement or final restoration.</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Week 1-2</h5>
+                    <p style="color: #AFC3C9;">Initial healing with mild swelling and discomfort. Soft diet and gentle oral hygiene to protect the surgical site.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://www.periodontistphoenix.com/wp-content/uploads/2024/11/guided-bone-regeneration.jpg" alt="Healing Process" class="img-fluid rounded-3 shadow">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Week 3-6</h5>
+                    <p style="color: #AFC3C9;">Early bone formation begins. Most discomfort resolves. Gradual return to normal activities and diet.</p>
                 </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Month 3-6</h5>
+                    <p style="color: #AFC3C9;">Significant bone maturation. Follow-up imaging to assess bone regeneration progress and plan next steps.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Month 6-9</h5>
+                    <p style="color: #AFC3C9;">Complete bone integration achieved. Site ready for implant placement or final restoration.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.periodontistphoenix.com/wp-content/uploads/2024/11/guided-bone-regeneration.jpg" alt="Healing Process" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- Benefits Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Guided Bone Regeneration</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of Guided Bone Regeneration</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-tooth"></i>
-                        </div>
-                        <h4>Enables Dental Implants</h4>
-                        <p class="text-muted">Creates sufficient bone volume for successful implant placement even in previously impossible cases.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tooth"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Enables Dental Implants</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Creates sufficient bone volume for successful implant placement even in previously impossible cases.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Preserves Natural Teeth</h4>
-                        <p class="text-muted">Supports existing teeth by rebuilding lost bone structure and preventing further tooth loss.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Preserves Natural Teeth</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Supports existing teeth by rebuilding lost bone structure and preventing further tooth loss.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <h4>Improves Facial Aesthetics</h4>
-                        <p class="text-muted">Restores facial contours and provides support for lips and cheeks, enhancing overall appearance.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-smile"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Improves Facial Aesthetics</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Restores facial contours and provides support for lips and cheeks, enhancing overall appearance.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4>Predictable & Proven</h4>
-                        <p class="text-muted">Evidence-based procedure with high success rates and predictable long-term outcomes.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Predictable & Proven</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Evidence-based procedure with high success rates and predictable long-term outcomes.</p>
                 </div>
             </div>
         </div>
@@ -595,45 +670,50 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-comments me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked Questions</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Is bone grafting painful?
-                        </button>
-                        <div class="faq-answer">
-                            The procedure is performed under local anesthesia, ensuring you feel no pain during surgery. Post-operative discomfort is typically mild and managed with prescribed medications, similar to other dental procedures.
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Is bone grafting painful?
+                    </button>
+                    <div class="faq-answer">
+                        The procedure is performed under local anesthesia, ensuring you feel no pain during surgery. Post-operative discomfort is typically mild and managed with prescribed medications, similar to other dental procedures.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Where does the bone graft material come from?
-                        </button>
-                        <div class="faq-answer d-none">
-                            We offer various options including your own bone (autograft), donor bone from accredited tissue banks (allograft), synthetic materials (alloplasts), or animal-derived materials (xenografts). Each has specific advantages depending on your case.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Where does the bone graft material come from?
+                    </button>
+                    <div class="faq-answer d-none">
+                        We offer various options including your own bone (autograft), donor bone from accredited tissue banks (allograft), synthetic materials (alloplasts), or animal-derived materials (xenografts). Each has specific advantages depending on your case.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does bone regeneration take?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Complete bone maturation typically takes 4-9 months depending on the size of the defect and your healing capacity. We'll monitor progress with follow-up imaging to ensure optimal results.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        How long does bone regeneration take?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Complete bone maturation typically takes 4-9 months depending on the size of the defect and your healing capacity. We'll monitor progress with follow-up imaging to ensure optimal results.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Can I get implants after GBR?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Absolutely! That's often the primary goal of GBR. Once adequate bone has regenerated (usually 6-9 months), the site becomes ideal for successful dental implant placement with excellent long-term stability.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Can I get implants after GBR?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Absolutely! That's often the primary goal of GBR. Once adequate bone has regenerated (usually 6-9 months), the site becomes ideal for successful dental implant placement with excellent long-term stability.
                     </div>
                 </div>
             </div>
@@ -642,16 +722,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready to Rebuild Your Foundation?</h2>
-                    <p class="lead mb-4">Discover how guided bone regeneration can prepare you for successful dental implants and restore your oral health.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready to Rebuild Your Foundation?</h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Discover how guided bone regeneration can prepare you for successful dental implants and restore your oral health.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,64 +31,73 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -87,37 +111,40 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-75">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">SAME-DAY SOLUTION</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Fixed Teeth in a Day</h1>
-                    <h2 class="h3 mb-4 text-white-50">Immediate Load Dental Implants</h2>
-                    <p class="lead mb-4 text-white-50">Leave our clinic with functional teeth on the same day. Experience the revolutionary All-OR-4 and All-on-6 implant solution.</p>
-                    <div class="bg-white bg-opacity-10 rounded-3 p-4 mb-4">
-                        <h5 class="text-white mb-2">Dr. Sandeep Prakash</h5>
-                        <p class="text-white-50 mb-0 small">Oral & Maxillo-Facial Surgeon</p>
-                        <p class="text-white-50 mb-0 small">Dr. Sandeep Prakash is an experienced Oral & Maxillo-Facial Surgeon who has expertise in placement of dental implants with fixed teeth in a day and has experience of more than 15 years in this field.</p>
-                        <p class="text-white-50 mb-0 small">With extensive training and thousands of successful procedures, Dr. Sandeep Prakash provides world-class implant solutions using the latest techniques and technology.</p>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bolt me-2"></i>SAME-DAY SOLUTION
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4" style="color: #FFFFFF;">Fixed Teeth <span style="color: #00C2C7;">in a Day</span></h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Immediate Load Dental Implants</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Leave our clinic with functional teeth on the same day. Experience the revolutionary All-on-4 and All-on-6 implant solution.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <h5 style="color: #00C2C7; margin-bottom: 10px;"><i class="fas fa-user-md me-2"></i>Dr. Sandeep Prakash</h5>
+                        <p style="color: #7A8E94; margin-bottom: 8px; font-size: 0.9rem;">Oral & Maxillo-Facial Surgeon</p>
+                        <p style="color: #AFC3C9; margin-bottom: 0; font-size: 0.9rem;">Dr. Sandeep Prakash is an experienced Oral & Maxillo-Facial Surgeon with expertise in placement of dental implants with fixed teeth in a day and has experience of more than 18 years in this field.</p>
                     </div>
-                    <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="https://elshenawy-dentalclinics.com/wp-content/uploads/2025/06/full-mouth-dental-implants-model.webp" alt="Fixed Teeth in a Day" class="img-fluid rounded-4 shadow-lg">
+                    <img src="https://elshenawy-dentalclinics.com/wp-content/uploads/2025/06/full-mouth-dental-implants-model.webp" alt="Fixed Teeth in a Day" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -125,57 +152,71 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Implants Used</div>
-                <div class="stat-number">4-6</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Implants Used</div>
+                    <div class="stat-number">4-6</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Procedure Time</div>
-                <div class="stat-number">1 Day</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Procedure Time</div>
+                    <div class="stat-number">1 Day</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Recovery Time</div>
-                <div class="stat-number">3-4 Months</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Recovery Time</div>
+                    <div class="stat-number">3-4 Months</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate</div>
-                <div class="stat-number">95%+</div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate</div>
+                    <div class="stat-number">95%+</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Ultimate Chewing and Smile Restoration</h2>
-                <p class="lead text-muted">Permanent Solution for Complete Tooth Loss</p>
+
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>DENTAL SOLUTIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Ultimate Chewing and <span style="color: #00C2C7;">Smile Restoration</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">Permanent Solution for Complete Tooth Loss</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Full mouth dental implants</strong> represent the gold standard for complete tooth replacement, offering a permanent, stable solution that mimics natural teeth in both appearance and function. This comprehensive approach replaces all missing teeth in both upper and lower jaws with strategically placed implants.</p>
-            <p>Whether you've lost teeth due to decay, trauma, or periodontal disease, our <strong>full mouth rehabilitation with implants</strong> provides a life-changing solution that restores your ability to eat confidently, speak clearly, and smile without hesitation - all with the stability and comfort only implants can provide.</p>
-        </div>
-        <div class="col-lg-6">
-            <div class="implant-types">
-                <div class="implant-type">
-                    <h5 class="mb-2">Before</h5>
-                    <p>Missing teeth<br>Poor function<br>Reduced confidence</p>
-                </div>
-                <div class="implant-type featured">
-                    <h5 class="mb-2">After Full Implants</h5>
-                    <p>Complete restoration<br>Full function<br>Renewed confidence</p>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9; font-size: 1rem; line-height: 1.8;"><strong style="color: #00C2C7;">Full mouth dental implants</strong> represent the gold standard for complete tooth replacement, offering a permanent, stable solution that mimics natural teeth in both appearance and function.</p>
+                <p style="color: #AFC3C9; font-size: 1rem; line-height: 1.8;">Whether you've lost teeth due to decay, trauma, or periodontal disease, our <strong style="color: #00C2C7;">full mouth rehabilitation with implants</strong> provides a life-changing solution.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.15); border-radius: 16px; padding: 25px; text-align: center;">
+                            <i class="fas fa-times-circle" style="font-size: 2rem; color: #FF6B6B; margin-bottom: 15px;"></i>
+                            <h5 style="color: #FFFFFF; margin-bottom: 10px;">Before</h5>
+                            <p style="color: #AFC3C9; font-size: 0.85rem; margin: 0;">Missing teeth<br>Poor function<br>Reduced confidence</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div style="background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.6)); backdrop-filter: blur(20px); border: 2px solid #00C2C7; border-radius: 16px; padding: 25px; text-align: center;">
+                            <i class="fas fa-check-circle" style="font-size: 2rem; color: #00C2C7; margin-bottom: 15px;"></i>
+                            <h5 style="color: #00C2C7; margin-bottom: 10px;">After</h5>
+                            <p style="color: #AFC3C9; font-size: 0.85rem; margin: 0;">Complete restoration<br>Full function<br>Renewed confidence</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -183,177 +224,206 @@
 </div>
 
 <!-- What is Fixed Teeth in a Day -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">What is Fixed Teeth in a Day?</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>LEARN MORE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">What is <span style="color: #00C2C7;">Fixed Teeth in a Day?</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <p class="lead"><strong>Fixed teeth in a day</strong>, also known as immediate load implants, is a procedure where dental implants and a temporary prosthetic are placed in a single visit.</p>
-            <p>This approach, often called <strong>All-OR-4 or All-on-6</strong>, allows patients to leave the clinic with functional teeth the same day. It is typically used for patients with significant tooth loss, providing an alternative to dentures by anchoring a full arch of teeth to 4-6 implants.</p>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.15); border-radius: 20px; padding: 40px;">
+                    <p class="lead" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Fixed teeth in a day</strong>, also known as immediate load implants, is a procedure where dental implants and a temporary prosthetic are placed in a single visit.</p>
+                    <p style="color: #AFC3C9; font-size: 1rem; line-height: 1.8;">This approach, often called <strong style="color: #00C2C7;">All-on-4 or All-on-6</strong>, allows patients to leave the clinic with functional teeth the same day. It is typically used for patients with significant tooth loss, providing an alternative to dentures by anchoring a full arch of teeth to 4-6 implants.</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Teeth & Implant Numbers -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Teeth & Implant Support</h2>
-            </div>
-        </div>
-    </div>
-    <div class="row align-items-center mb-5">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-            <div class="stat-box bg-white">
-                <div class="stat-number">12-14</div>
-                <div class="text-muted">Teeth Per Jaw</div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="stat-box bg-white">
-                <div class="stat-number">4-6</div>
-                <div class="text-muted">Implants Per Jaw</div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-            <p class="lead">Typically, <strong>12 to 14 teeth per jaw</strong> are placed instead of 16 teeth, and these are adequately supported by <strong>4-6 implants per jaw</strong>.</p>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-lg-8 mx-auto">
-            <h4 class="text-center mb-4">Implant Placement Methods</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="feature-card text-center">
-                <div class="feature-icon mx-auto">
-                    <i class="fas fa-crosshairs"></i>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-teeth me-2"></i>IMPLANT DETAILS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Teeth & <span style="color: #00C2C7;">Implant Support</span></h2>
                 </div>
-                <h4>Guided Implant Placement</h4>
-                <p class="text-muted mb-0">Computer-guided surgery using 3D imaging and surgical guides for precise implant positioning.</p>
             </div>
         </div>
-        <div class="col-md-6 mb-4">
-            <div class="feature-card text-center">
-                <div class="feature-icon mx-auto">
-                    <i class="fas fa-hand-pointer"></i>
+        <div class="row align-items-center mb-5 g-4">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="stat-box" style="padding: 40px;">
+                    <div class="stat-number" style="font-size: 4rem;">12-14</div>
+                    <div style="color: #7A8E94; font-size: 1rem;">Teeth Per Jaw</div>
                 </div>
-                <h4>Non-Guided / Free-Hand Placement</h4>
-                <p class="text-muted mb-0">Traditional implant placement technique performed by the surgeon's expertise and skill.</p>
             </div>
-        </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-lg-8 mx-auto">
-            <h4 class="text-center mb-4">Guided Implant Placement</h4>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm">
-                <img src="{{ url_for('static', filename='images/guided_img1.png') }}" alt="Guided Implant Placement 1" class="img-fluid rounded">
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm">
-                <img src="{{ url_for('static', filename='images/guided_img2.png') }}" alt="Guided Implant Placement 2" class="img-fluid rounded">
+            <div class="col-lg-6">
+                <div class="stat-box" style="padding: 40px;">
+                    <div class="stat-number" style="font-size: 4rem;">4-6</div>
+                    <div style="color: #7A8E94; font-size: 1rem;">Implants Per Jaw</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Full Mouth Implant Options</h2>
+<!-- Implant Placement Methods -->
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-4">
+                <h3 style="color: #FFFFFF;">Implant Placement Methods</h3>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h4>All-OR-4 Technique</h4>
-                        <p class="text-muted">Strategic placement of 4-6 implants per arch to support a full fixed bridge, providing immediate function with minimal implants.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-crosshairs"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Guided Implant Placement</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Computer-guided surgery using 3D imaging and surgical guides for precise implant positioning.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-th"></i>
-                        </div>
-                        <h4>Individual Implants</h4>
-                        <p class="text-muted">Placement of 8-14 individual implants per arch to support separate crowns, offering the most natural and customizable solution.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card text-center">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-hand-pointer"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Non-Guided / Free-Hand Placement</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Traditional implant placement technique performed by the surgeon's expertise and skill.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-compress-arrows-alt"></i>
-                        </div>
-                        <h4>Hybrid Approach</h4>
-                        <p class="text-muted">Combination of implants and bridges optimized for your specific bone structure and functional requirements.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Guided Implant Images -->
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-4">
+                <h3 style="color: #FFFFFF;">Guided Implant Placement</h3>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.15); border-radius: 16px; overflow: hidden;">
+                    <img src="{{ url_for('static', filename='images/guided_img1.png') }}" alt="Guided Implant Placement 1" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.15); border-radius: 16px; overflow: hidden;">
+                    <img src="{{ url_for('static', filename='images/guided_img2.png') }}" alt="Guided Implant Placement 2" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Full Mouth Implant Options -->
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>TREATMENT OPTIONS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Full Mouth <span style="color: #00C2C7;">Implant Options</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">All-on-4 Technique</h4>
+                    <p style="color: #AFC3C9;">Strategic placement of 4-6 implants per arch to support a full fixed bridge, providing immediate function with minimal implants.</p>
                 </div>
-                
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h4 style="color: #FFFFFF;">Individual Implants</h4>
+                    <p style="color: #AFC3C9;">Placement of 8-14 individual implants per arch to support separate crowns, offering the most natural solution.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <h4 style="color: #FFFFFF;">Hybrid Approach</h4>
+                    <p style="color: #AFC3C9;">Combination of implants and bridges optimized for your specific bone structure and functional requirements.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Applications -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Applications</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-bullseye me-2"></i>USE CASES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Treatment <span style="color: #00C2C7;">Applications</span></h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h4>All-OR-4 / All-OR-6</h4>
-                        <p class="text-muted">Full arch restoration using 4-6 strategically placed implants to support a complete set of fixed teeth. Ideal for patients with significant tooth loss.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">All-on-4 / All-on-6</h4>
+                    <p style="color: #AFC3C9;">Full arch restoration using 4-6 strategically placed implants to support a complete set of fixed teeth. Ideal for patients with significant tooth loss.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <h4>Missing Anterior Teeth</h4>
-                        <p class="text-muted">This approach can also be used for missing front teeth where the implant is placed and a fixed temporary tooth is placed in the same appointment.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-smile"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Missing Anterior Teeth</h4>
+                    <p style="color: #AFC3C9;">This approach can also be used for missing front teeth where the implant is placed and a fixed temporary tooth is placed in the same appointment.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-prosthesis"></i>
-                        </div>
-                        <h4>Denture Alternative</h4>
-                        <p class="text-muted">An excellent alternative to traditional removable dentures, providing permanent fixed teeth that don't slip or require daily removal.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-prosthesis"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Denture Alternative</h4>
+                    <p style="color: #AFC3C9;">An excellent alternative to traditional removable dentures, providing permanent fixed teeth that don't slip or require daily removal.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4>Immediate Results</h4>
-                        <p class="text-muted">Walk out with functional, beautiful teeth in just one visit. No more waiting months for your new smile.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Immediate Results</h4>
+                    <p style="color: #AFC3C9;">Walk out with functional, beautiful teeth in just one visit. No more waiting months for your new smile.</p>
                 </div>
             </div>
         </div>
@@ -361,65 +431,71 @@
 </div>
 
 <!-- Important Consideration -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <div class="procedure-step" style="border-left-color: #ffc107;">
-                <h5><i class="fas fa-exclamation-triangle text-warning me-2"></i>Important Consideration</h5>
-                <p class="text-muted mb-0">In few cases where the bone is less in quantity or quality, fixed teeth can't be given in a day and removable teeth are given in the next few days. This ensures proper healing and optimal results for your implants.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="procedure-step" style="border-left-color: #FFA500; background: rgba(255, 165, 0, 0.1);">
+                    <h5 style="color: #FFA500;"><i class="fas fa-exclamation-triangle me-2"></i>Important Consideration</h5>
+                    <p style="color: #AFC3C9; margin: 0;">In few cases where the bone is less in quantity or quality, fixed teeth can't be given in a day and removable teeth are given in the next few days. This ensures proper healing and optimal results for your implants.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Benefits -->
-<div id="procedure" class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
-    <div class="container">
+<!-- The Procedure -->
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
         <div class="row mb-5">
             <div class="col-lg-12 text-center">
-                <h2 class="display-5 fw-bold">The Procedure</h2>
-                <p class="lead text-muted">Your journey to a perfect smile in three simple steps</p>
+                <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                    <i class="fas fa-list-ol me-2"></i>THE PROCESS
+                </span>
+                <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The <span style="color: #00C2C7;">Procedure</span></h2>
+                <p class="lead" style="color: #AFC3C9;">Your journey to a perfect smile in three simple steps</p>
             </div>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="procedure-card h-100">
-                    <div class="procedure-number">01</div>
-                    <div class="procedure-icon">
-                        <i class="fas fa-user-md"></i>
+                <div class="feature-card text-center" style="padding: 40px 25px; position: relative;">
+                    <div style="position: absolute; top: 15px; right: 20px; font-size: 3rem; font-weight: bold; color: rgba(0, 194, 199, 0.2); line-height: 1;">01</div>
+                    <div class="feature-icon mx-auto" style="width: 80px; height: 80px;">
+                        <i class="fas fa-user-md" style="font-size: 2rem;"></i>
                     </div>
-                    <h4>Surgical Placement</h4>
-                    <p class="text-muted mb-0">Precise placement of 4-6 implants under local anesthesia, typically 2-4 hours per arch using advanced guided techniques.</p>
+                    <h4 style="color: #FFFFFF; margin-bottom: 15px;">Surgical Placement</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Precise placement of 4-6 implants under local anesthesia, typically 2-4 hours per arch using advanced guided techniques.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="procedure-card h-100">
-                    <div class="procedure-number">02</div>
-                    <div class="procedure-icon">
-                        <i class="fas fa-teeth-open"></i>
+                <div class="feature-card text-center" style="padding: 40px 25px; position: relative;">
+                    <div style="position: absolute; top: 15px; right: 20px; font-size: 3rem; font-weight: bold; color: rgba(0, 194, 199, 0.2); line-height: 1;">02</div>
+                    <div class="feature-icon mx-auto" style="width: 80px; height: 80px;">
+                        <i class="fas fa-teeth-open" style="font-size: 2rem;"></i>
                     </div>
-                    <h4>Temporary Restoration</h4>
-                    <p class="text-muted mb-0">Immediate placement of temporary teeth for aesthetic and functional improvement during healing</p>
+                    <h4 style="color: #FFFFFF; margin-bottom: 15px;">Temporary Restoration</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Immediate placement of temporary teeth for aesthetic and functional improvement during healing.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="procedure-card h-100">
-                    <div class="procedure-number">03</div>
-                    <div class="procedure-icon">
-                        <i class="fas fa-check-double"></i>
+                <div class="feature-card text-center" style="padding: 40px 25px; position: relative;">
+                    <div style="position: absolute; top: 15px; right: 20px; font-size: 3rem; font-weight: bold; color: rgba(0, 194, 199, 0.2); line-height: 1;">03</div>
+                    <div class="feature-icon mx-auto" style="width: 80px; height: 80px;">
+                        <i class="fas fa-check-double" style="font-size: 2rem;"></i>
                     </div>
-                    <h4>Final Restoration</h4>
-                    <p class="text-muted mb-0">Placement of final zirconia or porcelain restorations after complete implant integration</p>
+                    <h4 style="color: #FFFFFF; margin-bottom: 15px;">Final Restoration</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Placement of final zirconia or porcelain restorations after complete implant integration.</p>
                 </div>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-lg-8 mx-auto">
-                <div class="p-4 rounded-3" style="background: rgba(168, 189, 172, 0.15); border-left: 4px solid var(--accent-sage);">
+                <div style="background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); border-left: 4px solid #00C2C7; border-radius: 16px; padding: 25px;">
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-clock text-success me-3 fa-lg"></i>
+                        <i class="fas fa-clock me-3" style="font-size: 1.5rem; color: #00C2C7;"></i>
                         <div>
-                            <strong>Total Treatment Time:</strong> 2-4 months from implant to final restoration
+                            <strong style="color: #FFFFFF;">Total Treatment Time:</strong>
+                            <span style="color: #AFC3C9;"> 2-4 months from implant to final restoration</span>
                         </div>
                     </div>
                 </div>
@@ -428,66 +504,22 @@
     </div>
 </div>
 
-<style>
-.procedure-card {
-    background: var(--warm-white);
-    border-radius: 20px;
-    padding: 35px 25px;
-    text-align: center;
-    position: relative;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-.procedure-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
-}
-.procedure-number {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 3rem;
-    font-weight: bold;
-    color: rgba(168, 189, 172, 0.3);
-    line-height: 1;
-}
-.procedure-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--accent-sage), #8fa89c);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    color: var(--warm-white);
-    font-size: 1.8rem;
-    transition: all 0.3s ease;
-}
-.procedure-card:hover .procedure-icon {
-    transform: scale(1.1);
-    box-shadow: 0 5px 20px rgba(168, 189, 172, 0.5);
-}
-.procedure-card h4 {
-    color: var(--primary-navy);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-</style>
-
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Get Your Fixed Teeth in a Day</h2>
-                    <p class="lead mb-4">Transform your smile in just one visit. Experience the revolutionary fixed teeth in a day procedure at Panache Dental.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Get Your <span style="color: #00C2C7;">Fixed Teeth</span> in a Day</h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Transform your smile in just one visit. Experience the revolutionary fixed teeth in a day procedure at Panache Dental.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Consultation</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>

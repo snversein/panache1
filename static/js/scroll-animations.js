@@ -290,15 +290,15 @@ document.addEventListener('DOMContentLoaded', function() {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary-red, #8B0000);
-            color: white;
+            background: #00C2C7;
+            color: #0B1F2A;
             border: none;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0, 194, 199, 0.4);
         `;
         
         document.body.appendChild(btn);

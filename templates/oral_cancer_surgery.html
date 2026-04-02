@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: 3px solid rgba(18, 56, 71, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 194, 199, 0.3);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.15), rgba(18, 56, 71, 0.8));
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.25), rgba(18, 56, 71, 0.9));
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.5);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,38 +155,48 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
 .warning-box {
-    background: linear-gradient(135deg, #dc3545, #c82333);
-    color: white;
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(18, 56, 71, 0.8));
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #FFFFFF;
     border-radius: 15px;
     padding: 30px;
     margin: 20px 0;
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">ONCOLOGIC SURGERY</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Oral Cancer Surgery</h1>
-                    <h2 class="h3 mb-4 text-white-50">& Reconstruction</h2>
-                    <p class="lead mb-4 text-white-50">Dr. Sandeep Prakash specializes in the surgical treatment of oral cancer, providing comprehensive evaluation, precise oncologic resection, and coordinated care for optimal recovery and rehabilitation.</p>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-bolt me-2"></i>ONCOLOGIC SURGERY
+                    </span>
+                    <h1 class="display-2 fw-bold mb-4" style="color: #FFFFFF;">Oral Cancer Surgery <span style="color: #00C2C7;">& Reconstruction</span></h1>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Dr. Sandeep Prakash specializes in the surgical treatment of oral cancer, providing comprehensive evaluation, precise oncologic resection, and coordinated care for optimal recovery and rehabilitation.</p>
+                    <div style="background: rgba(18, 56, 71, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(0, 194, 199, 0.2); border-radius: 20px; padding: 25px; margin-bottom: 25px;">
+                        <h5 style="color: #00C2C7; margin-bottom: 10px;"><i class="fas fa-user-md me-2"></i>Dr. Sandeep Prakash</h5>
+                        <p style="color: #7A8E94; margin-bottom: 8px; font-size: 0.9rem;">Oral & Maxillo-Facial Surgeon</p>
+                        <p style="color: #AFC3C9; margin-bottom: 0; font-size: 0.9rem;">With extensive experience in oral cancer treatment and reconstructive surgery, Dr. Prakash provides comprehensive care for patients seeking life-restoring treatment.</p>
+                    </div>
                     <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Get Evaluation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Get Evaluation</a>
+                        <a href="#procedure" class="btn btn-outline-accent btn-lg"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="{{ url_for('static', filename='images/oral_cancer.png') }}" alt="Oral Cancer Treatment" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ url_for('static', filename='images/oral_cancer.png') }}" alt="Oral Cancer Treatment" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -168,93 +204,104 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Hours Duration</div>
-                <div class="stat-number">4-8</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Hours Duration</div>
+                    <div class="stat-number">4-8</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Anesthesia Type</div>
-                <div class="stat-number">General</div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Anesthesia Type</div>
+                    <div class="stat-number">General</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Success Rate (Early Detection)</div>
-                <div class="stat-number">80-90%+</div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Success Rate (Early Detection)</div>
+                    <div class="stat-number">80-90%+</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Advanced Oral Cancer Care</h2>
-                <p class="lead text-muted">Comprehensive Treatment with Life-Restoring Reconstruction</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>ADVANCED ORAL CANCER CARE
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Comprehensive Treatment with <span style="color: #00C2C7;">Life-Restoring Reconstruction</span></h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Oral cancer</strong> requires a specialized, multidisciplinary approach for optimal outcomes. We combines <strong>oncologic expertise</strong> with advanced reconstructive techniques to remove cancer while preserving function and aesthetics.</p>
-            <p>We understand that oral cancer treatment impacts not just physical health, but emotional wellbeing too. That's why we focus on <strong>immediate reconstruction</strong> and comprehensive rehabilitation to help patients return to normal life with confidence.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://airavatcancercare.com/wp-content/uploads/2025/08/Comprehensive-Oral-Cancer-Treatment-in-Ahmedabad-at-Airavat-Cancer-Care-1170x627.jpg" alt="Oral Cancer Screening" class="img-fluid rounded-3 shadow">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Oral cancer</strong> requires a specialized, multidisciplinary approach for optimal outcomes. We combine <strong style="color: #00C2C7;">oncologic expertise</strong> with advanced reconstructive techniques to remove cancer while preserving function and aesthetics.</p>
+                <p style="color: #AFC3C9;">We understand that oral cancer treatment impacts not just physical health, but emotional wellbeing too. That's why we focus on <strong style="color: #00C2C7;">immediate reconstruction</strong> and comprehensive rehabilitation to help patients return to normal life with confidence.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://airavatcancercare.com/wp-content/uploads/2025/08/Comprehensive-Oral-Cancer-Treatment-in-Ahmedabad-at-Airavat-Cancer-Care-1170x627.jpg" alt="Oral Cancer Screening" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Types of Oral Cancer -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Types of Oral Cancer We Treat</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h4>Squamous Cell Carcinoma</h4>
-                        <p class="text-muted">This is the most common type, accounting for over 90% of oral cancers. It begins in the thin, flat cells lining the mouth.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-th-large me-2"></i>TYPES OF CANCER
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Types of Oral Cancer <span style="color: #00C2C7;">We Treat</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Squamous Cell Carcinoma</h4>
+                            <p style="color: #AFC3C9; margin: 0;">This is the most common type, accounting for over 90% of oral cancers. It begins in the thin, flat cells lining the mouth.</p>
                         </div>
-                        <h4>Verrucous Carcinoma</h4>
-                        <p class="text-muted">A slow-growing variant of squamous cell carcinoma that rarely spreads but can be locally aggressive.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Verrucous Carcinoma</h4>
+                            <p style="color: #AFC3C9; margin: 0;">A slow-growing variant of squamous cell carcinoma that rarely spreads but can be locally aggressive.</p>
                         </div>
-                        <h4>Minor Salivary Gland Cancer</h4>
-                        <p class="text-muted">Arises from small salivary glands present in the palate, lips, or inner cheeks.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Minor Salivary Gland Cancer</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Arises from small salivary glands present in the palate, lips, or inner cheeks.</p>
                         </div>
-                        <h4>Oral Melanoma</h4>
-                        <p class="text-muted">A rare but aggressive cancer that develops from pigment-producing cells in the mouth.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Oral Melanoma</h4>
+                            <p style="color: #AFC3C9; margin: 0;">A rare but aggressive cancer that develops from pigment-producing cells in the mouth.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -263,47 +310,52 @@
 </div>
 
 <!-- Warning Signs Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Warning Signs & Symptoms</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Persistent Mouth Sores</h5>
-                        <p class="text-muted mb-0">Sores that don't heal within 2 weeks or keep recurring in the same location.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-triangle me-2"></i>WARNING SIGNS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Warning Signs & <span style="color: #00C2C7;">Symptoms</span></h2>
                 </div>
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>White or Red Patches</h5>
-                        <p class="text-muted mb-0">Leukoplakia (white) or erythroplakia (red) patches that cannot be scraped off.</p>
+                <div class="row">
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>Persistent Mouth Sores</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Sores that don't heal within 2 weeks or keep recurring in the same location.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Unexplained Bleeding</h5>
-                        <p class="text-muted mb-0">Bleeding from the mouth or throat without obvious cause or injury.</p>
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>White or Red Patches</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Leukoplakia (white) or erythroplakia (red) patches that cannot be scraped off.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Numbness or Pain</h5>
-                        <p class="text-muted mb-0">Persistent pain, numbness, or tenderness in the mouth, face, or neck area.</p>
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>Unexplained Bleeding</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Bleeding from the mouth or throat without obvious cause or injury.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Difficulty Swallowing</h5>
-                        <p class="text-muted mb-0">Pain or difficulty when swallowing, chewing, or speaking.</p>
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>Numbness or Pain</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Persistent pain, numbness, or tenderness in the mouth, face, or neck area.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-triangle text-danger me-2"></i>Lump or Thickening</h5>
-                        <p class="text-muted mb-0">Any lump, thickening, rough spot, or eroded area in the mouth.</p>
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>Difficulty Swallowing</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Pain or difficulty when swallowing, chewing, or speaking.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #FFFFFF;"><i class="fas fa-exclamation-triangle text-danger me-2"></i>Lump or Thickening</h5>
+                            <p style="color: #AFC3C9; margin: 0;">Any lump, thickening, rough spot, or eroded area in the mouth.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -312,47 +364,52 @@
 </div>
 
 <!-- Sign & Symptoms -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Sign & Symptoms</h2>
-                <p class="lead text-muted">Seek evaluation if you experience:</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Non-healing ulcer lasting more than 2 weeks</h5>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-search me-2"></i>SYMPTOMS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Sign & <span style="color: #00C2C7;">Symptoms</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">Seek evaluation if you experience:</p>
                 </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Red or white patches inside the mouth</h5>
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Non-healing ulcer lasting more than 2 weeks</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Unexplained bleeding</h5>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Red or white patches inside the mouth</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Lump or thickening in the cheek</h5>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Unexplained bleeding</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Difficulty swallowing or speaking</h5>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Lump or thickening in the cheek</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Persistent ear pain</h5>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Difficulty swallowing or speaking</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-exclamation-circle text-warning me-2"></i>Loosening of teeth without gum disease</h5>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Persistent ear pain</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-exclamation-circle me-2"></i>Loosening of teeth without gum disease</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -361,32 +418,37 @@
 </div>
 
 <!-- Common Sites -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Common Sites of Oral Cancer</h2>
-                <p class="lead text-muted">Oral cancer may develop in:</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Tongue (especially the sides)</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Floor of the mouth</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Buccal mucosa (inner cheek)</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Hard and soft palate</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Lips</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check-circle text-success me-2"></i>Gums</h5>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-map-marker-alt me-2"></i>COMMON SITES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Common Sites of <span style="color: #00C2C7;">Oral Cancer</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">Oral cancer may develop in:</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Tongue (especially the sides)</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Floor of the mouth</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Buccal mucosa (inner cheek)</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Hard and soft palate</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Lips</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check-circle text-success me-2"></i>Gums</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -395,36 +457,41 @@
 </div>
 
 <!-- Surgical Management -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Surgical Management</h2>
-                <p class="lead text-muted">(Primary Treatment)</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 mb-4">
-                    <p>Surgery is often the first line of treatment.</p>
-                    <p class="mb-2">Procedures may include:</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-cut me-2"></i>SURGICAL MANAGEMENT
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Surgical <span style="color: #00C2C7;">Management</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">(Primary Treatment)</p>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Wide local excision</h5>
+                <div class="row">
+                    <div class="col-lg-12 mb-4">
+                        <p style="color: #AFC3C9;">Surgery is often the first line of treatment.</p>
+                        <p class="mb-2" style="color: #AFC3C9;">Procedures may include:</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Partial glossectomy (tongue resection)</h5>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-scalpel me-2"></i>Wide local excision</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Mandibulectomy (jaw bone removal if involved)</h5>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-scalpel me-2"></i>Partial glossectomy (tongue resection)</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-scalpel text-primary me-2"></i>Neck dissection (removal of lymph nodes)</h5>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-scalpel me-2"></i>Mandibulectomy (jaw bone removal if involved)</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-scalpel me-2"></i>Neck dissection (removal of lymph nodes)</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -433,52 +500,57 @@
 </div>
 
 <!-- Reconstructive Surgery -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Reconstructive Surgery</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 mb-4">
-                    <p>After tumor removal, reconstruction is often necessary.</p>
-                    <p class="mb-2">Options include:</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-building me-2"></i>RECONSTRUCTION
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Reconstructive <span style="color: #00C2C7;">Surgery</span></h2>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Local flaps</h5>
+                <div class="row">
+                    <div class="col-lg-12 mb-4">
+                        <p style="color: #AFC3C9;">After tumor removal, reconstruction is often necessary.</p>
+                        <p class="mb-2" style="color: #AFC3C9;">Options include:</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Local flaps</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Regional flaps</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Microvascular free flap reconstruction</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-stethoscope me-2"></i>Bone grafting</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Regional flaps</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Microvascular free flap reconstruction</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-stethoscope text-primary me-2"></i>Bone grafting</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <p class="mb-2">Reconstruction restores:</p>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check text-success me-2"></i>Facial symmetry</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check text-success me-2"></i>Jaw continuity</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check text-success me-2"></i>Chewing function</h5>
-                    </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-check text-success me-2"></i>Speech clarity</h5>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <p class="mb-2" style="color: #AFC3C9;">Reconstruction restores:</p>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check text-success me-2"></i>Facial symmetry</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check text-success me-2"></i>Jaw continuity</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check text-success me-2"></i>Chewing function</h5>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-check text-success me-2"></i>Speech clarity</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -487,29 +559,34 @@
 </div>
 
 <!-- Radiation Therapy -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Radiation Therapy</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="mb-3">Often used:</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-radiation me-2"></i>RADIATION THERAPY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Radiation <span style="color: #00C2C7;">Therapy</span></h2>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-radiation text-info me-2"></i>After surgery (adjuvant therapy)</h5>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="mb-3" style="color: #AFC3C9;">Often used:</p>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-radiation text-info me-2"></i>For inoperable cases</h5>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-radiation me-2"></i>After surgery (adjuvant therapy)</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-radiation text-info me-2"></i>In combination with chemotherapy</h5>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-radiation me-2"></i>For inoperable cases</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-radiation me-2"></i>In combination with chemotherapy</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -518,29 +595,34 @@
 </div>
 
 <!-- Chemotherapy -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Chemotherapy</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="mb-3">Used in:</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-pills me-2"></i>CHEMOTHERAPY
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Chemotherapy</h2>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-pills text-danger me-2"></i>Advanced-stage cancers</h5>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="mb-3" style="color: #AFC3C9;">Used in:</p>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-pills text-danger me-2"></i>Combined chemoradiotherapy</h5>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-pills me-2"></i>Advanced-stage cancers</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-pills text-danger me-2"></i>Recurrent disease</h5>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-pills me-2"></i>Combined chemoradiotherapy</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-pills me-2"></i>Recurrent disease</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -549,37 +631,42 @@
 </div>
 
 <!-- Surgical Approach -->
-<div id="procedure" class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Our Comprehensive Surgical Approach</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Comprehensive Diagnosis</h5>
-                        <p class="text-muted">Detailed biopsy, advanced imaging studies (CT, MRI, PET), and multidisciplinary tumor board review for accurate staging.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Multidisciplinary Planning</h5>
-                        <p class="text-muted">Coordination with oncology, radiology, nutrition, speech therapy, and rehabilitation specialists for comprehensive care.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Surgical Resection</h5>
-                        <p class="text-muted">Tumor removal with clear margins while preserving maximum function and surrounding healthy tissue.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Immediate Reconstruction</h5>
-                        <p class="text-muted">Advanced microvascular flap surgery and bone reconstruction performed in the same operation when possible.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Rehabilitation & Follow-up</h5>
-                        <p class="text-muted">Speech therapy, swallowing therapy, dental rehabilitation, and regular surveillance for optimal recovery.</p>
-                    </div>
+<div id="procedure" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-list-check me-2"></i>OUR APPROACH
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Our Comprehensive <span style="color: #00C2C7;">Surgical Approach</span></h2>
                 </div>
-                <div class="col-lg-6">
-                    <img src="/static/images/surgical_approach.png" alt="Oral Cancer Surgery Process" class="img-fluid rounded-3 shadow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Comprehensive Diagnosis</h5>
+                            <p style="color: #AFC3C9;">Detailed biopsy, advanced imaging studies (CT, MRI, PET), and multidisciplinary tumor board review for accurate staging.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Multidisciplinary Planning</h5>
+                            <p style="color: #AFC3C9;">Coordination with oncology, radiology, nutrition, speech therapy, and rehabilitation specialists for comprehensive care.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Surgical Resection</h5>
+                            <p style="color: #AFC3C9;">Tumor removal with clear margins while preserving maximum function and surrounding healthy tissue.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Immediate Reconstruction</h5>
+                            <p style="color: #AFC3C9;">Advanced microvascular flap surgery and bone reconstruction performed in the same operation when possible.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 style="color: #FFFFFF;">Rehabilitation & Follow-up</h5>
+                            <p style="color: #AFC3C9;">Speech therapy, swallowing therapy, dental rehabilitation, and regular surveillance for optimal recovery.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="/static/images/surgical_approach.png" alt="Oral Cancer Surgery Process" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
+                    </div>
                 </div>
             </div>
         </div>
@@ -587,47 +674,52 @@
 </div>
 
 <!-- Reconstruction Techniques -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Advanced Reconstruction Techniques</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-hand-paper"></i>
-                        </div>
-                        <h4>Free Flap Reconstruction</h4>
-                        <p class="text-muted">Microvascular transfer of tissue from distant sites (fibula, radial forearm, scapula) with blood vessel reconnection for optimal survival.</p>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-microscope me-2"></i>ADVANCED TECHNIQUES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Advanced Reconstruction <span style="color: #00C2C7;">Techniques</span></h2>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bone"></i>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Free Flap Reconstruction</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Microvascular transfer of tissue from distant sites (fibula, radial forearm, scapula) with blood vessel reconnection for optimal survival.</p>
                         </div>
-                        <h4>Vascularized Bone Grafting</h4>
-                        <p class="text-muted">Jaw reconstruction using bone grafts with their own blood supply for successful integration and dental implant placement.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Vascularized Bone Grafting</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Jaw reconstruction using bone grafts with their own blood supply for successful integration and dental implant placement.</p>
                         </div>
-                        <h4>3D-Printed Implants</h4>
-                        <p class="text-muted">Custom-made titanium implants and surgical guides designed from patient's CT scans for precise reconstruction.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-teeth"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">3D-Printed Implants</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Custom-made titanium implants and surgical guides designed from patient's CT scans for precise reconstruction.</p>
                         </div>
-                        <h4>Dental Rehabilitation</h4>
-                        <p class="text-muted">Implant-supported prosthetics and custom dental devices for functional restoration of chewing and speech.</p>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-teeth"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Dental Rehabilitation</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Implant-supported prosthetics and custom dental devices for functional restoration of chewing and speech.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -636,71 +728,76 @@
 </div>
 
 <!-- Sleep Apnea Treatment -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Obstructive Sleep Apnea (OSA) Treatment</h2>
-                <p class="lead text-muted">Surgical Solutions for Better Sleep</p>
-            </div>
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <p class="mb-3">Oral and Maxillofacial Surgeons (OMFS) play a critical role in treating obstructive sleep apnea (OSA) when conservative therapies like CPAP fail. They specialize in anatomical corrections of the jaw, palate, and airway through procedures to expand airways and reduce snoring/apnea.</p>
-                    <p>Dr Sandeep Prakash is extensively trained in the field of orthognathic surgery which is nothing but moving jaws in its correct position to improve airway patency and overall respiratory function.</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-moon me-2"></i>SLEEP APNEA
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Obstructive Sleep Apnea <span style="color: #00C2C7;">(OSA) Treatment</span></h2>
+                    <p class="lead" style="color: #AFC3C9;">Surgical Solutions for Better Sleep</p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 mb-4">
-                    <h3 class="mb-4">Surgical Interventions</h3>
+                <div class="row mb-5">
+                    <div class="col-lg-12">
+                        <p class="mb-3" style="color: #AFC3C9;">Oral and Maxillofacial Surgeons (OMFS) play a critical role in treating obstructive sleep apnea (OSA) when conservative therapies like CPAP fail. They specialize in anatomical corrections of the jaw, palate, and airway through procedures to expand airways and reduce snoring/apnea.</p>
+                        <p style="color: #AFC3C9;">Dr Sandeep Prakash is extensively trained in the field of orthognathic surgery which is nothing but moving jaws in its correct position to improve airway patency and overall respiratory function.</p>
+                    </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                <div class="row">
+                    <div class="col-lg-12 mb-4">
+                        <h3 class="mb-4" style="color: #FFFFFF;">Surgical Interventions</h3>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Maxillomandibular Advancement (MMA)</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Moving the jaw forward to open the upper airway. This procedure effectively expands the airway passage and reduces snoring and apnea events significantly.</p>
                         </div>
-                        <h4>Maxillomandibular Advancement (MMA)</h4>
-                        <p class="text-muted">Moving the jaw forward to open the upper airway. This procedure effectively expands the airway passage and reduces snoring and apnea events significantly.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Genioglossus Advancement</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Advancing the tongue muscle anchor to prevent airway collapse during sleep, keeping the airway open for uninterrupted breathing.</p>
                         </div>
-                        <h4>Genioglossus Advancement</h4>
-                        <p class="text-muted">Advancing the tongue muscle anchor to prevent airway collapse during sleep, keeping the airway open for uninterrupted breathing.</p>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
+                    <div class="col-md-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">SARPE / DOME</h4>
+                            <p style="color: #AFC3C9; margin: 0;">Surgically Assisted Rapid Palatal Expansion / Distraction Osteogenesis Maxillary Expansion. Widening the upper jaw to improve nasal breathing and airway capacity.</p>
                         </div>
-                        <h4>SARPE / DOME</h4>
-                        <p class="text-muted">Surgically Assisted Rapid Palatal Expansion / Distraction Osteogenesis Maxillary Expansion. Widening the upper jaw to improve nasal breathing and airway capacity.</p>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12 mb-4">
-                    <h3 class="mb-4">Collaboration</h3>
-                </div>
-                <div class="col-lg-12">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-hands-helping text-primary me-2"></i>Multidisciplinary Approach</h5>
-                        <p class="text-muted mb-0">OMFS work closely with sleep physicians, relying on polysomnography (PSG) data to determine the severity of sleep apnea and monitor treatment outcomes.</p>
+                <div class="row mt-4">
+                    <div class="col-lg-12 mb-4">
+                        <h3 class="mb-4" style="color: #FFFFFF;">Collaboration</h3>
                     </div>
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-tooth text-primary me-2"></i>Oral Appliances</h5>
-                        <p class="text-muted mb-0">In some cases, OMFS work with dental specialists to fit oral appliances to reposition the jaw for better breathing.</p>
+                    <div class="col-lg-12">
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-hands-helping me-2"></i>Multidisciplinary Approach</h5>
+                            <p style="color: #AFC3C9; margin: 0;">OMFS work closely with sleep physicians, relying on polysomnography (PSG) data to determine the severity of sleep apnea and monitor treatment outcomes.</p>
+                        </div>
+                        <div class="procedure-step">
+                            <h5 style="color: #00C2C7;"><i class="fas fa-tooth me-2"></i>Oral Appliances</h5>
+                            <p style="color: #AFC3C9; margin: 0;">In some cases, OMFS work with dental specialists to fit oral appliances to reposition the jaw for better breathing.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <div class="warning-box" style="background: linear-gradient(135deg, #17a2b8, #138496); border-radius: 15px; padding: 30px;">
-                        <h4 class="text-white mb-3"><i class="fas fa-info-circle me-2"></i>When to Consider Surgery</h4>
-                        <p class="text-white mb-0">For specialized care, individuals with severe sleep apnea, particularly those who cannot tolerate CPAP, should be referred to an OMFS for surgical consultation.</p>
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="warning-box" style="background: linear-gradient(135deg, rgba(23, 162, 184, 0.2), rgba(18, 56, 71, 0.8)); border: 1px solid rgba(23, 162, 184, 0.3); border-radius: 15px; padding: 30px;">
+                            <h4 class="mb-3" style="color: #00C2C7;"><i class="fas fa-info-circle me-2"></i>When to Consider Surgery</h4>
+                            <p class="mb-0" style="color: #AFC3C9;">For specialized care, individuals with severe sleep apnea, particularly those who cannot tolerate CPAP, should be referred to an OMFS for surgical consultation.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -709,42 +806,47 @@
 </div>
 
 <!-- Risk Factors and Prevention -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Risk Factors & Prevention</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-exclamation-circle text-danger"></i>
-                        </div>
-                        <h4>Major Risk Factors</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Tobacco Use:</strong> Smoking or chewing tobacco</li>
-                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Alcohol:</strong> Heavy alcohol consumption</li>
-                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>HPV:</strong> Human papillomavirus infection</li>
-                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Sun Exposure:</strong> Lip cancer risk</li>
-                            <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Age:</strong> Risk increases after 40</li>
-                        </ul>
-                    </div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-shield-alt me-2"></i>PREVENTION
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Risk Factors & <span style="color: #00C2C7;">Prevention</span></h2>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-check-circle text-success"></i>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Major Risk Factors</h4>
+                            <ul class="list-unstyled" style="color: #AFC3C9;">
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Tobacco Use:</strong> Smoking or chewing tobacco</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Alcohol:</strong> Heavy alcohol consumption</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>HPV:</strong> Human papillomavirus infection</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Sun Exposure:</strong> Lip cancer risk</li>
+                                <li class="mb-2"><i class="fas fa-times text-danger me-2"></i><strong>Age:</strong> Risk increases after 40</li>
+                            </ul>
                         </div>
-                        <h4>Prevention Strategies</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quit tobacco use completely</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Limit alcohol consumption</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Practice good oral hygiene</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Eat a balanced, nutritious diet</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Use lip protection from sun</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Consider HPV vaccination</li>
-                        </ul>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4 style="color: #FFFFFF;">Prevention Strategies</h4>
+                            <ul class="list-unstyled" style="color: #AFC3C9;">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quit tobacco use completely</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Limit alcohol consumption</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Practice good oral hygiene</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Eat a balanced, nutritious diet</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Use lip protection from sun</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Consider HPV vaccination</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -753,44 +855,49 @@
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How successful is oral cancer treatment?
-                        </button>
-                        <div class="faq-answer">
-                            When detected early, oral cancer has a success rate of 80-90%. Regular screenings and early detection significantly improve outcomes. Even with advanced cases, modern treatments offer improved survival rates and quality of life.
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-question-circle me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked <span style="color: #00C2C7;">Questions</span></h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How successful is oral cancer treatment?
+                            </button>
+                            <div class="faq-answer">
+                                When detected early, oral cancer has a success rate of 80-90%. Regular screenings and early detection significantly improve outcomes. Even with advanced cases, modern treatments offer improved survival rates and quality of life.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will I be able to speak and eat normally after surgery?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Our immediate reconstruction techniques focus on preserving function. While there may be temporary difficulties, speech therapy and rehabilitation help most patients regain near-normal speaking and eating abilities.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will I be able to speak and eat normally after surgery?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Our immediate reconstruction techniques focus on preserving function. While there may be temporary difficulties, speech therapy and rehabilitation help most patients regain near-normal speaking and eating abilities.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long is the recovery period?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Initial hospital stay is typically 7-14 days. Full recovery can take 3-6 months, with ongoing rehabilitation. The exact timeline depends on the extent of surgery and individual healing factors.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                How long is the recovery period?
+                            </button>
+                            <div class="faq-answer d-none">
+                                Initial hospital stay is typically 7-14 days. Full recovery can take 3-6 months, with ongoing rehabilitation. The exact timeline depends on the extent of surgery and individual healing factors.
+                            </div>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Will my appearance be significantly changed?
-                        </button>
-                        <div class="faq-answer d-none">
-                            We prioritize aesthetic reconstruction using advanced techniques to minimize visible changes. In many cases, appearance can be restored to near-normal with microvascular reconstruction and cosmetic refinement.
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                                Will my appearance be significantly changed?
+                            </button>
+                            <div class="faq-answer d-none">
+                                We prioritize aesthetic reconstruction using advanced techniques to minimize visible changes. In many cases, appearance can be restored to near-normal with microvascular reconstruction and cosmetic refinement.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -800,16 +907,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Need Oral Cancer Screening?</h2>
-                    <p class="lead mb-4">Early detection is key to successful treatment. Schedule your comprehensive oral examination today.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Screening</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Emergency Consultation</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Need Oral Cancer <span style="color: #00C2C7;">Screening?</span></h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Early detection is key to successful treatment. Schedule your comprehensive oral examination today.</p>
+                        <div class="d-flex gap-3 justify-content-center">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Screening</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Emergency Consultation</a>
+                        </div>
                     </div>
                 </div>
             </div>

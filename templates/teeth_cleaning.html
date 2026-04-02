@@ -4,8 +4,23 @@
 
 {% block content %}
 <style>
+.page-section {
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 50%, #0F2A38 100%);
+    position: relative;
+}
+.page-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+}
 .hero-gradient {
-    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    background: linear-gradient(135deg, #0B1F2A 0%, #123847 100%);
     position: relative;
     overflow: hidden;
 }
@@ -16,46 +31,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
-    opacity: 0.3;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.03)%22/></svg>');
+    background-size: 50px 50px;
 }
 .feature-card {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 20px;
     padding: 30px;
     height: 100%;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-sage);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 194, 199, 0.2);
+    border-color: #00C2C7;
 }
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: var(--accent-sage);
-    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(0, 194, 199, 0.05));
+    border: 1px solid rgba(0, 194, 199, 0.3);
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--warm-white);
+    color: #00C2C7;
     font-size: 1.5rem;
 }
 .procedure-step {
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    border-left: 4px solid var(--accent-sage);
+    border-left: 4px solid #00C2C7;
     transition: all 0.3s ease;
 }
 .procedure-step:hover {
     transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left-color: #00E0E6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
 .timeline-item {
     position: relative;
@@ -69,21 +89,22 @@
     top: 5px;
     width: 20px;
     height: 20px;
-    background: var(--accent-sage);
+    background: #00C2C7;
     border-radius: 50%;
-    border: 3px solid var(--warm-white);
+    border: 3px solid rgba(18, 56, 71, 0.6);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .faq-item {
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
     border-radius: 15px;
     margin-bottom: 15px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .faq-question {
-    background: var(--primary-navy);
-    color: var(--warm-white);
+    background: rgba(0, 194, 199, 0.15);
+    color: #FFFFFF;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -93,29 +114,34 @@
     font-weight: 600;
 }
 .faq-question:hover {
-    background: var(--secondary-navy);
+    background: rgba(0, 194, 199, 0.25);
 }
 .faq-answer {
     padding: 20px;
-    background: var(--warm-white);
+    background: rgba(18, 56, 71, 0.4);
+    color: #AFC3C9;
 }
 .stat-box {
-    background: var(--warm-white);
-    border-radius: 15px;
+    background: rgba(18, 56, 71, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 194, 199, 0.15);
+    border-radius: 16px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-top: 3px solid var(--accent-sage);
+    border-top: 3px solid #00C2C7;
 }
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--primary-navy);
+    color: #00C2C7;
     margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 194, 199, 0.3);
 }
 .cta-box {
-    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
-    color: var(--warm-white);
+    background: linear-gradient(135deg, rgba(0, 194, 199, 0.2), rgba(18, 56, 71, 0.8));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 194, 199, 0.3);
+    color: #FFFFFF;
     border-radius: 25px;
     padding: 50px;
     text-align: center;
@@ -129,8 +155,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
-    opacity: 0.2;
+    background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%221%22 fill=%22rgba(0,194,199,0.05)%22/></svg>');
+    background-size: 30px 30px;
 }
 .treatment-grid {
     display: grid;
@@ -141,35 +167,43 @@
 .treatment-item {
     text-align: center;
     padding: 20px;
-    background: var(--light-gray);
+    background: rgba(18, 56, 71, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 199, 0.1);
     border-radius: 15px;
     transition: all 0.3s ease;
 }
 .treatment-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 194, 199, 0.3);
 }
+.text-accent { color: #00C2C7 !important; }
+.text-white-custom { color: #FFFFFF; }
+.text-secondary-custom { color: #AFC3C9; }
 </style>
 
 <!-- Modern Hero Section -->
-<div class="hero-gradient py-5">
+<div class="hero-gradient py-5" style="position: relative; z-index: 1;">
     <div class="container">
-        <div class="row align-items-center min-vh-100">
+        <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge bg-light text-dark mb-3">PREVENTATIVE CARE</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Teeth Cleaning</h1>
-                    <h2 class="h3 mb-4 text-white-50">Professional Dental Hygiene</h2>
-                    <p class="lead mb-4 text-white-50">Maintain optimal oral health with our advanced cleaning treatments. Your journey to a healthier smile starts here.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#consultation" class="btn btn-light btn-lg">Book Cleaning</a>
-                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                        <i class="fas fa-sparkles me-2"></i>PREVENTATIVE CARE
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4" style="color: #FFFFFF;">Teeth Cleaning</h1>
+                    <h2 class="h3 mb-4" style="color: #AFC3C9;">Professional Dental Hygiene</h2>
+                    <p class="lead mb-4" style="color: #AFC3C9;">Maintain optimal oral health with our advanced cleaning treatments. Your journey to a healthier smile starts here.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#consultation" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Book Cleaning</a>
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-accent btn-lg"><i class="fas fa-images me-2"></i>Gallery</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="/static/images/teeth_cleaning.png" alt="Teeth Cleaning" class="img-fluid rounded-4 shadow-lg">
+                    <img src="/static/images/teeth_cleaning.png" alt="Teeth Cleaning" class="img-fluid rounded-4" style="border: 3px solid rgba(0, 194, 199, 0.3); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);">
                 </div>
             </div>
         </div>
@@ -177,135 +211,144 @@
 </div>
 
 <!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Minutes Duration</div>
-                <div class="stat-number">30-45</div>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row g-4">
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Minutes Duration</div>
+                    <div class="stat-number">30-45</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Visits for Best Results</div>
-                <div class="stat-number">2-4</div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Visits for Best Results</div>
+                    <div class="stat-number">2-4</div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Plaque Removal</div>
-                <div class="stat-number">100%</div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-box">
+                    <div style="color: #7A8E94; font-size: 0.9rem;">Plaque Removal</div>
+                    <div class="stat-number">100%</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Introduction -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Foundation of Oral Health</h2>
-                <p class="lead text-muted">Professional Dental Cleaning for a Healthier Smile</p>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Foundation of Oral Health</h2>
+                    <p class="lead" style="color: #AFC3C9;">Professional Dental Cleaning for a Healthier Smile</p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <p class="mb-3" style="color: #AFC3C9;"><strong style="color: #00C2C7;">Regular teeth cleaning</strong> is the cornerstone of optimal oral health, preventing cavities, gum disease, and maintaining overall wellness. Professional cleanings help remove plaque and tartar buildup that regular brushing cannot address.</p>
+                <p style="color: #AFC3C9;">Our approach combines <strong style="color: #00C2C7;">advanced technology</strong> with gentle techniques to ensure comfort while delivering results that exceed your expectations. Whether you need routine maintenance or targeted treatment, we have the expertise to achieve your goals.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://www.escondidofamilydentistry.com/wp-content/uploads/Cosmetic-Dentist-in-Escondido1.jpg" alt="Dental Hygiene" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <p class="mb-3"><strong>Regular teeth cleaning</strong> is the cornerstone of optimal oral health, preventing cavities, gum disease, and maintaining overall wellness. Professional cleanings help remove plaque and tartar buildup that regular brushing cannot address.</p>
-            <p>Our approach combines <strong>advanced technology</strong> with gentle techniques to ensure comfort while delivering results that exceed your expectations. Whether you need routine maintenance or targeted treatment, we have the expertise to achieve your goals.</p>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://www.escondidofamilydentistry.com/wp-content/uploads/Cosmetic-Dentist-in-Escondido1.jpg" alt="Dental Hygiene" class="img-fluid rounded-3 shadow">
-        </div>
-        </div>
-    </div>
 </div>
-
-
 
 <!-- Professional Cleaning Services -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Professional Cleaning Services</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-star me-2"></i>OUR SERVICES
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Professional Cleaning Services</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-stethoscope me-2"></i>Comprehensive Examination</h5>
-                        <p class="text-muted mb-0">Thorough assessment of your oral health, including digital imaging when needed.</p>
-                    </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6 mb-4">
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-stethoscope me-2"></i>Comprehensive Examination</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Thorough assessment of your oral health, including digital imaging when needed.</p>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-search me-2"></i>Plaque Detection</h5>
-                        <p class="text-muted mb-0">Advanced plaque-disclosing agents and ultrasonic tools to identify problem areas.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-search me-2"></i>Plaque Detection</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Advanced plaque-disclosing agents and ultrasonic tools to identify problem areas.</p>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-sparkles me-2"></i>Polishing</h5>
-                        <p class="text-muted mb-0">Removal of surface stains and polishing for smooth, shiny results.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-sparkles me-2"></i>Polishing</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Removal of surface stains and polishing for smooth, shiny results.</p>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="procedure-step">
-                        <h5><i class="fas fa-graduation-cap me-2"></i>Oral Hygiene Education</h5>
-                        <p class="text-muted mb-0">Personalized instruction on proper brushing, flossing, and care techniques.</p>
-                    </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="procedure-step">
+                    <h5 style="color: #FFFFFF;"><i class="fas fa-graduation-cap me-2"></i>Oral Hygiene Education</h5>
+                    <p style="color: #AFC3C9; margin: 0;">Personalized instruction on proper brushing, flossing, and care techniques.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <!-- Benefits Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Benefits of Professional Care</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-heart me-2"></i>BENEFITS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Benefits of Professional Care</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Improved Oral Health</h4>
-                        <p class="text-muted">Prevention of cavities, gum disease, and other oral health issues.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Improved Oral Health</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Prevention of cavities, gum disease, and other oral health issues.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-smile"></i>
-                        </div>
-                        <h4>Fresh Breath</h4>
-                        <p class="text-muted">Elimination of bad breath caused by bacteria and food particles.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-smile"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Fresh Breath</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Elimination of bad breath caused by bacteria and food particles.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                            <i class="fas fa-tooth"></i>
-                        </div>
-                        <h4>Healthier Teeth</h4>
-                        <p class="text-muted">Removal of plaque and tartar for cleaner, healthier teeth.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tooth"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Healthier Teeth</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Removal of plaque and tartar for cleaner, healthier teeth.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                        <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Long-Lasting Protection</h4>
-                        <p class="text-muted">Professional cleaning and fluoride treatments strengthen enamel against decay.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
+                    <h4 style="color: #FFFFFF;">Long-Lasting Protection</h4>
+                    <p style="color: #AFC3C9; margin: 0;">Professional cleaning and fluoride treatments strengthen enamel against decay.</p>
                 </div>
             </div>
         </div>
@@ -313,83 +356,93 @@
 </div>
 
 <!-- The Cleaning Process -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">The Professional Cleaning Process</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-list-ol me-2"></i>THE PROCESS
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">The Professional Cleaning Process</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="timeline-item">
-                        <h5>Initial Consultation</h5>
-                        <p class="text-muted">Discussion of your oral health goals and examination of current condition.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Plaque Removal</h5>
-                        <p class="text-muted">Gentle removal of plaque and tartar using specialized tools and techniques.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Scaling & Polishing</h5>
-                        <p class="text-muted">Removal of surface stains and polishing for smooth, clean results.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Oral Hygiene Instructions</h5>
-                        <p class="text-muted">Personalized education and recommendations for home care.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5>Scheduling & Follow-up</h5>
-                        <p class="text-muted">Recommended follow-up schedule based on your individual needs and treatment goals.</p>
-                    </div>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Initial Consultation</h5>
+                    <p style="color: #AFC3C9;">Discussion of your oral health goals and examination of current condition.</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="https://dentoface.in/wp-content/uploads/2025/05/Dental-cleaning.jpg" alt="Teeth Cleaning Process" class="img-fluid rounded-3 shadow">
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Plaque Removal</h5>
+                    <p style="color: #AFC3C9;">Gentle removal of plaque and tartar using specialized tools and techniques.</p>
                 </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Scaling & Polishing</h5>
+                    <p style="color: #AFC3C9;">Removal of surface stains and polishing for smooth, clean results.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Oral Hygiene Instructions</h5>
+                    <p style="color: #AFC3C9;">Personalized education and recommendations for home care.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 style="color: #00C2C7;">Scheduling & Follow-up</h5>
+                    <p style="color: #AFC3C9;">Recommended follow-up schedule based on your individual needs and treatment goals.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://dentoface.in/wp-content/uploads/2025/05/Dental-cleaning.jpg" alt="Teeth Cleaning Process" class="img-fluid rounded-3" style="border: 2px solid rgba(0, 194, 199, 0.2);">
             </div>
         </div>
     </div>
 </div>
 
 <!-- FAQ Section -->
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+<div class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mb-5">
+                    <span style="display: inline-block; background: rgba(0, 194, 199, 0.15); border: 1px solid rgba(0, 194, 199, 0.3); color: #00C2C7; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;">
+                        <i class="fas fa-comments me-2"></i>FAQ
+                    </span>
+                    <h2 class="display-5 fw-bold" style="color: #FFFFFF;">Frequently Asked Questions</h2>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How often should I get my teeth professionally cleaned?
-                        </button>
-                        <div class="faq-answer">
-                            For optimal oral health, professional cleaning is recommended every 6 months. However, if you have braces, smoke, or have a history of gum disease, your dentist may recommend more frequent visits.
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        How often should I get my teeth professionally cleaned?
+                    </button>
+                    <div class="faq-answer">
+                        For optimal oral health, professional cleaning is recommended every 6 months. However, if you have braces, smoke, or have a history of gum disease, your dentist may recommend more frequent visits.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            Does professional cleaning hurt?
-                        </button>
-                        <div class="faq-answer d-none">
-                            Most patients experience minimal discomfort during professional cleaning. Our gentle techniques and modern tools help ensure a comfortable experience. If you have sensitive teeth, let us know and we can use additional numbing if needed.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        Does professional cleaning hurt?
+                    </button>
+                    <div class="faq-answer d-none">
+                        Most patients experience minimal discomfort during professional cleaning. Our gentle techniques and modern tools help ensure a comfortable experience. If you have sensitive teeth, let us know and we can use additional numbing if needed.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            What should I do after cleaning?
-                        </button>
-                        <div class="faq-answer d-none">
-                            After cleaning, avoid eating or drinking staining foods and beverages for a few hours. Maintain good oral hygiene with regular brushing and flossing. Your teeth may feel slightly sensitive briefly, which is normal.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        What should I do after cleaning?
+                    </button>
+                    <div class="faq-answer d-none">
+                        After cleaning, avoid eating or drinking staining foods and beverages for a few hours. Maintain good oral hygiene with regular brushing and flossing. Your teeth may feel slightly sensitive briefly, which is normal.
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
-                            How long does a cleaning appointment take?
-                        </button>
-                        <div class="faq-answer d-none">
-                            A typical professional cleaning appointment takes 30-45 minutes. More extensive cleaning or if it's been a while since your last visit may take longer. We always take the time needed to ensure thorough cleaning.
-                        </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                        How long does a cleaning appointment take?
+                    </button>
+                    <div class="faq-answer d-none">
+                        A typical professional cleaning appointment takes 30-45 minutes. More extensive cleaning or if it's been a while since your last visit may take longer. We always take the time needed to ensure thorough cleaning.
                     </div>
                 </div>
             </div>
@@ -398,16 +451,21 @@
 </div>
 
 <!-- CTA Section -->
-<div id="consultation" class="container py-5">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="cta-box">
-                <div class="position-relative">
-                    <h2 class="display-5 fw-bold mb-4">Ready for a Healthiest Smile?</h2>
-                    <p class="lead mb-4">Experience the confidence that comes with clean, healthy teeth. Schedule your professional cleaning consultation today.</p>
-                    <div class="d-flex gap-3 justify-content-center">
-                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Cleaning</a>
-                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Us Now</a>
+<div id="consultation" class="page-section py-5" style="position: relative;">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cta-box">
+                    <div style="position: relative; z-index: 1;">
+                        <span style="display: inline-block; background: rgba(0, 194, 199, 0.2); border: 1px solid rgba(0, 194, 199, 0.3); color: #FFFFFF; padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+                            <i class="fas fa-calendar-check me-2"></i>SCHEDULE NOW
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="color: #FFFFFF;">Ready for a Healthiest Smile?</h2>
+                        <p class="lead mb-4" style="color: #AFC3C9;">Experience the confidence that comes with clean, healthy teeth. Schedule your professional cleaning consultation today.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="{{ url_for('contact') }}" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check me-2"></i>Schedule Cleaning</a>
+                            <a href="tel:9993888758" class="btn btn-outline-accent btn-lg"><i class="fas fa-phone me-2"></i>Call Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
