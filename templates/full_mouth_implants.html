@@ -110,7 +110,7 @@
                     </div>
                     <div class="d-flex gap-3">
                         <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
-                        <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
+                        
                         <a href="{{ url_for('gallery') }}" class="btn btn-outline-light btn-lg">Gallery</a>
                     </div>
                 </div>
@@ -257,59 +257,182 @@
             <h4 class="text-center mb-4">Guided Implant Placement</h4>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm">
-                <img src="{{ url_for('static', filename='images/guided_img1.png') }}" alt="Guided Implant Placement 1" class="img-fluid rounded">
-            </div>
-        </div>
-        <div class="col-md-6 mb-4">
-            <div class="card border-0 shadow-sm">
-                <img src="{{ url_for('static', filename='images/guided_img2.png') }}" alt="Guided Implant Placement 2" class="img-fluid rounded">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container py-5 bg-light">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Full Mouth Implant Options</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h4>All-OR-4 Technique</h4>
-                        <p class="text-muted">Strategic placement of 4-6 implants per arch to support a full fixed bridge, providing immediate function with minimal implants.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-th"></i>
-                        </div>
-                        <h4>Individual Implants</h4>
-                        <p class="text-muted">Placement of 8-14 individual implants per arch to support separate crowns, offering the most natural and customizable solution.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-compress-arrows-alt"></i>
-                        </div>
-                        <h4>Hybrid Approach</h4>
-                        <p class="text-muted">Combination of implants and bridges optimized for your specific bone structure and functional requirements.</p>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-5">
+            <div class="guided-image-wrapper text-center">
+                
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/guided_img1.png') }}" alt="Guided Implant Placement - Surgical Guide" class="img-fluid rounded-3 shadow-lg" style="max-height: 280px;">
+                    <div class="guided-overlay">
+                        <i class="fas fa-crosshairs fa-2x"></i>
                     </div>
                 </div>
                 
             </div>
         </div>
+        <div class="col-md-5">
+            <div class="guided-image-wrapper text-center">
+                
+                <div class="position-relative">
+                    <img src="{{ url_for('static', filename='images/guided_img2.png') }}" alt="Guided Implant Placement - Final Result" class="img-fluid rounded-3 shadow-lg" style="max-height: 280px;">
+                    <div class="guided-overlay">
+                        <i class="fas fa-tooth fa-2x"></i>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
     </div>
 </div>
+
+<style>
+.guided-image-wrapper:hover .guided-overlay {
+    opacity: 1;
+}
+.guided-image-wrapper:hover img {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+.guided-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 77, 77, 0.8);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+</style>
+
+<div class="container py-5 bg-light">
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold">Full Mouth Implant Options</h2>
+        <p class="lead text-muted">Choose the best solution for your smile restoration needs</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="implant-option-card h-100">
+                <div class="card-header-option">
+                    <div class="option-icon-wrapper">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1">All-OR-4 Technique</h4>
+                        <span class="badge bg-warning text-dark">Most Popular</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Strategic placement of 4-6 implants per arch to support a full fixed bridge, providing immediate function with minimal implants.</p>
+                    <div class="option-features">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>4-6 implants per arch</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Fixed permanent teeth in 3 days</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Cost-effective solution</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Minimal bone grafting needed</span>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary px-4">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="implant-option-card h-100">
+                <div class="card-header-option header-secondary">
+                    <div class="option-icon-wrapper">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <div>
+                        <h4 class="mb-1">Hybrid Approach</h4>
+                        <span class="badge bg-info text-white">Custom Solution</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Combination of implants and bridges optimized for your specific bone structure and functional requirements.</p>
+                    <div class="option-features">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Personalized treatment plan</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Ideal for complex cases</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Natural-looking results</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Maximum durability</span>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary px-4">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.implant-option-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.implant-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.card-header-option {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    color: white;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.card-header-option.header-secondary {
+    background: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
+}
+.option-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.option-features {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+}
+</style>
 
 <!-- Applications -->
 <div class="container py-5 bg-light">
