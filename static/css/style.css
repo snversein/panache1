@@ -40,6 +40,20 @@ h1, h2, h3, h4, h5, h6 {
     background-clip: text;
 }
 
+.accordion-button {
+    font-family: 'Quantico', sans-serif !important;
+    background: none !important;
+    -webkit-text-fill-color: #333333 !important;
+    color: #333333 !important;
+    background-clip: unset !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: #e7f1ff !important;
+    -webkit-text-fill-color: #333333 !important;
+    color: #333333 !important;
+}
+
 .hero-gradient,
 .services-hero.hero-gradient,
 .gallery-hero.hero-gradient {

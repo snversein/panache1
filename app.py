@@ -119,6 +119,16 @@ def crowded_teeth_correction():
     """Render the crowded teeth correction page"""
     return render_template('crowded_teeth_correction.html')
 
+@app.route('/minimally-invasive-dentistry')
+def minimally_invasive_dentistry():
+    """Render the minimally invasive dentistry page"""
+    return render_template('minimally_invasive_dentistry.html')
+
+@app.route('/painless-injection')
+def painless_injection():
+    """Render the painless injection page"""
+    return render_template('painless_injection.html')
+
 @app.route('/invisalign')
 def invisalign():
     """Render the invisalign page"""
@@ -200,6 +210,8 @@ def sitemap():
         {'loc': 'https://www.panachedental.co.in/full-mouth-implants', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/gbr', 'priority': '0.7', 'changefreq': 'monthly'},
         {'loc': 'https://www.panachedental.co.in/malo-bridge', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/minimally-invasive-dentistry', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'loc': 'https://www.panachedental.co.in/painless-injection', 'priority': '0.7', 'changefreq': 'monthly'},
     ]
     
     xml = ['<?xml version="1.0" encoding="UTF-8"?>']

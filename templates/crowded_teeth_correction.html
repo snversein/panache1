@@ -148,10 +148,11 @@
         <div class="row align-items-center min-vh-100">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="badge text-white bg-transparent mb-3">ORTHODONTIC CARE</div>
-                    <h1 class="display-2 fw-bold mb-4 text-white">Correction of Crowded Teeth</h1>
-                    <h2 class="h3 mb-4 text-white-50">Clear Aligners, Invisalign & Ceramic Braces</h2>
-                    <p class="lead mb-4 text-white-50">Achieve the straight, beautiful smile you've always wanted with our advanced orthodontic solutions. From virtually invisible aligners to discreet ceramic braces, we have the perfect option for you.</p>
+                    
+                    <h1 class="display-2 fw-bold mb-4 text-white">Correction of Crooked or Crowded Teeth with Braces
+</h1>
+                    
+                    <p class="lead mb-4 text-white-50">Achieve the straight, beautiful smile you've always wanted with our orthodontic solutions. </p>
                     <div class="d-flex gap-3">
                         <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
                         <a href="#procedure" class="btn btn-outline-light btn-lg">Learn More</a>
@@ -169,35 +170,7 @@
     </div>
 </div>
 
-<!-- Quick Stats -->
-<div class="container py-5">
-    <div class="row">
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Months Treatment</div>
-                <div class="stat-number">6-18</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Invisible Appearance</div>
-                <div class="stat-number">90%</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Custom Fit</div>
-                <div class="stat-number">100%</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="stat-box">
-                <div class="text-muted">Treatment Progress</div>
-                <div class="stat-number">24/7</div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- Introduction -->
 <div class="container py-5">
@@ -215,7 +188,318 @@
             <p>Using state-of-the-art <strong>3D imaging technology</strong> and customized treatment planning, we ensure precise results that complement your facial features and meet your lifestyle needs. Whether you choose clear aligners for discretion or ceramic braces for efficiency, we deliver exceptional outcomes.</p>
         </div>
         <div class="col-lg-6">
-            <img src="https://www.diamondbraces.com/cdn/shop/articles/what-to-do-about-dental-crowding-and-misaligned-teeth-261542.jpg?v=1750355207" alt="Orthodontic Treatment" class="img-fluid rounded-3 shadow">
+            <img src="{{ url_for('static', filename='images/mact.png') }}" alt="Types of Misaligned and Crooked Teeth" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- What Are Crowded Teeth -->
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h2 class="display-5 fw-bold mb-4">What Are Crowded Teeth?</h2>
+            <p class="lead mb-4">Crowded teeth occur when there isn't enough space in the jaw for all teeth to align properly. This leads to overlapping, twisting, or displacement of teeth, affecting both appearance and oral health. Crowding can range from mild to severe and may worsen over time if left untreated.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="{{ url_for('static', filename='images/cteeth.png') }}" alt="Crowded Teeth" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Why Correct Crowded Teeth -->
+<div class="container py-5 bg-light">
+    <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+            <h2 class="display-5 fw-bold mb-4">Why Should Crowded Teeth Be Corrected?</h2>
+            <p class="lead mb-4">While crowded teeth can impact your smile, the concerns go beyond aesthetics:</p>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="fas fa-exclamation-circle text-warning me-2"></i> <strong>Difficult cleaning</strong> &rarr; Increased risk of plaque buildup, cavities, and gum disease</li>
+                <li class="mb-3"><i class="fas fa-exclamation-circle text-warning me-2"></i> <strong>Bite problems</strong> &rarr; Improper chewing and jaw discomfort</li>
+                <li class="mb-3"><i class="fas fa-exclamation-circle text-warning me-2"></i> <strong>Speech issues</strong> &rarr; In some cases, alignment affects pronunciation</li>
+                <li class="mb-3"><i class="fas fa-exclamation-circle text-warning me-2"></i> <strong>Tooth wear</strong> &rarr; Uneven pressure can lead to enamel damage</li>
+            </ul>
+            <p class="mt-4"><strong>Correcting crowding improves both function and long-term oral health.</strong></p>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <img src="{{ url_for('static', filename='images/wcteeth.png') }}" alt="Why Correct Crowded Teeth" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- How Do Braces Fix Crowded Teeth -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h2 class="display-5 fw-bold mb-4 text-center">How Do Braces Fix Crowded Teeth?</h2>
+            <p class="lead mb-5 text-center">Braces work by applying continuous, gentle pressure to gradually move teeth into proper alignment.</p>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="fw-bold mb-4">The Process:</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">1</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Initial Consultation</h5>
+                                    <p>A detailed examination, X-rays, and digital scans with our iTero Lumina scanner help determine the severity of crowding.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">2</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Simulation</h5>
+                                    <p>In most cases we can show you your final result of teeth movement with the help of our iTero Lumina Scanner.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">3</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Treatment Planning</h5>
+                                    <p>Your orthodontist then designs a personalized plan. In some cases, space creation methods like tooth reshaping or extractions may be needed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">4</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Placement of Braces</h5>
+                                    <p>Brackets are attached to teeth and connected with arch-wires that guide tooth movement.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">5</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Regular Adjustments</h5>
+                                    <p>Periodic visits ensure steady progress and adjustments for optimal results.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <span class="badge bg-primary rounded-circle p-3 me-3" style="font-size: 1.1rem;">6</span>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">Retention Phase</h5>
+                                    <p>After braces are removed, retainers maintain the new alignment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Types of Braces -->
+<div class="container py-5 bg-light">
+    <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+            <h2 class="display-5 fw-bold mb-4">Types of Braces for Crowded Teeth</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">Metal Braces</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Most common and effective</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Suitable for all levels of crowding</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Cost-effective option</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">Ceramic Braces</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Tooth-colored brackets for a less noticeable look</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Popular among adults</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">Self-Ligating Braces</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Advanced system with fewer adjustments</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Often more comfortable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary">Lingual Braces</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Placed behind the teeth (invisible from front)</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Ideal for aesthetic-conscious patients</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <img src="{{ url_for('static', filename='images/b.png') }}" alt="Types of Braces" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Treatment Duration -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-4">
+                <h2 class="display-5 fw-bold">Treatment Duration</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-clock text-primary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Depends on the severity of case but typically ranges from <strong>12 to 24 months</strong></span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-clock text-primary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Complex cases may take longer</span>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-clock text-primary me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Consistent follow-ups are key for timely results</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits of Braces -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Braces for Crooked Teeth</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-smile text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Straighter, more confident smile - you look great while smiling</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-toothbrush text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Improved oral hygiene</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-utensils text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Better bite and chewing function</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-shield-alt text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Reduced risk of gum disease and tooth decay</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Aftercare Tips -->
+<div class="container py-5 bg-light">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Aftercare Tips During Treatment</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-tooth text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Maintain excellent oral hygiene (brushing & flossing)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-ban text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Avoid hard, sticky foods</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-calendar-check text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Attend regular orthodontic visits</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 text-center py-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-hand-holding-heart text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <p class="mb-0">Use orthodontic wax if irritation occurs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -403,6 +687,91 @@
                         <li>Regular dental check-ups</li>
                         <li>Motivated to achieve results</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Can adults get braces for crowded teeth?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, orthodontic treatment is effective at any age. Many adults opt for ceramic or invisible options.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Are braces the only solution for crowding?
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Braces are the most reliable for moderate to severe cases. Mild crowding can be managed with aligners.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Will teeth shift back after treatment?
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Without retainers, yes. Wearing retainers as prescribed prevents relapse.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            How soon will I see results?
+                        </button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Initial changes can be noticed within a few months, but full correction takes time.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Are braces painful?
+                        </button>
+                    </h3>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You may experience mild discomfort after placement or adjustments, but this usually subsides within a few days. Modern orthodontic techniques make treatment more comfortable than ever before.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 shadow-sm">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            Do all crowded teeth require extraction?
+                        </button>
+                    </h3>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No, not all cases of crowded teeth require extraction. The need for extraction depends on the severity of the crowding and the available space in the jaw.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

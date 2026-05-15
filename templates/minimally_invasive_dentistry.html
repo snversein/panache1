@@ -1,0 +1,775 @@
+{% extends "base.html" %}
+
+{% block title %}Minimally Invasive Dentistry - PANACHE DENTAL & FACIAL AESTHETICS CLINIC{% endblock %}
+
+{% block content %}
+<style>
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>');
+    opacity: 0.3;
+}
+.feature-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-sage);
+}
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--warm-white);
+    font-size: 1.5rem;
+}
+.stat-box {
+    background: var(--warm-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--accent-sage);
+}
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+.cta-box {
+    background: linear-gradient(135deg, var(--accent-sage), var(--primary-navy));
+    color: var(--warm-white);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+    opacity: 0.2;
+}
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+}
+.comparison-table th {
+    background: var(--primary-navy);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #dee2e6;
+}
+.comparison-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+.comparison-table td:first-child {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+.faq-item {
+    background: var(--warm-white);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.faq-question {
+    background: var(--primary-navy);
+    color: var(--warm-white);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+.faq-question:hover {
+    background: var(--secondary-navy);
+}
+.faq-answer {
+    padding: 20px;
+    background: var(--warm-white);
+}
+</style>
+
+<!-- Modern Hero Section -->
+<div class="hero-gradient py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge text-white bg-transparent mb-3">CONSERVATIVE DENTISTRY</div>
+                    <h1 class="display-2 fw-bold mb-4 text-white">Minimally Invasive Dentistry</h1>
+                    <h2 class="h3 mb-4 text-white-50">Preserving Your Natural Smile</h2>
+                    <p class="lead mb-4 text-white-50">A patient-centered approach that prioritizes conserving healthy tooth structure, focusing on prevention, and early detection of dental decay.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#consultation" class="btn btn-light btn-lg">Book Consultation</a>
+                        <a href="#mid-section" class="btn btn-outline-light btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="/static/images/mh1.png" alt="Minimally Invasive Dentistry" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Tooth Preservation</div>
+                <div class="stat-number">Maximized</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Patient Comfort</div>
+                <div class="stat-number">Higher</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Longevity</div>
+                <div class="stat-number">10-15 Yrs</div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="stat-box">
+                <div class="text-muted">Approach</div>
+                <div class="stat-number">Conservative</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is MID -->
+<div id="mid-section" class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h2 class="display-5 fw-bold mb-4">What is Minimally Invasive Dentistry?</h2>
+            <p class="lead mb-4"><strong>Minimally invasive dentistry (MID)</strong> is a patient-centered approach that prioritizes conserving healthy tooth structure, focusing on prevention, and early detection of dental decay.</p>
+            <p>Unlike traditional approaches that may remove significant tooth structure, MID aims to treat only the diseased portion while preserving as much healthy tissue as possible.</p>
+        </div>
+        <div class="col-lg-6">
+            <img src="/static/images/m2.png" alt="Minimally Invasive Dentistry Approach" class="img-fluid rounded-3 shadow">
+        </div>
+    </div>
+</div>
+
+<!-- Key Components -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Key Components of MID</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Preventive Care</h4>
+                        <p class="text-muted">Using sealants and fluoride treatments to stop decay before it starts. Early intervention is the cornerstone of minimally invasive dentistry.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Conservative Restorations</h4>
+                        <p class="text-muted">Using materials that need less removal of healthy tooth structure, such as Composite Resins and Partial Bonded Restorations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits of MID -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Benefits of Minimally Invasive Dentistry</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h4>Maximized Tooth Structure</h4>
+                        <p class="text-muted">Preserves as much of the natural tooth as possible.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <h4>Higher Patient Comfort</h4>
+                        <p class="text-muted">More comfortable experience, ideal for children and fearful patients.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Long-Lasting Results</h4>
+                        <p class="text-muted">Early intervention and material choices lead to stronger, longer-lasting restorations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h4>Cost-Effectiveness</h4>
+                        <p class="text-muted">Often proves to be more cost-effective in the long term.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What is Partial Bonded Restoration -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">What is a Partial Bonded Restoration?</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="mb-3">A partial bonded restoration is an indirect or direct restoration that replaces only the damaged portion of a tooth (minimally invasive) and is adhesively bonded to the remaining tooth structure.</p>
+                    <p class="mb-3"><strong>Common types include:</strong></p>
+                    <ul>
+                        <li>Inlays</li>
+                        <li>Onlays</li>
+                        <li>Overlays</li>
+                        <li>Partial crowns</li>
+                    </ul>
+                    <p>Unlike traditional restorations that rely heavily on mechanical retention, these restorations depend on adhesive bonding systems for retention and stability.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/static/images/pbr.png" alt="Partial Bonded Restoration" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Types of Partial Bonded Restorations -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Types of Partial Bonded Restorations</h2>
+            </div>
+
+            <!-- Inlays -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-2">
+                    <h3 class="fw-bold mb-3">1. Inlays</h3>
+                    <p><strong>Definition:</strong> Inlays are indirect restorations fabricated outside the mouth and bonded within the cusps (inner portion) of a tooth.</p>
+                    <p><strong>Indications:</strong></p>
+                    <ul>
+                        <li>Moderate decay or damage within cusps</li>
+                        <li>Replacement of large failing fillings</li>
+                        <li>Teeth that do not require full crown coverage</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="/static/images/mi1.png" alt="Inlays" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <!-- Onlays -->
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3">2. Onlays</h3>
+                    <p><strong>Definition:</strong> Onlays extend beyond inlays to cover one or more cusps of the tooth, often called "partial crowns."</p>
+                    <p><strong>Indications:</strong></p>
+                    <ul>
+                        <li>Extensive decay affecting cusps</li>
+                        <li>Fractured or weakened tooth structure</li>
+                        <li>Alternative to full crowns</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/static/images/mo1.png" alt="Onlays" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <!-- Overlays -->
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <h3 class="fw-bold mb-3">3. Overlays / Table Tops / Occlusal Veneers</h3>
+                    <p>Dental overlays are indirect, minimally invasive restorations used to repair damaged teeth by covering the entire chewing surface (cusps) and part of the sides, functioning as a "partial crown."</p>
+                    <p><strong>Key Aspects:</strong></p>
+                    <ul>
+                        <li><strong>Coverage:</strong> Unlike inlays (inside cusps) or onlays (one or two cusps), overlays cover all cusps of the chewing surface.</li>
+                        <li><strong>When Used:</strong> Moderate to substantial damage too severe for a filling but not requiring full crown reduction.</li>
+                        <li><strong>Benefits:</strong> Conservative, strong and durable, less invasive, aesthetic.</li>
+                    </ul>
+                    <p>Overlays are also sometimes referred to as occlusal veneers or partial coverage crowns.</p>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <img src="/static/images/mo2.png" alt="Overlays" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Indications -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Indications</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="lead text-center mb-4">Partial bonded restorations are indicated in:</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Moderate to extensive carious lesions</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Fractured or cracked teeth</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Replacement of large defective fillings</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Teeth requiring cuspal coverage</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-check-circle text-success me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Endodontically treated teeth (with adequate remaining structure)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3">They are especially useful in posterior teeth where strength and conservation are both critical.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contraindications -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Contraindications</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="lead text-center mb-4">These restorations may not be suitable when:</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-times-circle text-danger me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Insufficient tooth structure remains for bonding</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-times-circle text-danger me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Extensive destruction requires full coverage</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-times-circle text-danger me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Poor isolation (moisture control issues)</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-times-circle text-danger me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>High caries risk or poor oral hygiene</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-times-circle text-danger me-3 mt-1" style="font-size: 1.2rem;"></i>
+                                <span>Severe bruxism or occlusal stress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3">Clinical judgment is essential in selecting appropriate cases.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Materials Used -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Materials Used</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Ceramics</h4>
+                        <p class="text-muted mb-0">e.g., lithium disilicate</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h4>Composite Resins</h4>
+                        <p class="text-muted mb-0">Tooth-colored and durable</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <h4>Zirconia</h4>
+                        <p class="text-muted mb-0">High strength and wear resistance</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-blender"></i>
+                        </div>
+                        <h4>Hybrid Ceramics</h4>
+                        <p class="text-muted mb-0">Combined strength and esthetics</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-muted mt-3">Ceramic materials are widely preferred due to their strength, esthetics, and wear resistance.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Advantages -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Advantages of Partial Bonded Restorations</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Tooth Conservation</h4>
+                        <p class="text-muted">They preserve more natural tooth structure compared to full crowns.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Improved Esthetics</h4>
+                        <p class="text-muted">Modern materials closely mimic natural enamel.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Better Biomechanics</h4>
+                        <p class="text-muted">Adhesive bonding helps distribute functional forces more evenly.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Reduced Risk of Tooth Fracture</h4>
+                        <p class="text-muted">By reinforcing weakened cusps and structure.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Periodontal Health</h4>
+                        <p class="text-muted">Supragingival margins reduce gum irritation and plaque accumulation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Limitations -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Limitations</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-exclamation-triangle text-warning me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Technique sensitive (requires strict isolation and bonding protocol)</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-exclamation-triangle text-warning me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Higher cost compared to direct restorations</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-exclamation-triangle text-warning me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Risk of debonding if improperly executed</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-exclamation-triangle text-warning me-3 mt-1" style="font-size: 1.2rem;"></i>
+                            <span>Longevity depends on operator skill and case selection</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comparison with Full Coverage Crowns -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Comparison with Full Coverage Crowns</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="/static/images/mc1.png" alt="Comparison" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="table-responsive">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Partial Bonded Restoration</th>
+                                    <th>Full Crown</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tooth reduction</strong></td>
+                                    <td style="color: #28a745; font-weight: 600;">Minimal</td>
+                                    <td>Extensive</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Retention</strong></td>
+                                    <td style="color: #28a745; font-weight: 600;">Adhesive bonding</td>
+                                    <td>Mechanical + cement</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Esthetics</strong></td>
+                                    <td style="color: #28a745; font-weight: 600;">Excellent</td>
+                                    <td>Good</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Longevity</strong></td>
+                                    <td style="color: #28a745; font-weight: 600;">High (case-dependent)</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Invasiveness</strong></td>
+                                    <td style="color: #28a745; font-weight: 600;">Conservative</td>
+                                    <td>Aggressive</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container py-5 bg-light">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Frequently Asked Questions</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How is this different from a cap (crown)?
+                        </button>
+                        <div class="faq-answer">
+                            A cap covers the entire tooth, while this treatment fixes only the damaged area. This means more of your natural tooth is saved.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long will it last?
+                        </button>
+                        <div class="faq-answer d-none">
+                            With good care, it can last 10-15 years or even longer.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is it safe and reliable?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Yes, it is a modern and trusted dental treatment used worldwide. When done properly, it is strong and long-lasting.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Will it look natural?
+                        </button>
+                        <div class="faq-answer d-none">
+                            Absolutely. The materials used are designed to match the color of your natural teeth, so it blends in perfectly.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can it come off or break?
+                        </button>
+                        <div class="faq-answer d-none">
+                            It's rare, but it can happen if there is too much pressure or poor bonding. Regular care and checkups help prevent this.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Do the procedures hurt?
+                        </button>
+                        <div class="faq-answer d-none">
+                            No. The procedures are performed using local anaesthetic, so you will not feel any pain during the appointment. It is common to experience some mild sensitivity to hot or cold and slight gum tenderness for a few days after the final restoration is bonded, but this is temporary and easily managed with over-the-counter pain relief.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            How long does the entire process take?
+                        </button>
+                        <div class="faq-answer d-none">
+                            The process usually takes two appointments. The first visit for preparation and impression typically takes 60-90 minutes. There is then a waiting period of one to two weeks while the lab fabricates the custom restoration. The second visit to fit and bond the final piece is often shorter, around 30-60 minutes.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Can Inlays and Onlays fall off?
+                        </button>
+                        <div class="faq-answer d-none">
+                            It is very rare for a properly bonded inlay or onlay to fall off, as the bonding process is extremely strong. If an old filling was to fall out, the strength of the bond in these restorations makes them much more secure. However, using your teeth to open bottles, or other similar misuse, can potentially compromise the bond over time.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.nextElementSibling.classList.toggle('d-none')">
+                            Is an onlay better than a crown?
+                        </button>
+                        <div class="faq-answer d-none">
+                            An onlay is often preferred over a crown when possible because it is a more conservative treatment. It achieves a high level of strength and protection without requiring the removal of as much healthy tooth structure as a full crown does. If your tooth damage is extensive and the remaining structure is too weak, a crown may still be the necessary option, but an onlay is often the ideal solution if enough tooth remains.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div id="consultation" class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="cta-box">
+                <div class="position-relative">
+                    <h2 class="display-5 fw-bold mb-4">Preserve Your Natural Smile</h2>
+                    <p class="lead mb-4">Experience the benefits of minimally invasive dentistry. Book your consultation today.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="tel:9993888758" class="btn btn-outline-light btn-lg">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
